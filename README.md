@@ -1,41 +1,48 @@
-# PB Workspace — IPG (Offline PWA)
+# PB Workspace — IPG · Version 2
 
-Aplikasi ringan pengurusan Pentaksiran Berterusan (PB) dan peperiksaan akhir IPG. Dibina sebagai **Progressive Web App (PWA)** tanpa rangka kerja, API, akaun atau sambungan rangkaian pihak ketiga. Data disimpan dalam `localStorage` pada peranti, dan fail aplikasi disimpan dalam cache PWA untuk kegunaan offline.
+Aplikasi pengurusan akademik **offline-first** untuk siswa guru IPG. PWA ringan dengan halaman Ringkasan, Tugasan, Kalendar, Kursus, **Dokumen** dan Peperiksaan. Tiada akaun, pelayan aplikasi, tracker atau kebergantungan CDN.
 
-## Cara guna terus pada komputer
+## Fungsi baharu versi 2
 
-1. Ekstrak ZIP.
-2. Buka `index.html` menggunakan pelayar web. Ia tidak memerlukan internet, tetapi sesetengah pelayar mengehadkan penyimpanan `localStorage` apabila membuka fail melalui `file://`.
-3. Untuk pengalaman yang lebih stabil, jalankan pelayan tempatan dalam folder tersebut: `python -m http.server 8080`, kemudian buka `http://localhost:8080`.
+### Dokumen / Documents
 
-## Cara pasang pada telefon (disyorkan)
+- Menu **Dokumen** menempatkan fail mengikut **kursus** dan dua kategori: **Pentaksiran Berterusan** (Continuous Assessment) dan **Maklumat Kursus** (Course Information).
+- Tekan **Tambah dokumen** pada kursus/kategori yang dikehendaki, atau **Muat naik dokumen** untuk memilih kursus/kategori dalam borang.
+- Pilih sehingga **15 fail bagi satu muat naik**, **maksimum 25 MB bagi setiap fail**. Menyokong PDF, DOC/DOCX, PPT/PPTX, XLS/XLSX, ODT/ODS/ODP, RTF, TXT serta JPG/PNG/WEBP.
+- Buka/pratonton PDF, imej dan TXT jika disokong pelayar. Fail Office boleh dimuat turun untuk dibuka dalam aplikasi yang menyokong formatnya.
+- Nama fail, saiz, tarikh dan catatan dipaparkan. Anda boleh muat turun atau padam fail, dan pilih kursus untuk menapis senarai.
+- Fail sebenar disimpan dalam **IndexedDB** pada peranti, **bukan hanya nama fail dalam localStorage**. Tiada fail dihantar ke pelayan aplikasi. Tiada penyelarasan antara peranti.
+- Menukar kod kursus turut mengalihkan dokumen yang berkaitan. Memadam kursus, menetap semula data atau memulakan semester baharu juga melibatkan dokumen, selepas pengesahan.
 
-PWA perlu dibuka melalui pautan **HTTPS** untuk pemasangan dan offline cache, sekali sahaja untuk kali pertama.
+### Bahasa & tema
 
-1. Ekstrak ZIP lalu muat naik **keseluruhan isi folder** ke hos statik HTTPS seperti GitHub Pages atau Netlify Drop. Pastikan `index.html`, `service-worker.js`, `manifest.webmanifest`, dan direktori `icons/` berada pada aras yang sama.
-2. Buka pautan HTTPS tersebut pada telefon ketika ada internet. Biarkan halaman dimuatkan dahulu supaya fail aplikasi disimpan dalam cache.
-3. **Android (Chrome):** menu `⋮` → **Install app / Add to Home screen**.
-4. **iPhone (Safari):** butang Share → **Add to Home Screen** → Add.
-5. Selepas itu buka dari skrin utama. Aplikasi boleh digunakan tanpa internet; tugasan dan perubahan status disimpan setempat pada peranti yang sama.
+- Tekan butang **EN / BM** di penjuru atas untuk beralih antara **Bahasa Melayu dan English**. Bahasa menu, borang, papan pemuka, kalendar, tarikh dan label akan berubah, namun tajuk PB/nama kursus/catatan yang anda taip dikekalkan dalam bahasa asal.
+- Tekan ikon **bulan / matahari** untuk menukar **light / dark mode**.
+- Kedua-dua pilihan juga tersedia dalam **Tetapan & sandaran**. Pilihan disimpan secara setempat dan kekal selepas aplikasi ditutup/dibuka.
 
-**Nota:** Mod offline PWA berfungsi selepas lawatan pertama melalui HTTPS dan service worker dipasang. Pengguna perlu membuat sandaran sebelum memadam data pelayar atau menukar peranti.
+### Sandaran dokumen (penting)
 
-## Fungsi
+- **Eksport sandaran** kini menghasilkan **satu fail JSON yang merangkumi kursus, PB, peperiksaan dan kandungan semua fail dokumen (base64)**. Fail JSON mungkin besar jika banyak dokumen dimuat naik.
+- **Import sandaran** menyokong fail sandaran v1 yang lama (tiada dokumen) serta fail v2. Import *menggantikan* semua data dan dokumen semasa. Had saiz fail JSON import: 180 MB.
+- Eksport sandaran sebelum berpindah peranti, memasang semula aplikasi, mengosongkan data pelayar, memadam kursus atau memulakan semester baharu.
+- Jangan kongsi sandaran jika fail mengandungi maklumat peribadi/murid/sulit; fail sandaran JSON **tidak disulitkan**.
 
-- Dashboard dengan kemajuan, PB belum selesai, PB selesai dan keutamaan tarikh akhir secara automatik.
-- Semua tugasan boleh ditambah, disunting, dipadam dan ditandakan dihantar/selesai.
-- Carian, penapisan mengikut status dan kursus.
-- Kalendar bulanan dengan penunjuk tugasan dan peperiksaan.
-- Kemajuan mengikut kursus; tambah, edit, dan padam kursus mengikut keperluan semester.
-- Fungsi **Mulakan semester baharu**: eksport sandaran kemudian kosongkan rekod semester lama.
-- Senarai peperiksaan akhir dan pengurusan tarikh peperiksaan.
-- Eksport/import sandaran data JSON.
-- Navigasi mobile, icon aplikasi, tiada dependensi luaran.
+## Cara memasang pada telefon
 
-## Data contoh
+1. Ekstrak `PB_Workspace_IPG_Offline_v2.zip`.
+2. Muat naik **semua fail dan folder** ke hos statik HTTPS seperti Netlify atau GitHub Pages, termasuk `index.html`, `manifest.webmanifest`, `service-worker.js` dan folder `icons/`.
+3. Buka alamat HTTPS aplikasi ketika online buat kali pertama (atau selepas deploy versi baharu). PWA akan menyimpan fail aplikasi untuk kegunaan offline.
+4. **Android:** Chrome → menu `⋮` → **Install app** / Add to Home Screen. **iPhone:** Safari → Share → **Add to Home Screen**.
+5. Selepas pemasangan, boleh mengurus PB **dan membuka fail yang telah dimuat naik** tanpa sambungan internet. Fail baharu dipilih daripada peranti pengguna.
 
-Berdasarkan butiran enam kursus (15 PB) dan tiga peperiksaan yang diberikan. Tarikh tanpa tahun pada catatan asal ditafsir sebagai **2026** dan boleh disunting. Pada 11 Oktober 2026, contoh permulaan mempunyai **7 tugasan belum selesai** dan **8 telah selesai**. **EDUP6023 T3 Google Sites 20 Oktober** dianggap belum dihantar kerana status asal menyatakan *NOT SUBMITTED*, walaupun catatan menggunakan tanda ✓.
+**Kemas kini daripada v1:** Gunakan **URL/asal domain yang sama** supaya data PB `localStorage` sedia ada tidak hilang. Service worker ditingkatkan kepada cache `v2`; tutup dan buka semula aplikasi jika masih nampak versi lama. Jika berpindah domain, eksport sandaran dari v1 dan import ke v2.
 
-## Privasi dan had
+## Versi HTML tunggal
 
-Maklumat disimpan dalam storan setempat pelayar (`localStorage`) dan tidak dihantar ke mana-mana pelayan oleh kod aplikasi. Sandaran JSON boleh dipindahkan secara manual ke peranti lain. Aplikasi ini **tidak** menyediakan penyelarasan berbilang peranti, pemberitahuan automatik semasa aplikasi ditutup, atau fail APK/IPA natif.
+`PB_Workspace_Standalone_v2.html` boleh dibuka untuk mencuba aplikasi di komputer tanpa server. Pada sesetengah pelayar, `file://` mengehadkan `localStorage`/`IndexedDB` atau tidak membenarkan ciri pemasangan PWA. Untuk penggunaan jangka panjang dan dokumen, disyorkan HTTPS; semasa pembangunan di komputer, gunakan pelayan tempatan `python -m http.server 8080` di dalam folder PWA, kemudian buka `http://localhost:8080`.
+
+## Data asal & privasi
+
+Mengandungi enam kursus, 15 PB dan tiga peperiksaan daripada catatan asal. Tarikh catatan tanpa tahun ditafsir sebagai 2026. Tugasan EDUP6023 Google Sites (20 Oktober 2026) dikekalkan sebagai **belum hantar** selaras dengan status yang dicatat. Data tugasan disimpan dalam `localStorage`; dokumen dalam `IndexedDB`; pilihan bahasa/tema dalam `localStorage` berasingan. Sesetengah pelayar mungkin mengosongkan simpanan tempatan apabila ruang peranti berkurangan. Sandarkan data secara berkala.
+
+Had: tiada penyelarasan awan, pemberitahuan latar belakang, penyunting dokumen Office dalam aplikasi, atau binaan APK/IPA natif. Penggunaan storan dokumen bergantung kepada kuota dan dasar pelayar/peranti.

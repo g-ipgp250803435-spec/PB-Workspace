@@ -1,7 +1,7 @@
 {
   "name": "PB Workspace — IPG",
   "short_name": "PB Workspace",
-  "description": "Pengurus Pentaksiran Berterusan dan Peperiksaan Akhir IPG, boleh digunakan secara offline.",
+  "description": "Pengurus PB, peperiksaan dan dokumen kursus IPG. Menyokong BM/EN, tema gelap dan penggunaan offline.",
   "lang": "ms",
   "start_url": "./index.html",
   "scope": "./",

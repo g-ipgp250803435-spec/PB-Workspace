@@ -252,11 +252,85 @@
       .exam-card{padding:14px;gap:12px;flex-wrap:wrap;}.exam-icon{width:39px;height:39px;}.exam-right{margin-left:51px;width:calc(100% - 51px);justify-content:space-between;}
       .calendar-grid-wrap{padding:12px;}.calendar-day{height:55px;padding:6px 5px;}.weekday{font-size:9px;}.cal-dots{left:6px;bottom:7px;}.calendar-controls{padding:5px;}.calendar-controls strong{font-size:15px;}
       .mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:calc(72px + env(safe-area-inset-bottom));padding:8px 9px calc(10px + env(safe-area-inset-bottom));background:#ffffffee;backdrop-filter:blur(18px);border-top:1px solid #e7eaf0;z-index:40;justify-content:space-around;align-items:flex-start;}
-      .mobile-nav button{width:20%;max-width:90px;min-width:0;background:none;border:0;color:#99a4b4;display:flex;align-items:center;justify-content:center;gap:4px;flex-direction:column;font-size:9px;font-weight:750;padding:5px 0;white-space:nowrap;}
-      .mobile-nav button svg{width:20px;height:20px;stroke-width:1.85;}.mobile-nav button.active{color:var(--blue);}
+      .mobile-nav button{width:16.66%;max-width:90px;min-width:0;background:none;border:0;color:#99a4b4;display:flex;align-items:center;justify-content:center;gap:4px;flex-direction:column;font-size:9px;font-weight:750;padding:5px 0;white-space:nowrap;}
+      .mobile-nav button span{max-width:100%;text-overflow:ellipsis;overflow:hidden}.mobile-nav button svg{width:20px;height:20px;stroke-width:1.85;}.mobile-nav button.active{color:var(--blue);}
       .fab{display:grid;place-items:center;position:fixed;right:18px;bottom:calc(87px + env(safe-area-inset-bottom));width:52px;height:52px;border:0;border-radius:16px;background:var(--blue);color:#fff;box-shadow:0 9px 24px #2159d455;z-index:39;}.fab svg{width:24px;height:24px;}
       .modal-root{align-items:end;padding:0;}.modal-panel{max-width:none;max-height:92dvh;border-radius:22px 22px 0 0;padding:25px 20px calc(22px + env(safe-area-inset-bottom));}.field-grid{gap:10px;}.toast{bottom:calc(85px + env(safe-area-inset-bottom));}
     }
+
+    /* v2 — document library */
+    .doc-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+    .doc-stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:21px}
+    .doc-stat{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:18px}
+    .doc-stat span{font-size:11px;color:var(--muted);display:block}.doc-stat strong{display:block;font-size:24px;margin-top:4px;letter-spacing:-.8px}
+    .doc-courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+    .doc-course{border:1px solid var(--line);border-radius:17px;background:var(--surface);padding:21px;min-width:0}
+    .doc-course-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:22px}
+    .doc-course-head .course-symbol{flex:none}
+    .doc-course-head h2{font-size:13px;line-height:1.55;letter-spacing:-.18px}
+    .doc-course-head .doc-code{font-size:10px;color:var(--muted);font-weight:750;margin-bottom:4px}
+    .doc-count{margin-left:auto;color:var(--muted);font-size:10px;background:var(--bg);padding:5px 8px;border-radius:8px;white-space:nowrap}
+    .doc-section{padding:16px 0;border-top:1px solid var(--line)}
+    .doc-section:last-child{padding-bottom:0}
+    .doc-section-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:10px}
+    .doc-section-head b{font-size:12px}
+    .doc-section-head .btn{padding:4px 8px;min-height:29px}
+    .doc-empty{border-radius:11px;background:var(--bg);border:1px dashed var(--line);font-size:11px;color:var(--muted);padding:19px 10px;text-align:center}
+    .doc-item{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:8px;min-width:0}
+    .doc-file-icon{display:grid;place-items:center;width:32px;height:36px;border-radius:9px;background:var(--blue-pale);color:var(--blue);flex:none}
+    .doc-file-icon svg{width:16px;height:16px}
+    .doc-file-content{flex:1;min-width:0}
+    .doc-file-content strong{display:block;font-size:11px;overflow-wrap:anywhere;line-height:1.4}
+    .doc-file-content p{font-size:10px;color:var(--muted);margin:3px 0 0;line-height:1.5}
+    .doc-actions{display:flex;gap:3px;flex:none;align-self:center}
+    .doc-actions button{border:0;background:none;color:var(--muted);padding:6px;border-radius:8px;display:grid;place-items:center}
+    .doc-actions button:hover{background:var(--blue-pale);color:var(--blue)}
+    .doc-actions button.danger:hover{background:var(--red-pale);color:var(--red)}
+    .doc-actions svg{height:15px;width:15px}
+    .upload-zone{border:1.5px dashed #9bb3e4;background:var(--blue-pale);padding:22px;border-radius:14px;text-align:center}
+    .upload-zone svg{color:var(--blue);width:28px;height:28px}
+    .upload-zone input{display:block;width:100%;max-width:290px;margin:11px auto;color:var(--ink);font-size:11px}
+    .upload-zone p{color:var(--muted);font-size:10px;margin:6px 0 0}
+    .setting-choices{display:flex;flex-wrap:wrap;gap:6px}
+    .setting-choices button{font-size:11px;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:8px 11px;color:var(--muted);font-weight:730}
+    .setting-choices button svg{width:14px;height:14px;vertical-align:middle}.setting-choices button.selected{border-color:var(--blue);background:var(--blue-pale);color:var(--blue)}
+    .mini-toggle-label{display:inline-flex;gap:5px;align-items:center}
+    .mini-toggle-label svg{width:15px;height:15px}
+    .storage-warning{background:var(--orange-pale);color:var(--orange);border:1px solid var(--line);font-size:12px;padding:14px;border-radius:12px;margin-bottom:16px}
+    @media(max-width:950px){.doc-courses{grid-template-columns:1fr}}
+    @media(max-width:640px){.doc-stat{padding:13px}.doc-stat strong{font-size:22px}.doc-stat span{font-size:10px}.doc-courses{gap:12px}.doc-course{padding:17px}.doc-toolbar .course-select{flex:1}}
+    /* True dark surfaces and accessible typography */
+    :root[data-theme="dark"]{color-scheme:dark;--bg:#0c1422;--surface:#162235;--ink:#edf3fd;--muted:#aab9cb;--line:#2b394e;--blue:#84abff;--blue-dark:#648fff;--blue-pale:#22365b;--green:#61d5bf;--green-pale:#173d3a;--orange:#f7be74;--orange-pale:#412f22;--red:#ff999f;--red-pale:#452c39;--shadow:0 8px 32px #0002}
+    :root[data-theme="dark"] body,:root[data-theme="dark"] .workspace{color:var(--ink)}
+    :root[data-theme="dark"] :is(.sidebar,.stat-card,.icon-button,.btn-light,.course-mini,.task-full,.course-card,.exam-card,.empty,.calendar-grid-wrap,.date-panel,.modal-panel,.search,.course-select,.course-mini,.mobile-nav){background:var(--surface);border-color:var(--line);color:var(--ink)}
+    :root[data-theme="dark"] :is(.brand-sub,.section-label,.crumb,.top-date,.subtitle,.tiny-label,.mini-label,.section-caption,.task-day,.task-meta,.course-card-code,.course-bottom,.course-card-foot span,.exam-copy small,.date-panel-sub,.date-entry p,.field label,.settings-option p,.doc-count){color:var(--muted)}
+    :root[data-theme="dark"] :is(.brand-title,.crumb strong,.task-title,.course-mini-top b,.course-bottom strong,.empty h3,.task-meta b,.settings-option strong,.progress-stat strong,.date-pill,.course-select){color:var(--ink)}
+    :root[data-theme="dark"] :is(.sidebar-note,.settings-about,.tiny-chip,.nav-count,.course-mini,.segmented,.doc-count){background:#1c2a3e;border-color:var(--line);color:var(--muted)}
+    :root[data-theme="dark"] .sidebar-note strong{color:var(--ink)}
+    :root[data-theme="dark"] :is(.nav-btn,.segmented button){color:#b6c3d4}
+    :root[data-theme="dark"] :is(.nav-btn.active,.nav-btn:hover,.segmented button.active,.calendar-day.selected,.icon-button:hover,.row-more:hover){background:var(--blue-pale);color:var(--blue)}
+    :root[data-theme="dark"] :is(.nav-count,.nav-btn.active .nav-count){background:#2b3d59;color:#b8cfff}
+    :root[data-theme="dark"] .ring-hole{background:var(--surface)}
+    :root[data-theme="dark"] .ring{background:conic-gradient(var(--blue) calc(var(--pct)*1%),#2a3a50 0)}
+    :root[data-theme="dark"] :is(.stat-icon,.exam-icon,.empty-icon,.date-pill,.calendar-day,.calendar-day.outside,.status,.status.pending,.status.overdue,.status.done){background:#203149;color:#c7d9f6}
+    :root[data-theme="dark"] .calendar-day.outside{opacity:.4}
+    :root[data-theme="dark"] .calendar-day.today strong{background:var(--blue);color:#0b1422}
+    :root[data-theme="dark"] :is(.bar,.task-list-header){background:#2a3950}
+    :root[data-theme="dark"] .task-list-header{background:transparent;color:var(--muted)}
+    :root[data-theme="dark"] :is(.date-entry,.course-card-foot){border-color:var(--line)}
+    :root[data-theme="dark"] :is(.field input,.field select,.field textarea){background:#111c2e;color:var(--ink);border-color:#34445c}
+    :root[data-theme="dark"] :is(.hint-box,.upload-zone){background:var(--blue-pale);border-color:#345280;color:#c4d6fa}
+    :root[data-theme="dark"] .hero{background:#22395e}
+    :root[data-theme="dark"] .hero-tag[style]{background:#21413b!important;border-color:#356257!important;color:#a4e9d6!important}
+    :root[data-theme="dark"] .hero .btn{background:#e9f0fc;color:#183354}
+    :root[data-theme="dark"] .course-symbol{background:#28384e;color:var(--accent)}
+    :root[data-theme="dark"] .toast{background:#dce9fc;color:#172b46}
+    :root[data-theme="dark"] .status.done{color:#64d6b8;background:#1c3c37}
+    :root[data-theme="dark"] .status.pending{color:#f4bf83;background:#493321}
+    :root[data-theme="dark"] .status.overdue{color:#ffa2ae;background:#492b36}
+    :root[data-theme="dark"] .btn-danger{background:#4b2933;color:#ffc8ca}
+    :root[data-theme="dark"] .btn-primary,:root[data-theme="dark"] .fab{background:#4c78dc;color:white}
+
     @media (prefers-reduced-motion:reduce) {*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
   </style>
 </head>
@@ -270,7 +344,7 @@
   'use strict';
   const KEY = 'pb-workspace-ipg-v1';
   const SEED = {
-    version: 1,
+    version: 2,
     courses: [
       {id:'MPU6122', name:'English Language Proficiency', abbr:'EN', color:'#4366cf', soft:'#edf0ff'},
       {id:'PKUK6013', name:'Pengurusan Tingkah Laku Murid Berkeperluan Pendidikan Khas', abbr:'PT', color:'#0d9284', soft:'#e6f7f3'},
@@ -302,7 +376,7 @@
       {id:'e03',course:'EDUP6013',date:'',venue:'',notes:'',status:'pending'}
     ]
   };
-  const NAV = [ ['dashboard','Ringkasan','layout-dashboard'],['tasks','Tugasan','clipboard-list'],['calendar','Kalendar','calendar-days'],['courses','Kursus','book-open'],['exams','Peperiksaan','graduation-cap'] ];
+  const NAV = [ ['dashboard','Ringkasan','layout-dashboard'],['tasks','Tugasan','clipboard-list'],['calendar','Kalendar','calendar-days'],['courses','Kursus','book-open'],['documents','Dokumen','folder-open'],['exams','Peperiksaan','graduation-cap'] ];
   const ICONS = {
     'layout-dashboard':'<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>',
     'clipboard-list':'<rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/>',
@@ -325,6 +399,11 @@
     'shield-check':'<path d="M12 2 4 5v6c0 5 3.3 8.5 8 11 4.7-2.5 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>',
     'info':'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
     'filter':'<path d="M4 7h16M7 12h10M10 17h4"/>',
+    'folder-open':'<path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v3"/><path d="M3 10h18l-3 10H5L2 11a1 1 0 0 1 1-1Z"/>',
+    'eye':'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+    'moon':'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>',
+    'sun':'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    'globe':'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a16 16 0 0 1 0 20M12 2a16 16 0 0 0 0 20"/>',
     'file-text':'<path d="M6 2h8l5 5v14H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h5M8 13h8M8 17h8"/>'
   };
   const svg = (name, cls='') => `<svg ${cls?`class="${cls}"`:''} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS['info']}</svg>`;
@@ -334,21 +413,152 @@
   try { let saved = localStorage.getItem(KEY); data = saved ? JSON.parse(saved) : clone(SEED); if (!saved) localStorage.setItem(KEY,JSON.stringify(data)); }
   catch(e) {data=clone(SEED); storageEnabled=false;}
   if (!data || !Array.isArray(data.tasks) || !Array.isArray(data.courses) || !Array.isArray(data.exams)) {data=clone(SEED);}
-  const state = { view:'dashboard', filter:'all', course:'all', search:'', calMonth:new Date(new Date().getFullYear(),new Date().getMonth(),1), selectedDay:dateKey(new Date()), modal:null };
+  const state = { view:'dashboard', filter:'all', course:'all', docCourse:'all', search:'', calMonth:new Date(new Date().getFullYear(),new Date().getMonth(),1), selectedDay:dateKey(new Date()), modal:null };
+
+  const PREF_KEY='pb-workspace-ipg-preferences-v2';
+  let preferences={language:'ms',theme:'light'};
+  try{const stored=JSON.parse(localStorage.getItem(PREF_KEY)||'{}');if(['ms','en'].includes(stored.language))preferences.language=stored.language;if(['light','dark'].includes(stored.theme))preferences.theme=stored.theme;}catch(_err){}
+  function language(){return preferences.language==='en'?'en-MY':'ms-MY';}
+  function applyPrefs(){document.documentElement.lang=preferences.language;document.documentElement.dataset.theme=preferences.theme;let m=document.querySelector('meta[name="theme-color"]');if(m)m.content=preferences.theme==='dark'?'#0c1422':'#f6f7fb';}
+  function preference(key,value){preferences[key]=value;try{localStorage.setItem(PREF_KEY,JSON.stringify(preferences));}catch(_err){}applyPrefs();render();if(state.modal?.type==='settings')openSettings();}
+  applyPrefs();
+  const EN_TRANSLATIONS={
+    'Semua pentaksiran dan peperiksaan, dalam satu ruang kerja.':'All your assessments and exams in one workspace.',
+    'SEMESTER SEMASA':'CURRENT SEMESTER','tugasan menanti perhatian anda.':'assignments need your attention.',
+    'Semua tugasan telah selesai.':'All assignments are complete.','Seterusnya:':'Up next:',
+    'Susun keutamaan tanpa perlu mengira tarikh secara manual.':'Stay on top of priorities without counting the days.',
+    'Tahniah! Anda telah mengemas kini semua pentaksiran dalam senarai.':'Well done! You have completed everything on your list.',
+    'Urus tugasan':'Manage tasks','Kemajuan keseluruhan PB':'Overall assessment progress','Diselesaikan':'Completed',
+    'Telah selesai':'Completed','Selamat pagi.':'Good morning.','Selamat petang.':'Good afternoon.','Selamat malam.':'Good evening.',
+    'Tugasan ditandakan selesai.':'Task marked as complete.','Tugasan dikembalikan ke belum selesai.':'Task marked as pending.',
+    'Dokumen berjaya dipadam.':'Document deleted.','Tugasan dikemas kini.':'Task updated.','Tugasan ditambah.':'Task added.',
+    'Peperiksaan dikemas kini.':'Exam updated.','Peperiksaan ditambah.':'Exam added.',
+    'Kursus dikemas kini.':'Course updated.','Kursus baharu ditambah.':'Course added.',
+    'Semester baharu sedia. Tambah kursus pertama anda.':'New semester ready. Add your first course.',
+    'Data contoh asal telah dipulihkan.':'Sample data restored.','Sandaran berjaya diimport.':'Backup imported.',
+    'Tugasan dipadam.':'Task deleted.','Peperiksaan dipadam.':'Exam deleted.','Kursus dan rekod berkaitan dipadam.':'Course and related records deleted.',
+    'Pilih sekurang-kurangnya satu fail.':'Select at least one file.','Maksimum 15 fail setiap muat naik.':'Maximum 15 files per upload.',
+    'Saiz maksimum 25 MB setiap fail.':'Maximum file size is 25 MB each.',
+    'Kursus tidak sah.':'Invalid course.','Storan dokumen belum tersedia.':'Document storage is not ready.',
+    'Tambah kursus dahulu.':'Add a course first.','Sila cuba sebentar lagi.':'Please try again shortly.',
+    'Sila isi kod dan nama kursus.':'Enter a course code and name.','Kod kursus ini sudah wujud.':'This course code already exists.',
+    'Sila masukkan nama tugasan.':'Enter a task name.',
+    'Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.':'Download tasks, courses, exams and all uploaded documents.',
+    'Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.':'Export a backup and start with empty course, assessment, exam and document lists.',
+    'Ringkasan':'Overview','Tugasan':'Tasks','Kalendar':'Calendar','Kursus':'Courses','Dokumen':'Documents','Peperiksaan':'Exams',
+    'MENU UTAMA':'MAIN MENU','Direka untuk offline.':'Built for offline.','Data anda disimpan dalam peranti ini, bukan di pelayan.':'Your data stays on this device, not on a server.',
+    'Tetapan & sandaran':'Settings & backup','Buka tetapan':'Open settings','Tambah rekod':'Add record',
+    'Selamat pagi':'Good morning','Selamat petang':'Good afternoon','Selamat malam':'Good evening',
+    'Tugasan yang sedang menanti anda.':'Your upcoming assignments.','Tumpukan pada perkara yang paling penting hari ini.':'Focus on what matters most today.',
+    'Lihat tugasan':'View tasks','Kemajuan keseluruhan':'Overall progress','Telah selesai':'Completed','Belum selesai':'Pending',
+    'Jumlah PB':'Total assessments','PB selesai':'Completed assessments','PB belum selesai':'Pending assessments','Tugasan mendatang':'Upcoming tasks',
+    'Belum selesai / dihantar':'Pending / submitted','Selesai / dihantar':'Completed / submitted','Selesai / dihantar.':'Completed / submitted.',
+    'Dikemas kini secara automatik mengikut status tugasan.':'Automatically updated based on task status.',
+    'Selesai / dihantar':'Completed / submitted','Dalam 7 hari':'Within 7 days','Keutamaan terdekat':'Upcoming priorities',
+    'Disusun automatik mengikut tarikh akhir':'Automatically sorted by deadline','Lihat semua':'View all','Kursus anda':'Your courses',
+    'Kemajuan setiap kursus':'Progress by course','Semua tugasan selesai':'All tasks complete',
+    'Tiada tugasan yang perlu diberi perhatian sekarang.':'Nothing currently needs your attention.',
+    'Semua tugasan.':'All tasks.','Tambah tugasan':'Add task','Semua':'All','Selesai':'Completed',
+    'Cari tugasan atau kod...':'Search tasks or course code...','Cari tugasan':'Search tasks','Semua kursus':'All courses','Tapis mengikut kursus':'Filter by course',
+    'Belum hantar':'Not submitted','Dihantar':'Submitted','Lewat':'Overdue','Tiada tarikh':'No date','Hari ini':'Today','Esok':'Tomorrow',
+    'Belum ditetapkan':'Not set','Tarikh tidak sah':'Invalid date','Tiada tugasan ditemui':'No tasks found',
+    'Cuba ubah carian atau penapis anda.':'Try changing your search or filters.','Tandakan belum selesai':'Mark as pending','Tandakan selesai':'Mark as completed',
+    'Kursus semester ini.':'This semester’s courses.','Pantau kemajuan semua kursus dan pentaksiran anda.':'Track progress across your courses and assessments.',
+    'Senarai kursus':'Course list','Tambah kursus':'Add course','Lengkap':'Complete','Kemajuan PB':'Assessment progress',
+    'Edit':'Edit','Belum ada kursus':'No courses yet','Tambah kursus untuk mula merekod pentaksiran anda.':'Add a course to begin tracking your assessments.',
+    'Peperiksaan akhir.':'Final exams.','Rancang persediaan dan rekod tarikh peperiksaan anda.':'Plan your study and track exam dates.',
+    'Senarai peperiksaan':'Exam list','Tambah':'Add','Tarikh belum diumumkan':'Date not announced','Akan datang':'Upcoming',
+    'Belum ada peperiksaan':'No exams yet','Tambah peperiksaan untuk mula merancang.':'Add an exam to start planning.',
+    'Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan':'Exam dates were not listed in the original notes. Tap',
+    'apabila jadual rasmi dikeluarkan. Semua perubahan disimpan secara offline.':'when the official timetable is released. All changes are saved offline.',
+    'Kalendar akademik.':'Academic calendar.','Lihat semua tarikh penting dalam satu paparan.':'See all important dates in one place.',
+    'Bulan sebelumnya':'Previous month','Bulan seterusnya':'Next month','Isn':'Mon','Sel':'Tue','Rab':'Wed','Kha':'Thu','Jum':'Fri','Sab':'Sat','Aha':'Sun',
+    'Peperiksaan akhir':'Final exam','Tiada aktiviti':'No activity','Tiada tarikh akhir atau peperiksaan pada hari ini.':'No deadlines or exams on this day.',
+    'Biru':'Blue','hijau':'green','kuning':'yellow','PB belum selesai,':'pending assessments,','PB selesai,':'completed assessments,',
+    '= peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.':'= exams. Tap a date to see details.',
+    'Edit tugasan':'Edit task','Tambah tugasan baharu':'Add new task','Tutup':'Close','Nama tugasan':'Task name',
+    'Contoh: Penulisan refleksi':'Example: Reflection report','Nombor tugasan':'Assessment number','Tarikh akhir':'Deadline',
+    'Jenis pentaksiran':'Assessment type','Penulisan':'Written work','Penghasilan produk':'Product','Persembahan':'Presentation','Ujian':'Test',
+    'Lain-lain':'Other','Ahli kumpulan / pasangan':'Group members / partner','Pilihan':'Optional','Nota tambahan':'Additional notes',
+    'Arahan, bahan, pautan rujukan...':'Instructions, materials, reference links...','Padam':'Delete','Batal':'Cancel',
+    'Simpan perubahan':'Save changes','Edit peperiksaan':'Edit exam','Tambah peperiksaan':'Add exam',
+    'Tarikh peperiksaan (jika ada)':'Exam date (if known)','Lokasi / dewan':'Venue / hall','Belum diumumkan':'Not announced',
+    'Nota persediaan':'Preparation notes','Topik ulang kaji, maklumat penting...':'Revision topics, important information...','Simpan peperiksaan':'Save exam',
+    'Edit kursus':'Edit course','Tambah kursus baharu':'Add new course','Kod kursus':'Course code','Contoh: PKUK6043':'Example: PKUK6043',
+    'Nama kursus':'Course name','Nama penuh kursus':'Full course name','Singkatan ikon (2 huruf)':'Icon initials (2 letters)',
+    'Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.':'If you change a course code, all linked tasks, exams and documents will be updated automatically.',
+    'Simpan kursus':'Save course','Tetapan dan sandaran':'Settings and backup','SIMPANAN SETEMPAT':'LOCAL STORAGE',
+    'Semua perubahan disimpan pada peranti ini. Sandarkan fail JSON agar data tidak hilang apabila data pelayar dipadam atau anda bertukar telefon.':'All changes are saved on this device. Export a JSON backup before clearing browser data or switching phones.',
+    'Eksport sandaran':'Export backup','Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.':'Download tasks, courses, exams and uploaded documents together.',
+    'Eksport':'Export','Import sandaran':'Import backup','Pulihkan data daripada fail JSON yang pernah dieksport.':'Restore data from a previously exported JSON backup.',
+    'Import':'Import','Mulakan semester baharu':'Start new semester','Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.':'Export a backup and start with empty course, assessment, exam and document lists.',
+    'Baharu':'New','Set semula contoh asal':'Reset to sample data','Ganti semua data dengan senarai asal yang diberikan.':'Replace your records with the original sample data.',
+    'Reset':'Reset','Privasi:':'Privacy:','Tiada akaun, iklan atau sambungan ke pelayan. Aplikasi berfungsi offline selepas fail dimuatkan / PWA dipasang.':'No accounts, ads or server connections. The app works offline once loaded / installed as a PWA.',
+    'Penyimpanan tempatan aktif.':'Local storage is active.','Amaran: penyimpanan tempatan tidak tersedia pada pelayar ini.':'Warning: local storage is unavailable in this browser.',
+    'Bahasa aplikasi':'App language','Tema paparan':'Appearance','Cerah':'Light','Gelap':'Dark',
+    'Pilihan anda disimpan pada peranti ini.':'Your preferences are saved on this device.',
+    'Pustaka dokumen.':'Document library.','Simpan fail PB dan Maklumat Kursus mengikut kursus, walaupun tanpa internet.':'Keep assessments and course information files organized by course, even offline.',
+    'Muat naik dokumen':'Upload documents','Jumlah dokumen':'Total files','Kursus berfail':'Courses with files','Jenis dokumen':'Document categories',
+    'Pilih kursus':'Select course','Pentaksiran Berterusan':'Continuous Assessment','Maklumat Kursus':'Course Information',
+    'Tiada fail dimuat naik':'No files uploaded','Tambah dokumen':'Add document','Muat naik fail':'Upload files',
+    'Fail disimpan di peranti anda menggunakan IndexedDB.':'Files are saved on your device using IndexedDB.',
+    'Fail (boleh pilih lebih daripada satu)':'Files (select more than one)','Pilih fail':'Choose files',
+    'PDF, Word, PowerPoint, Excel, gambar atau teks · maksimum 25 MB setiap fail.':'PDF, Word, PowerPoint, Excel, images or text · 25 MB maximum per file.',
+    'Kategori dokumen':'Document category','Catatan (pilihan)':'Notes (optional)',
+    'Contoh: Arahan tugasan daripada pensyarah':'Example: Assessment instructions from lecturer',
+    'Buka':'Open','Muat turun':'Download','Fail tidak boleh dipratonton di pelayar ini. Sila muat turun.':'This file cannot be previewed in your browser. Please download it.',
+    'Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.':'Document storage is not available in this browser. Try HTTPS or another browser.',
+    'Setiap fail kekal pada peranti ini. Eksport sandaran untuk memindahkan fail antara peranti.':'Files remain on this device. Export a backup to transfer them to another device.',
+    'Tiada fail untuk kursus ini.':'No files for this course.','Nama fail':'Filename','Saiz':'Size',
+    'Tema':'Theme','Bahasa':'Language','Dokumen dimuat naik.':'Documents uploaded.',
+    'Dokumen berjaya dipadam.':'Document deleted.','Dokumen tidak ditemui.':'Document not found.',
+    'Muat naik':'Upload','Dokumen kursus':'Course documents',
+  };
+  function translateText(text){if(preferences.language!=='en')return text;
+    const trimmed=text.trim();if(!trimmed)return text;
+    let result=EN_TRANSLATIONS[trimmed];
+    if(result===undefined){result=trimmed
+      .replace(/(\d+) hari lagi/g,'$1 days left').replace(/Lewat (\d+) hari/g,'$1 days overdue')
+      .replace(/(\d+) kursus didaftarkan/g,'$1 registered courses')
+      .replace(/(\d+) belum selesai/g,'$1 pending').replace(/(\d+) sudah diselesaikan/g,'$1 completed')
+      .replace(/(\d+) aktiviti pada tarikh ini/g,'$1 activities on this date')
+      .replace(/(\d+) daripada (\d+) selesai/g,'$1 of $2 completed')
+      .replace(/(\d+) pentaksiran berterusan/g,'$1 assessments')
+      .replace(/(\d+) tugasan menanti perhatian anda\./g,'$1 assignments need your attention.')
+      .replace(/(\d+) tugasan/g,'$1 tasks')
+      .replace(/(\d+) fail/g,'$1 files').replace(/(\d+)\/(\d+) selesai/g,'$1/$2 completed')
+      .replace(/\bbelum selesai\b/g,'pending').replace(/\bselesai\b/g,'completed')
+      .replace(/\bTarikh belum diumumkan\b/g,'Date not announced')
+      .replace(/\bLihat semua\b/g,'View all')
+      .replace(/\bPeperiksaan akhir\b/g,'Final exam')
+      .replace(/\bTiada tarikh\b/g,'No date')
+      .replace(/^Padam /,'Delete ').replace(/^Buka /,'Open ').replace(/^Muat turun /,'Download ');
+      if(result===trimmed){for(const [ms,en] of Object.entries(EN_TRANSLATIONS).sort((a,b)=>b[0].length-a[0].length)){
+        if(ms.length>=8&&result.includes(ms)){result=result.split(ms).join(en);}
+      }}
+    }
+    return text.replace(trimmed,result);
+  }
+  function localizeRoot(root){if(preferences.language!=='en'||!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+    for(const node of nodes){if(node.parentElement?.closest('.course-card-name,.task-title,.exam-copy strong,.doc-file-content strong,.date-entry b,.note-chip,.doc-course-head h2'))continue;node.nodeValue=translateText(node.nodeValue);}
+    for(const el of root.querySelectorAll('[placeholder],[aria-label],[title]')){for(const a of ['placeholder','aria-label','title']){if(el.hasAttribute(a))el.setAttribute(a,translateText(el.getAttribute(a)));}}
+  }
+
   let toastTimer;
   function dateKey(d) {return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
   function today() {return dateKey(new Date());}
   function stamp(s) {return s?Date.parse(s+'T12:00:00'):NaN;}
   function daysBetween(s) { if (!s) return null; const [y,m,d] = s.split('-').map(Number); const [ty,tm,td] = today().split('-').map(Number);return Math.round((Date.UTC(y,m-1,d)-Date.UTC(ty,tm-1,td))/86400000); }
-  function dayText(d) {let n=daysBetween(d);if(n===null)return 'Tiada tarikh';if(n===0)return 'Hari ini';if(n===1)return 'Esok';if(n>1)return `${n} hari lagi`;return `Lewat ${Math.abs(n)} hari`;}
-  function formatDate(d,opts={day:'numeric',month:'short'}) {if(!d)return 'Belum ditetapkan';const date=new Date(d+'T12:00:00');return Number.isNaN(date.getTime())? 'Tarikh tidak sah' : new Intl.DateTimeFormat('ms-MY',opts).format(date);}
+  function dayText(d) {let n=daysBetween(d);if(n===null)return preferences.language==='en'?'No date':'Tiada tarikh';if(n===0)return preferences.language==='en'?'Today':'Hari ini';if(n===1)return preferences.language==='en'?'Tomorrow':'Esok';if(n>1)return preferences.language==='en'?`${n} days left`:`${n} hari lagi`;return preferences.language==='en'?`${Math.abs(n)} days overdue`:`Lewat ${Math.abs(n)} hari`;}
+  function formatDate(d,opts={day:'numeric',month:'short'}) {if(!d)return preferences.language==='en'?'Not set':'Belum ditetapkan';const date=new Date(d+'T12:00:00');return Number.isNaN(date.getTime())? (preferences.language==='en'?'Invalid date':'Tarikh tidak sah') : new Intl.DateTimeFormat(language(),opts).format(date);}
   function e(s) {return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
   function findCourse(id) {return data.courses.find(c=>c.id===id) || {id:id||'?',name:'Kursus lain',abbr:'—',color:'#657c9c',soft:'#eef2f9'};}
   function complete(t) {return t.status!=='pending';}
   function pendingTasks() {return data.tasks.filter(t=>!complete(t)).sort(sortDue);}
   function sortDue(a,b) {return (a.due||'9999-12-31').localeCompare(b.due||'9999-12-31') || a.title.localeCompare(b.title);}
   function save() {try{localStorage.setItem(KEY,JSON.stringify(data)); storageEnabled=true;}catch(err){storageEnabled=false;toast('Storan peranti tidak tersedia. Sila eksport data sebelum keluar.');}}
-  function toast(message) {const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
+  function toast(message) {const el=document.getElementById('toast');el.textContent=translateText(message);el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
   function statusTag(t) { if (complete(t)) return `<span class="status done">${t.status==='submitted'?'Dihantar':'Selesai'}</span>`; return `<span class="status ${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'overdue':'pending'}">${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'Lewat':'Belum hantar'}</span>`; }
   function taskDatePill(t){let diff=daysBetween(t.due);let cls=complete(t)?'success':(diff!==null&&diff<0?'overdue':(diff!==null&&diff<=7?'urgent':''));return `<span class="date-pill ${cls}">${e(t.due?formatDate(t.due):'Tiada tarikh')}</span>`;}
   function taskRow(t,compact=false) {
@@ -362,10 +572,10 @@
   }
   function counts(){const done=data.tasks.filter(complete).length;return {done,pending:data.tasks.length-done,total:data.tasks.length,percent:data.tasks.length?Math.round(done/data.tasks.length*100):0};}
   function heading(title,sub,button){return `<div class="page-head"><div><p class="eyebrow">PB WORKSPACE / IPG</p><h1>${title}</h1><p class="subtitle">${sub}</p></div>${button||''}</div>`;}
-  function navHtml(location){return NAV.map(([id,label,icon])=>`<button class="${location==='desktop'?'nav-btn':''} ${state.view===id?'active':''}" data-action="nav" data-view="${id}" ${state.view===id?'aria-current="page"':''}>${svg(icon)}<span>${label}</span>${location==='desktop'&&id==='tasks'?`<span class="nav-count">${counts().pending}</span>`:''}</button>`).join('');}
+  function navHtml(location){return NAV.map(([id,label,icon])=>`<button class="${location==='desktop'?'nav-btn':''} ${state.view===id?'active':''}" data-action="nav" data-view="${id}" ${state.view===id?'aria-current="page"':''}>${svg(icon)}<span>${label}</span>${location==='desktop'&&(id==='tasks'||id==='documents')?`<span class="nav-count">${id==='tasks'?counts().pending:documents.length}</span>`:''}</button>`).join('');}
   function frame(viewHtml) {return `<div class="app-shell"><aside class="sidebar"><div class="brand"><div class="brand-logo">P.</div><div><div class="brand-title">PB Workspace</div><div class="brand-sub">IPG · Academic planner</div></div></div><div class="section-label">MENU UTAMA</div><nav class="desktop-nav" aria-label="Navigasi utama">${navHtml('desktop')}</nav><div class="sidebar-foot"><div class="sidebar-note">${svg('shield-check')}<strong>Direka untuk offline.</strong><p>Data anda disimpan dalam peranti ini, bukan di pelayan.</p></div><button class="nav-btn" data-action="settings">${svg('settings')}<span>Tetapan & sandaran</span></button></div></aside>
-    <div class="workspace"><header class="topbar"><div class="crumb">Workspace <span style="color:#c4cbd5;padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat('ms-MY',{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
-    <button class="fab" data-action="${state.view==='courses'?'add-course':state.view==='exams'?'add-exam':'add-task'}" title="Tambah" aria-label="Tambah rekod">${svg('plus')}</button><nav class="mobile-nav" aria-label="Navigasi mudah alih">${navHtml('mobile')}</nav></div>`;}
+    <div class="workspace"><header class="topbar"><div class="crumb">Workspace <span style="color:#c4cbd5;padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat(language(),{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="language-toggle" title="Bahasa / Language" aria-label="Bahasa / Language"><span style="font-size:10px;font-weight:800">${preferences.language==='ms'?'EN':'BM'}</span></button><button class="icon-button" data-action="theme-toggle" title="Tema / Theme" aria-label="Tema / Theme">${svg(preferences.theme==='dark'?'sun':'moon')}</button><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
+    <button class="fab" data-action="${state.view==='courses'?'add-course':state.view==='exams'?'add-exam':state.view==='documents'?'add-document':'add-task'}" title="Tambah" aria-label="Tambah rekod">${svg('plus')}</button><nav class="mobile-nav" aria-label="Navigasi mudah alih">${navHtml('mobile')}</nav></div>`;}
   function greeting(){let h=new Date().getHours();return h<12?'Selamat pagi':h<18?'Selamat petang':'Selamat malam';}
   function renderDashboard() {
     const n=counts(), pending=pendingTasks(), urgent=pending.filter(t=>daysBetween(t.due)!==null&&daysBetween(t.due)>=0&&daysBetween(t.due)<=7).length;
@@ -379,20 +589,113 @@
   function filteredTasks(){let ts=data.tasks.filter(t=>state.filter==='all'||(state.filter==='pending'?!complete(t):complete(t))).filter(t=>state.course==='all'||t.course===state.course);if(state.search.trim()){let q=state.search.trim().toLowerCase();ts=ts.filter(t=>(t.title+' '+t.course+' '+t.number+' '+t.type+' '+t.notes+' '+t.group+' '+findCourse(t.course).name).toLowerCase().includes(q));}return ts.sort((a,b)=>Number(complete(a))-Number(complete(b))||sortDue(a,b));}
   function renderTaskResults(){let ts=filteredTasks();if(!ts.length)return empty('Tiada tugasan ditemui','Cuba ubah carian atau penapis anda.');let pending=ts.filter(t=>!complete(t)),done=ts.filter(complete);return `${pending.length?`<div class="task-list-header">Belum selesai · ${pending.length}</div>${pending.map(t=>taskRow(t)).join('')}`:''}${done.length?`<div class="task-list-header">Selesai / dihantar · ${done.length}</div>${done.map(t=>taskRow(t)).join('')}`:''}`;}
   function renderTasks() {let n=counts();return `${heading('Semua tugasan.',`${n.pending} belum selesai · ${n.done} sudah diselesaikan.`, `<button class="btn btn-primary" data-action="add-task">${svg('plus')} Tambah tugasan</button>`)}<div class="filter-row"><div class="segmented">${[['all','Semua'],['pending','Belum selesai'],['done','Selesai']].map(([v,l])=>`<button data-action="filter" data-filter="${v}" class="${state.filter===v?'active':''}">${l}</button>`).join('')}</div><label class="search">${svg('search')}<input id="task-search" data-search="true" type="search" value="${e(state.search)}" placeholder="Cari tugasan atau kod..." aria-label="Cari tugasan"></label><select class="course-select" id="course-filter" aria-label="Tapis mengikut kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.course===c.id?'selected':''}>${e(c.id)}</option>`).join('')}</select></div><div id="task-list-results">${renderTaskResults()}</div>`;}
-  function renderCourses() {return `${heading('Kursus semester ini.','Pantau kemajuan semua kursus dan pentaksiran anda.')}<div class="section-heading"><div><h2>Senarai kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div><button class="btn btn-light btn-small" data-action="add-course">${svg('plus')} Tambah kursus</button></div><div class="course-grid">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?Math.round(done/ts.length*100):0;return `<section class="course-card" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="course-card-top"><div class="course-symbol">${e(c.abbr)}</div>${done===ts.length?'<span class="status done">Lengkap</span>':`<span class="status pending">${ts.length-done} belum selesai</span>`}</div><h3 class="course-card-name">${e(c.name)}</h3><div class="course-card-code">${e(c.id)}</div><div class="course-bottom"><strong>Kemajuan PB</strong><span>${done}/${ts.length} · ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div><div class="course-card-foot"><span>${ts.length} pentaksiran berterusan</span><div style="display:flex;align-items:center;gap:12px"><button data-action="edit-course" data-id="${e(c.id)}">Edit</button><button data-action="open-course" data-id="${e(c.id)}">Tugasan ${svg('arrow-right')}</button></div></div></section>`;}).join('')}</div>${data.courses.length?'':empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.')}`;}
+  function renderCourses() {return `${heading('Kursus semester ini.','Pantau kemajuan semua kursus dan pentaksiran anda.')}<div class="section-heading"><div><h2>Senarai kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div><button class="btn btn-light btn-small" data-action="add-course">${svg('plus')} Tambah kursus</button></div><div class="course-grid">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?Math.round(done/ts.length*100):0;return `<section class="course-card" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="course-card-top"><div class="course-symbol">${e(c.abbr)}</div>${done===ts.length?'<span class="status done">Lengkap</span>':`<span class="status pending">${ts.length-done} belum selesai</span>`}</div><h3 class="course-card-name">${e(c.name)}</h3><div class="course-card-code">${e(c.id)}</div><div class="course-bottom"><strong>Kemajuan PB</strong><span>${done}/${ts.length} · ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div><div class="course-card-foot"><span>${ts.length} pentaksiran berterusan</span><div style="display:flex;align-items:center;gap:12px"><button data-action="edit-course" data-id="${e(c.id)}">Edit</button><button data-action="open-course-documents" data-id="${e(c.id)}">Dokumen</button><button data-action="open-course" data-id="${e(c.id)}">Tugasan ${svg('arrow-right')}</button></div></div></section>`;}).join('')}</div>${data.courses.length?'':empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.')}`;}
   function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Semua perubahan disimpan secara offline.</span></div>`;}
   function renderCalendar() {
     let y=state.calMonth.getFullYear(),m=state.calMonth.getMonth(),first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();let cells=Math.ceil((offset+days)/7)*7;
     let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${complete(t)?'done':''}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
     let dayTasks=data.tasks.filter(t=>t.due===state.selectedDay),dayExams=data.exams.filter(x=>x.date===state.selectedDay);
-    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat('ms-MY',{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${statusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="status ${x.status==='completed'?'done':'pending'}">${x.status==='completed'?'Selesai':'Akan datang'}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="hint-box">${svg('info')}<span><strong>Biru</strong> = PB belum selesai, <strong>hijau</strong> = PB selesai, <strong>kuning</strong> = peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.</span></div>`;
+    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat(language(),{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${statusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="status ${x.status==='completed'?'done':'pending'}">${x.status==='completed'?'Selesai':'Akan datang'}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="hint-box">${svg('info')}<span><strong>Biru</strong> = PB belum selesai, <strong>hijau</strong> = PB selesai, <strong>kuning</strong> = peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.</span></div>`;
   }
   function empty(title,sub) {return `<div class="empty"><div class="empty-icon">${svg('check-circle')}</div><h3>${e(title)}</h3><p>${e(sub)}</p></div>`;}
-  function render() {const views={dashboard:renderDashboard,tasks:renderTasks,courses:renderCourses,calendar:renderCalendar,exams:renderExams};document.getElementById('app').innerHTML=frame((views[state.view]||renderDashboard)());}
+
+  // Offline documents are stored in IndexedDB, independently of the small localStorage planner records.
+  const DOCUMENT_DB='pb-workspace-documents-v2', MAX_FILE_BYTES=25*1024*1024;
+  let docDB=null,documents=[],docsStatus='loading';
+  const docDate = iso => iso&&!Number.isNaN(new Date(iso).getTime())?new Intl.DateTimeFormat(language(),{day:'numeric',month:'short',year:'numeric'}).format(new Date(iso)):'—';
+  function readableSize(n){if(n<1024)return n+' B';if(n<1048576)return (n/1024).toFixed(1)+' KB';return (n/1048576).toFixed(1)+' MB';}
+  function docCategory(kind){return kind==='courseinfo'?'Maklumat Kursus':'Pentaksiran Berterusan';}
+  function docDatabase(){if(docDB)return Promise.resolve(docDB);if(!('indexedDB' in window))return Promise.reject(new Error('IndexedDB unavailable'));
+    return new Promise((resolve,reject)=>{const req=indexedDB.open(DOCUMENT_DB,1);
+      req.onupgradeneeded=()=>{const db=req.result;db.createObjectStore('metadata',{keyPath:'id'});db.createObjectStore('files',{keyPath:'id'});};
+      req.onsuccess=()=>{docDB=req.result;docDB.onversionchange=()=>{docDB.close();docDB=null;};resolve(docDB);};
+      req.onerror=()=>reject(req.error||new Error('Cannot open document storage'));
+      req.onblocked=()=>reject(new Error('Database in use in another tab'));
+    });
+  }
+  async function docRequest(store,mode,action){const db=await docDatabase();return new Promise((resolve,reject)=>{
+    let req;const tx=db.transaction(store,mode);const object=tx.objectStore(store);
+    try{req=action(object);}catch(err){tx.abort();return reject(err);}
+    let result;req.onsuccess=()=>result=req.result;tx.oncomplete=()=>resolve(result);
+    tx.onerror=()=>reject(tx.error||new Error('Document storage error'));tx.onabort=()=>reject(tx.error||new Error('Document storage canceled'));
+  });}
+  async function loadDocuments(){try{documents=(await docRequest('metadata','readonly',store=>store.getAll())).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));docsStatus='ready';}catch(err){console.warn(err);docsStatus='error';}render();}
+  async function getStoredFile(id){const record=await docRequest('files','readonly',s=>s.get(id));if(!record||!record.blob)throw new Error('File missing');return record.blob;}
+  async function addStoredDocuments(files,course,category,notes){const db=await docDatabase();const now=new Date().toISOString();const metas=[];
+    await new Promise((resolve,reject)=>{const tx=db.transaction(['metadata','files'],'readwrite');const meta=tx.objectStore('metadata'),bin=tx.objectStore('files');
+      for(const file of files){const id=newId('d');const row={id,course,category,name:file.name,size:file.size,mime:file.type||'application/octet-stream',notes,createdAt:now};
+        meta.put(row);bin.put({id,blob:file});metas.push(row);}
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('Storage quota exceeded'));tx.onabort=()=>reject(tx.error||new Error('Storage quota exceeded'));
+    });documents.unshift(...metas);documents.sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+  }
+  async function removeStoredDocument(id){const db=await docDatabase();await new Promise((resolve,reject)=>{
+    const tx=db.transaction(['metadata','files'],'readwrite');tx.objectStore('metadata').delete(id);tx.objectStore('files').delete(id);
+    tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
+  });documents=documents.filter(x=>x.id!==id);}
+  async function updateCourseDocuments(oldCode,newCode){if(oldCode===newCode)return;const targets=documents.filter(x=>x.course===oldCode);if(!targets.length)return;
+    const db=await docDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction('metadata','readwrite');for(const m of targets)tx.objectStore('metadata').put({...m,course:newCode});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});
+    targets.forEach(x=>x.course=newCode);
+  }
+  async function clearDocuments(ids=null){if(docsStatus!=='ready'){
+      if(ids===null||documents.some(x=>ids.includes(x.course)))throw new Error('Document storage is not ready');return;
+    }
+    const deleting=ids===null?documents:documents.filter(x=>ids.includes(x.course));const db=await docDatabase();
+    await new Promise((resolve,reject)=>{const tx=db.transaction(['metadata','files'],'readwrite');
+      if(ids===null){tx.objectStore('metadata').clear();tx.objectStore('files').clear();}
+      else for(const row of deleting){tx.objectStore('metadata').delete(row.id);tx.objectStore('files').delete(row.id);}
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
+    });documents=ids===null?[]:documents.filter(x=>!ids.includes(x.course));
+  }
+  function documentsOf(course,category){return documents.filter(x=>x.course===course&&x.category===category);}
+  function docsUploadButton(course='',category=''){return `<button class="btn btn-light btn-small" data-action="add-document" ${course?`data-course="${e(course)}"`:''} ${category?`data-category="${e(category)}"`:''}>${svg('plus')} <span>Tambah dokumen</span></button>`;}
+  function fileCard(d){return `<div class="doc-item"><div class="doc-file-icon">${svg('file-text')}</div><div class="doc-file-content"><strong>${e(d.name)}</strong><p>${readableSize(d.size)} · ${e(docDate(d.createdAt))}${d.notes?` · ${e(d.notes)}`:''}</p></div><div class="doc-actions"><button data-action="open-document" data-id="${e(d.id)}" title="Buka" aria-label="Buka ${e(d.name)}">${svg('eye')}</button><button data-action="download-document" data-id="${e(d.id)}" title="Muat turun" aria-label="Muat turun ${e(d.name)}">${svg('download')}</button><button class="danger" data-action="delete-document" data-id="${e(d.id)}" title="Padam" aria-label="Padam ${e(d.name)}">${svg('trash')}</button></div></div>`;}
+  function renderDocsBucket(c,category){const ds=documentsOf(c.id,category);return `<div class="doc-section"><div class="doc-section-head"><b>${docCategory(category)} <span style="font-size:10px;color:var(--muted)">· ${ds.length}</span></b>${docsUploadButton(c.id,category)}</div>${ds.length?ds.map(fileCard).join(''):`<div class="doc-empty">Tiada fail dimuat naik</div>`}</div>`;}
+  function renderDocuments(){const activeCourses=state.docCourse==='all'?data.courses:data.courses.filter(c=>c.id===state.docCourse),courseCount=new Set(documents.map(d=>d.course)).size;
+    return `${heading('Pustaka dokumen.','Simpan fail PB dan Maklumat Kursus mengikut kursus, walaupun tanpa internet.',`<button class="btn btn-primary" data-action="add-document">${svg('upload')} Muat naik dokumen</button>`)}
+      ${docsStatus==='error'?`<div class="storage-warning">${svg('alert-circle')} Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.</div>`:''}
+      <div class="doc-stat-row"><div class="doc-stat"><span>Jumlah dokumen</span><strong>${documents.length}</strong></div><div class="doc-stat"><span>Kursus berfail</span><strong>${courseCount}</strong></div><div class="doc-stat"><span>Jenis dokumen</span><strong>2</strong></div></div>
+      <div class="doc-toolbar"><div class="section-heading" style="margin:0"><div><h2>Dokumen kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div></div><select id="documents-course-filter" class="course-select" aria-label="Pilih kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.docCourse===c.id?'selected':''}>${e(c.id)} — ${e(c.name)}</option>`).join('')}</select><button class="btn btn-primary btn-small" data-action="add-document" ${docsStatus==='ready'?'':'disabled'}>${svg('upload')} Muat naik dokumen</button></div>
+      <div class="doc-courses">${activeCourses.map(c=>{const num=documents.filter(d=>d.course===c.id).length;return `<section class="doc-course" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="doc-course-head"><div class="course-symbol">${e(c.abbr)}</div><div style="min-width:0"><div class="doc-code">${e(c.id)}</div><h2>${e(c.name)}</h2></div><span class="doc-count">${num} fail</span></div>${renderDocsBucket(c,'pb')}${renderDocsBucket(c,'courseinfo')}</section>`;}).join('')}</div>
+      ${!data.courses.length?empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.'):''}
+      <div class="hint-box">${svg('shield-check')}<span>Setiap fail kekal pada peranti ini. Eksport sandaran untuk memindahkan fail antara peranti.</span></div>`;
+  }
+  function openDocumentUpload(course='',category='pb'){
+    if(docsStatus!=='ready')return toast('Storan dokumen belum tersedia.');
+    if(!data.courses.length){navigate('courses');return toast('Tambah kursus dahulu.');}
+    state.modal={type:'upload',label:'Muat naik dokumen'};
+    const selected=data.courses.some(c=>c.id===course)?course:data.courses[0].id;
+    modal(`<div class="modal-head"><h2>Muat naik dokumen</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div>
+      <form id="document-form">${selectField('course','Kursus',data.courses.map(c=>[c.id,`${c.id} — ${c.name}`]),selected)}
+      ${selectField('category','Kategori dokumen',[['pb','Pentaksiran Berterusan'],['courseinfo','Maklumat Kursus']],category)}
+      <div class="field"><label for="field-doc-files">Fail (boleh pilih lebih daripada satu)</label><div class="upload-zone">${svg('upload')}<input id="field-doc-files" name="files" type="file" multiple required accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.png,.jpg,.jpeg,.webp,.odt,.ods,.odp,.rtf"><p>PDF, Word, PowerPoint, Excel, gambar atau teks · maksimum 25 MB setiap fail.</p></div></div>
+      <div class="field"><label for="field-doc-notes">Catatan (pilihan)</label><textarea id="field-doc-notes" name="notes" maxlength="240" placeholder="Contoh: Arahan tugasan daripada pensyarah"></textarea></div>
+      <div class="modal-actions"><span class="push"></span><button type="button" class="btn btn-light" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${svg('upload')} Muat naik fail</button></div></form>`);
+  }
+  async function downloadOrOpenDoc(id,preview){const d=documents.find(x=>x.id===id);if(!d)return toast('Dokumen tidak ditemui.');
+    let win=null;const canPreview=/^(application\/pdf|image\/|text\/plain)/.test(d.mime)||/\.(pdf|png|jpe?g|webp|txt)$/i.test(d.name);
+    if(preview&&canPreview){win=window.open('about:blank','_blank');if(win){win.document.title='PB Workspace';win.document.body.textContent='Opening document…';}}
+    try{const blob=await getStoredFile(id);
+      const ext=d.name.split('.').pop().toLowerCase();
+      const safeMime=ext==='pdf'?'application/pdf':ext==='png'?'image/png':ext==='jpg'||ext==='jpeg'?'image/jpeg':ext==='webp'?'image/webp':ext==='txt'?'text/plain':'application/octet-stream';
+      const displayBlob=win?new Blob([blob],{type:safeMime}):blob;
+      const url=URL.createObjectURL(displayBlob);
+      if(win){win.location.href=url;setTimeout(()=>URL.revokeObjectURL(url),180000);return;}
+      const a=document.createElement('a');a.href=url;a.download=d.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+      if(preview&&!canPreview)toast('Fail tidak boleh dipratonton di pelayar ini. Sila muat turun.');
+    }catch(err){if(win)win.close();toast('Gagal buka fail: '+err.message);}
+  }
+  function blobAsBase64(blob){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]||'');reader.onerror=()=>reject(reader.error);reader.readAsDataURL(blob);});}
+  function blobFromBase64(raw,mime){const binary=atob(raw);const parts=[];for(let i=0;i<binary.length;i+=65536){const slice=binary.slice(i,i+65536),buf=new Uint8Array(slice.length);for(let j=0;j<slice.length;j++)buf[j]=slice.charCodeAt(j);parts.push(buf);}return new Blob(parts,{type:mime||'application/octet-stream'});}
+  async function replaceAllDocuments(items){const db=await docDatabase();const parsed=[];for(const item of items){if(!item||typeof item.name!=='string'||typeof item.course!=='string'||!['pb','courseinfo'].includes(item.category)||typeof item.base64!=='string'||item.base64.length>MAX_FILE_BYTES*1.37+100||!/^[a-zA-Z0-9+/]*={0,2}$/.test(item.base64))throw new Error('Invalid document in backup');const blob=blobFromBase64(item.base64,item.mime);if(blob.size>MAX_FILE_BYTES)throw new Error('File too large in backup');const meta={id:item.id||newId('d'),course:item.course,category:item.category,name:item.name,size:blob.size,mime:item.mime,notes:item.notes||'',createdAt:item.createdAt&&!Number.isNaN(new Date(item.createdAt).getTime())?item.createdAt:new Date().toISOString()};parsed.push({meta,blob});}
+    await new Promise((resolve,reject)=>{const tx=db.transaction(['metadata','files'],'readwrite'),ms=tx.objectStore('metadata'),fs=tx.objectStore('files');ms.clear();fs.clear();for(const {meta,blob} of parsed){ms.put(meta);fs.put({id:meta.id,blob});}tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});
+    documents=parsed.map(x=>x.meta).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));docsStatus='ready';
+  }
+
+  function render() {const views={dashboard:renderDashboard,tasks:renderTasks,courses:renderCourses,documents:renderDocuments,calendar:renderCalendar,exams:renderExams};const root=document.getElementById('app');root.innerHTML=frame((views[state.view]||renderDashboard)());localizeRoot(root);}
   function navigate(view) {state.view=view;if(view==='tasks'){}render();window.scrollTo({top:0,behavior:'instant'});}
   function formField(name,label,value='',type='text',extra='') {return `<div class="field"><label for="field-${name}">${label}</label><input id="field-${name}" name="${name}" type="${type}" value="${e(value)}" ${extra}></div>`;}
   function selectField(name,label,values,value) {return `<div class="field"><label for="field-${name}">${label}</label><select id="field-${name}" name="${name}">${values.map(([k,v])=>`<option value="${e(k)}" ${k===value?'selected':''}>${e(v)}</option>`).join('')}</select></div>`;}
-  function modal(content) {document.getElementById('modal-root').innerHTML=`<div class="modal-backdrop" data-action="close-modal"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-label="${e(state.modal?.label||'Dialog')}">${content}</div>`;document.body.classList.add('modal-open');const first=document.querySelector('.modal-panel input:not([type="file"]),.modal-panel select,.modal-panel button'); if(first)first.focus({preventScroll:true});}
+  function modal(content) {document.getElementById('modal-root').innerHTML=`<div class="modal-backdrop" data-action="close-modal"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-label="${e(state.modal?.label||'Dialog')}">${content}</div>`;document.body.classList.add('modal-open');localizeRoot(document.getElementById('modal-root'));const first=document.querySelector('.modal-panel input:not([type="file"]),.modal-panel select,.modal-panel button'); if(first)first.focus({preventScroll:true});}
   function closeModal() {state.modal=null;document.getElementById('modal-root').innerHTML='';document.body.classList.remove('modal-open');}
   function openTask(id=null) {if(!data.courses.length){toast('Tambah kursus dahulu sebelum membuat tugasan.');navigate('courses');return;}let t=id?data.tasks.find(t=>t.id===id):null;state.modal={type:'task',id:id||null,label:t?'Edit tugasan':'Tambah tugasan'};let d=t||{title:'',number:'T1',course:state.course!=='all'?state.course:data.courses[0]?.id||'',type:'Penulisan',due:'',group:'',notes:'',status:'pending'};
     modal(`<div class="modal-head"><h2>${t?'Edit tugasan':'Tambah tugasan baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="task-form">
@@ -411,11 +714,16 @@
   function openCourse(id=null) {let c=id?data.courses.find(x=>x.id===id):null;state.modal={type:'course',id:id||null,label:c?'Edit kursus':'Tambah kursus'};let d=c||{id:'',name:'',abbr:'',color:'#4366cf',soft:'#edf0ff'};
     modal(`<div class="modal-head"><h2>${c?'Edit kursus':'Tambah kursus baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="course-form">${formField('id','Kod kursus',d.id,'text','required maxlength="20" placeholder="Contoh: PKUK6043"')}${formField('name','Nama kursus',d.name,'text','required maxlength="200" placeholder="Nama penuh kursus"')}${formField('abbr','Singkatan ikon (2 huruf)',d.abbr,'text','maxlength="3" placeholder="PK"')}<div class="hint-box">${svg('info')}<span>Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.</span></div><div class="modal-actions">${c?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-course" data-id="${e(c.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${c?'Simpan kursus':'Tambah kursus'}</button></div></form>`);
   }
-  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} SIMPANAN SETEMPAT</div><p class="subtitle" style="margin-top:11px">Semua perubahan disimpan pada peranti ini. Sandarkan fail JSON agar data tidak hilang apabila data pelayar dipadam atau anda bertukar telefon.</p></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun semua tugasan, kursus dan peperiksaan.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan mulakan dengan kursus, PB serta peperiksaan kosong.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Tiada akaun, iklan atau sambungan ke pelayan. Aplikasi berfungsi offline selepas fail dimuatkan / PWA dipasang. ${storageEnabled?'Penyimpanan tempatan aktif.':'Amaran: penyimpanan tempatan tidak tersedia pada pelayar ini.'}</div>`);}
-  function exportData() {const out={...data,exportedAt:new Date().toISOString(),app:'PB Workspace IPG'};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`pb-workspace-backup-${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sandaran JSON dieksport.');}
+  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} SIMPANAN SETEMPAT</div><p class="subtitle" style="margin-top:11px">Semua perubahan disimpan pada peranti ini. Sandarkan fail JSON agar data tidak hilang apabila data pelayar dipadam atau anda bertukar telefon.</p></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Tiada akaun, iklan atau sambungan ke pelayan. Aplikasi berfungsi offline selepas fail dimuatkan / PWA dipasang. ${storageEnabled?'Penyimpanan tempatan aktif.':'Amaran: penyimpanan tempatan tidak tersedia pada pelayar ini.'}</div>`);}
+  async function exportData(){try{if(docsStatus==='loading')throw new Error('Sila cuba sebentar lagi.');if(docsStatus==='error')throw new Error('Storan dokumen tidak tersedia.');
+    const files=[];for(const meta of documents){const blob=await getStoredFile(meta.id);files.push({...meta,base64:await blobAsBase64(blob)});}
+    const out={...data,version:2,files,exportedAt:new Date().toISOString(),app:'PB Workspace IPG'};
+    const blob=new Blob([JSON.stringify(out)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`pb-workspace-backup-${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);toast(preferences.language==='en'?'Backup exported (including documents).':'Sandaran termasuk dokumen berjaya dieksport.');return true;
+  }catch(err){toast((preferences.language==='en'?'Export failed: ':'Eksport gagal: ')+err.message);return false;}}
+
   function newId(prefix) {return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
   function validateImported(v) {if(!v||!Array.isArray(v.courses)||!Array.isArray(v.tasks)||!Array.isArray(v.exams))return false;if(v.courses.length>100||v.tasks.length>10000||v.exams.length>1000)return false;return v.courses.every(c=>typeof c.id==='string'&&typeof c.name==='string')&&v.tasks.every(t=>typeof t.id==='string'&&typeof t.title==='string'&&typeof t.course==='string'&&['pending','submitted','completed'].includes(t.status))&&v.exams.every(x=>typeof x.id==='string'&&typeof x.course==='string'&&['pending','completed'].includes(x.status));}
-  document.addEventListener('click',event=>{const b=event.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,id=b.dataset.id;
+  document.addEventListener('click',async event=>{const b=event.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,id=b.dataset.id;
     if(action==='nav')navigate(b.dataset.view);
     else if(action==='add-task')openTask();
     else if(action==='add-course')openCourse();
@@ -423,31 +731,52 @@
     else if(action==='edit-task')openTask(id);
     else if(action==='toggle-task') {let t=data.tasks.find(x=>x.id===id);if(t){t.status=complete(t)?'pending':(t.type==='Ujian'?'completed':'submitted');save();render();toast(complete(t)?'Tugasan ditandakan selesai.':'Tugasan dikembalikan ke belum selesai.');}}
     else if(action==='filter'){state.filter=b.dataset.filter;render();}
+    else if(action==='open-course-documents'){state.docCourse=id;navigate('documents');}
     else if(action==='open-course'){state.course=id;state.filter='all';state.search='';navigate('tasks');}
     else if(action==='add-exam')openExam();
     else if(action==='edit-exam')openExam(id);
     else if(action==='settings')openSettings();
+    else if(action==='language-toggle')preference('language',preferences.language==='ms'?'en':'ms');
+    else if(action==='theme-toggle')preference('theme',preferences.theme==='light'?'dark':'light');
+    else if(action==='set-language')preference('language',b.dataset.value);
+    else if(action==='set-theme')preference('theme',b.dataset.value);
+    else if(action==='add-document')openDocumentUpload(b.dataset.course||'',b.dataset.category||'pb');
+    else if(action==='open-document')downloadOrOpenDoc(id,true);
+    else if(action==='download-document')downloadOrOpenDoc(id,false);
+    else if(action==='delete-document'){const d=documents.find(x=>x.id===id);if(d&&window.confirm(preferences.language==='en'?`Delete ${d.name}?`:`Padam ${d.name}?`)){removeStoredDocument(id).then(()=>{render();toast('Dokumen berjaya dipadam.');}).catch(err=>toast(err.message));}}
     else if(action==='close-modal')closeModal();
     else if(action==='month-prev'||action==='month-next'){let n=action==='month-prev'?-1:1;state.calMonth=new Date(state.calMonth.getFullYear(),state.calMonth.getMonth()+n,1);render();}
     else if(action==='month-now'){let d=new Date();state.calMonth=new Date(d.getFullYear(),d.getMonth(),1);state.selectedDay=dateKey(d);render();}
     else if(action==='select-day'){state.selectedDay=b.dataset.day;let [y,m]=state.selectedDay.split('-').map(Number);state.calMonth=new Date(y,m-1,1);render();}
-    else if(action==='export')exportData();
+    else if(action==='export')await exportData();
     else if(action==='import')document.getElementById('import-file').click();
-    else if(action==='reset'){if(window.confirm('Semua perubahan anda akan dipadam dan diganti dengan data contoh asal. Anda pasti?')){data=clone(SEED);save();closeModal();navigate('dashboard');toast('Data contoh asal telah dipulihkan.');}}
-    else if(action==='new-semester'){if(window.confirm('Mulakan semester baharu? Data semester semasa akan dieksport sebagai sandaran sebelum senarai dikosongkan.')){exportData();data={version:1,courses:[],tasks:[],exams:[]};state.course='all';state.filter='all';state.search='';save();closeModal();navigate('courses');toast('Semester baharu sedia. Tambah kursus pertama anda.');}}
+    else if(action==='reset'){if(window.confirm(preferences.language==='en'?'Reset all tasks, courses, exams AND uploaded files to the initial sample data?':'Semua tugasan, kursus, peperiksaan DAN dokumen akan dipadam dan diganti dengan data contoh asal. Teruskan?')){try{await clearDocuments();data=clone(SEED);save();closeModal();navigate('dashboard');toast('Data contoh asal telah dipulihkan.');}catch(err){toast(err.message);}}}
+    else if(action==='new-semester'){if(window.confirm(preferences.language==='en'?'Export a backup before clearing all semester data including files?':'Mulakan semester baharu? Semua rekod dan fail akan disandarkan dahulu sebelum dikosongkan.')){if(!await exportData())return;try{await clearDocuments();data={version:2,courses:[],tasks:[],exams:[]};state.course='all';state.docCourse='all';state.filter='all';state.search='';save();closeModal();navigate('courses');toast('Semester baharu sedia. Tambah kursus pertama anda.');}catch(err){toast(err.message);}}}
     else if(action==='delete-task'){if(window.confirm('Padam tugasan ini?')){data.tasks=data.tasks.filter(t=>t.id!==id);save();closeModal();render();toast('Tugasan dipadam.');}}
     else if(action==='delete-exam'){if(window.confirm('Padam peperiksaan ini?')){data.exams=data.exams.filter(t=>t.id!==id);save();closeModal();render();toast('Peperiksaan dipadam.');}}
-    else if(action==='delete-course'){let related=data.tasks.filter(t=>t.course===id).length+data.exams.filter(x=>x.course===id).length;if(window.confirm(`Padam kursus ${id}? ${related} rekod PB/peperiksaan berkaitan turut akan dipadam.`)){data.courses=data.courses.filter(c=>c.id!==id);data.tasks=data.tasks.filter(t=>t.course!==id);data.exams=data.exams.filter(x=>x.course!==id);if(state.course===id)state.course='all';save();closeModal();render();toast('Kursus dan rekod berkaitan dipadam.');}}
+    else if(action==='delete-course'){let related=data.tasks.filter(t=>t.course===id).length+data.exams.filter(x=>x.course===id).length, fileNum=documents.filter(x=>x.course===id).length;
+      if(window.confirm(preferences.language==='en'?`Delete ${id}, its ${related} assignments/exams and ${fileNum} uploaded files?`:`Padam kursus ${id}? ${related} rekod PB/peperiksaan dan ${fileNum} fail dokumen berkaitan turut akan dipadam.`)){
+        try{await clearDocuments([id]);data.courses=data.courses.filter(c=>c.id!==id);data.tasks=data.tasks.filter(t=>t.course!==id);data.exams=data.exams.filter(x=>x.course!==id);if(state.course===id)state.course='all';if(state.docCourse===id)state.docCourse='all';save();closeModal();render();toast('Kursus dan rekod berkaitan dipadam.');}catch(err){toast(err.message);}
+      }}
   });
-  document.addEventListener('submit',event=>{let form=event.target;if(form.getAttribute('id')==='course-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.id=(v.id||'').trim().toUpperCase();v.name=(v.name||'').trim();v.abbr=(v.abbr||v.id.slice(0,2)).trim().toUpperCase().slice(0,3);if(!v.id||!v.name)return toast('Sila isi kod dan nama kursus.');let existing=state.modal?.id?data.courses.find(c=>c.id===state.modal.id):null;if(data.courses.some(c=>c.id===v.id&&c!==existing))return toast('Kod kursus ini sudah wujud.');if(existing){let old=existing.id;Object.assign(existing,v);if(old!==v.id){data.tasks.filter(t=>t.course===old).forEach(t=>t.course=v.id);data.exams.filter(x=>x.course===old).forEach(x=>x.course=v.id);if(state.course===old)state.course=v.id;}}else{let palette=[['#4366cf','#edf0ff'],['#0d9284','#e6f7f3'],['#a47a32','#fdf4e5'],['#8b64bb','#f5edff'],['#c16b70','#fff0f0'],['#498ba3','#e8f6fb']][data.courses.length%6];data.courses.push({...v,color:palette[0],soft:palette[1]});}save();closeModal();render();toast(existing?'Kursus dikemas kini.':'Kursus baharu ditambah.');}
+  document.addEventListener('submit',async event=>{let form=event.target;if(form.id==='document-form'){event.preventDefault();const btn=form.querySelector('[type="submit"]'),files=Array.from(form.elements.files.files||[]);if(!files.length)return toast('Pilih sekurang-kurangnya satu fail.');if(files.length>15)return toast('Maksimum 15 fail setiap muat naik.');if(files.some(f=>f.size>MAX_FILE_BYTES))return toast('Saiz maksimum 25 MB setiap fail.');if(!data.courses.some(c=>c.id===form.elements.course.value))return toast('Kursus tidak sah.');
+      btn.disabled=true;try{await addStoredDocuments(files,form.elements.course.value,form.elements.category.value,form.elements.notes.value.trim());closeModal();state.docCourse='all';render();toast('Dokumen dimuat naik.');}catch(err){toast('Gagal simpan fail: '+err.message);btn.disabled=false;}return;
+    }else if(form.getAttribute('id')==='course-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.id=(v.id||'').trim().toUpperCase();v.name=(v.name||'').trim();v.abbr=(v.abbr||v.id.slice(0,2)).trim().toUpperCase().slice(0,3);if(!v.id||!v.name)return toast('Sila isi kod dan nama kursus.');let existing=state.modal?.id?data.courses.find(c=>c.id===state.modal.id):null;if(data.courses.some(c=>c.id===v.id&&c!==existing))return toast('Kod kursus ini sudah wujud.');if(existing){let old=existing.id;Object.assign(existing,v);if(old!==v.id){try{await updateCourseDocuments(old,v.id);}catch(err){return toast('Gagal ubah dokumen: '+err.message);}data.tasks.filter(t=>t.course===old).forEach(t=>t.course=v.id);data.exams.filter(x=>x.course===old).forEach(x=>x.course=v.id);if(state.course===old)state.course=v.id;}}else{let palette=[['#4366cf','#edf0ff'],['#0d9284','#e6f7f3'],['#a47a32','#fdf4e5'],['#8b64bb','#f5edff'],['#c16b70','#fff0f0'],['#498ba3','#e8f6fb']][data.courses.length%6];data.courses.push({...v,color:palette[0],soft:palette[1]});}save();closeModal();render();toast(existing?'Kursus dikemas kini.':'Kursus baharu ditambah.');}
     else if(form.id==='task-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.title=(v.title||'').trim();if(!v.title)return toast('Sila masukkan nama tugasan.');let existing=state.modal?.id?data.tasks.find(t=>t.id===state.modal.id):null;if(existing)Object.assign(existing,v);else data.tasks.push({id:newId('t'),...v});save();closeModal();if(!existing){state.filter='all';state.course='all';state.search='';}render();toast(existing?'Tugasan dikemas kini.':'Tugasan ditambah.');}
     else if(form.id==='exam-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));let existing=state.modal?.id?data.exams.find(x=>x.id===state.modal.id):null;if(existing)Object.assign(existing,v);else data.exams.push({id:newId('e'),...v});save();closeModal();render();toast(existing?'Peperiksaan dikemas kini.':'Peperiksaan ditambah.');}
   });
-  document.addEventListener('input',event=>{if(event.target.matches('[data-search]')){state.search=event.target.value;const el=document.getElementById('task-list-results');if(el)el.innerHTML=renderTaskResults();}});
-  document.addEventListener('change',event=>{if(event.target.id==='course-filter'){state.course=event.target.value;render();}});
-  document.getElementById('import-file').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;try{if(file.size>10*1024*1024)throw new Error('Fail terlalu besar.');const obj=JSON.parse(await file.text());if(!validateImported(obj))throw new Error('Format sandaran tidak sah.');if(window.confirm('Import akan menggantikan semua data sedia ada. Teruskan?')){data={version:1,courses:obj.courses,tasks:obj.tasks,exams:obj.exams};save();closeModal();navigate('dashboard');toast('Sandaran berjaya diimport.');}}catch(err){toast('Gagal import: '+err.message);}event.target.value='';});
+  document.addEventListener('input',event=>{if(event.target.matches('[data-search]')){state.search=event.target.value;const el=document.getElementById('task-list-results');if(el){el.innerHTML=renderTaskResults();localizeRoot(el);}}});
+  document.addEventListener('change',event=>{if(event.target.id==='course-filter'){state.course=event.target.value;render();}else if(event.target.id==='documents-course-filter'){state.docCourse=event.target.value;render();}});
+  document.getElementById('import-file').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;
+    try{if(file.size>180*1024*1024)throw new Error('Fail sandaran terlalu besar (180 MB).');const obj=JSON.parse(await file.text());if(!validateImported(obj))throw new Error('Format sandaran tidak sah.');if(obj.files!==undefined&&(!Array.isArray(obj.files)||obj.files.length>500))throw new Error('Senarai dokumen tidak sah.');
+      if(window.confirm(preferences.language==='en'?'Import will replace all existing tasks, courses, exams and uploaded documents. Continue?':'Import akan menggantikan semua tugasan, kursus, peperiksaan dan fail dokumen sedia ada. Teruskan?')){
+        if(docsStatus!=='ready')throw new Error('Storan dokumen tidak tersedia.');await replaceAllDocuments(obj.files||[]);
+        data={version:2,courses:obj.courses,tasks:obj.tasks,exams:obj.exams};save();closeModal();state.docCourse='all';state.course='all';navigate('dashboard');toast(preferences.language==='en'?'Backup imported.':'Sandaran berjaya diimport.');
+      }
+    }catch(err){toast('Gagal import: '+err.message);}event.target.value='';});
+
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.modal)closeModal();});
-  render();
+  render();loadDocuments();
   if('serviceWorker' in navigator && location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}
 })();
 </script>
