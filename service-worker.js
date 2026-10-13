@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pb-workspace-offline-v2';
+const CACHE_NAME = 'pb-workspace-offline-v3-drive-1';
 const ASSETS = [
   './',
   './index.html',
