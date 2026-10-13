@@ -11,9 +11,9 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png" type="image/png">
-  <title>PB Workspace v3.2 — IPG Kampus Kota Bharu</title>
+  <title>PB Workspace — IPG Kampus Kota Bharu</title>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.js" defer></script>
   <style>
     :root { --bg:#f6f7fb; --surface:#fff; --ink:#16233b; --muted:#788398; --line:#e9edf3; --blue:#275fe4; --blue-dark:#164abe; --blue-pale:#ebf1ff; --green:#087f71; --green-pale:#e5f6f1; --orange:#a66516; --orange-pale:#fff4e5; --red:#b4474c; --red-pale:#fceced; --shadow:0 10px 36px rgba(31,47,79,.045); --r:18px; }
     * { box-sizing:border-box; }
@@ -260,7 +260,7 @@
       .modal-root{align-items:end;padding:0;}.modal-panel{max-width:none;max-height:92dvh;border-radius:22px 22px 0 0;padding:25px 20px calc(22px + env(safe-area-inset-bottom));}.field-grid{gap:10px;}.toast{bottom:calc(85px + env(safe-area-inset-bottom));}
     }
 
-    /* v2 — document library */
+    /* Document library */
     .doc-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
     .doc-stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:21px}
     .doc-stat{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:18px}
@@ -334,7 +334,7 @@
     :root[data-theme="dark"] .btn-primary,:root[data-theme="dark"] .fab{background:#4c78dc;color:white}
 
 
-    /* v3.1 · Calm corporate visual system, shared across languages and devices */
+    /* Calm corporate visual system, shared across languages and devices */
     :root{--bg:#f4f6fa;--surface:#ffffff;--ink:#192b45;--muted:#687a93;--line:#e4eaf2;--blue:#285bd9;--blue-dark:#1e4bbe;--blue-pale:#eaf0ff;--shadow:0 8px 30px rgba(25,45,80,.035);--r:19px}
     body{letter-spacing:.003em}
     .sidebar{width:260px;padding:30px 18px 26px;border-right:1px solid var(--line);background:var(--surface)}
@@ -413,6 +413,57 @@
     @media(max-width:640px){.rt-status-button{padding:7px 9px;min-height:38px}.rt-indicator{display:none}.rt-status-button svg{width:18px;height:18px}}
     .doc-toolbar{flex-wrap:wrap}
     @media (prefers-reduced-motion:reduce) {*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
+
+    /* Focused design refinements: priority card, small task checkboxes, status-accurate calendar */
+    .task-full .check-control{width:19px;height:19px;border-radius:6px;border-width:1.5px;position:relative}
+    .task-full .check-control svg{width:12px;height:12px;stroke-width:2.6}
+    .task-full .check-control::before{content:"";position:absolute;inset:-9px}
+    .task-full .task-row{gap:12px}
+    .calendar-layout,.calendar-legend{--cal-pending:#c83e53;--cal-completed:#2d64d7;--cal-submitted:#0c9273;--cal-exam:#c49121}
+    .cal-dots span,.cal-dots span.pending{background:var(--cal-pending);height:7px;width:7px}
+    .cal-dots span.completed{background:var(--cal-completed)}
+    .cal-dots span.submitted{background:var(--cal-submitted)}
+    .cal-dots span.exam{background:var(--cal-exam)}
+    .calendar-legend{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;padding:15px 17px;border:1px solid var(--line);border-radius:14px;background:var(--surface);margin-top:18px}
+    .calendar-legend-item{display:inline-flex;gap:8px;align-items:center;font-size:11px;font-weight:660;color:var(--ink)}
+    .calendar-legend-swatch{width:9px;height:9px;flex:none;border-radius:50%}
+    .calendar-legend-swatch.pending{background:var(--cal-pending)}
+    .calendar-legend-swatch.completed{background:var(--cal-completed)}
+    .calendar-legend-swatch.submitted{background:var(--cal-submitted)}
+    .calendar-legend-swatch.exam{background:var(--cal-exam)}
+    .calendar-legend-note{width:100%;margin:1px 0 0;color:var(--muted);font-size:11px}
+    .calendar-state{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:750;border-radius:9px;padding:5px 9px;margin:8px 6px 0 0;border:1px solid transparent;line-height:1.4}
+    .calendar-state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+    .calendar-state.pending{color:#ae3145;background:#ffedf0;border-color:#f8d7dd}
+    .calendar-state.completed{color:#2456bf;background:#eaf0ff;border-color:#d6e2ff}
+    .calendar-state.submitted{color:#087d63;background:#e7f8f1;border-color:#c9ebdd}
+    .calendar-state.exam{color:#906115;background:#fff6db;border-color:#f2e3b3}
+    :root[data-theme="dark"] .list-surface{background:var(--surface);border-color:var(--line);box-shadow:var(--shadow)}
+    :root[data-theme="dark"] .list-surface .task-row{background:transparent;border-color:var(--line)}
+    :root[data-theme="dark"] .list-surface .task-row:hover{background:#22344b}
+    :root[data-theme="dark"] .list-surface .task-title{color:#eaf2ff}
+    :root[data-theme="dark"] .list-surface .task-title.done{color:#c8d8ec}
+    :root[data-theme="dark"] .list-surface .task-meta,:root[data-theme="dark"] .list-surface .task-day{color:#b1c1d7}
+    :root[data-theme="dark"] .list-surface .task-meta b{color:#d6e4fb}
+    :root[data-theme="dark"] .list-surface .date-pill{background:#273b56;color:#d4e3ff}
+    :root[data-theme="dark"] .list-surface .date-pill.urgent{background:#493524;color:#ffd19c}
+    :root[data-theme="dark"] .list-surface .date-pill.overdue{background:#4a2a38;color:#ffafbb}
+    :root[data-theme="dark"] .list-surface .date-pill.success{background:#20473e;color:#8cedca}
+    :root[data-theme="dark"] .list-surface .check-control{background:#22344c;border-color:#70829b}
+    :root[data-theme="dark"] .list-surface .check-control:hover{border-color:#9dbdff;background:#304b70}
+    :root[data-theme="dark"] .list-surface .check-control.done{background:#168e75;border-color:#168e75;color:#fff}
+    :root[data-theme="dark"] .list-surface .row-more{color:#b7c9e1}
+    :root[data-theme="dark"] .list-surface .row-more:hover{color:#b7d1ff;background:#2c4261}
+    :root[data-theme="dark"] .calendar-layout,:root[data-theme="dark"] .calendar-legend{--cal-pending:#ff7b8a;--cal-completed:#8fb4ff;--cal-submitted:#66ddb2;--cal-exam:#ffd06c}
+    :root[data-theme="dark"] .calendar-legend{background:var(--surface);border-color:var(--line)}
+    :root[data-theme="dark"] .calendar-legend-item{color:#e0ebfa}
+    :root[data-theme="dark"] .calendar-state.pending{color:#ff9eab;background:#482d3c;border-color:#734150}
+    :root[data-theme="dark"] .calendar-state.completed{color:#a7c7ff;background:#283f65;border-color:#436191}
+    :root[data-theme="dark"] .calendar-state.submitted{color:#90e9c7;background:#1e443c;border-color:#316859}
+    :root[data-theme="dark"] .calendar-state.exam{color:#ffe0a0;background:#4b3a24;border-color:#77603d}
+    :root[data-theme="dark"] .task-full .check-control:not(.done){background:#22344c;border-color:#70829b}
+    @media(max-width:640px){.task-full .task-row{gap:10px}.calendar-legend{gap:9px 13px;padding:13px}.calendar-legend-item{font-size:10px}.cal-dots span{width:6px;height:6px}}
+
   </style>
 </head>
 <body>
@@ -604,7 +655,7 @@
     'Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.':'Document storage is not available in this browser. Try HTTPS or another browser.',
     'Fail PB dan MK dimuat naik atau diambil daripada Google Drive apabila anda menekan tindakan fail.':'Files remain on this device. Export a backup to transfer them to another device.',
     'Tiada fail untuk kursus ini.':'No files for this course.','Nama fail':'Filename','Saiz':'Size',
-    'Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.':'Organize your assessment and course files, and sync them through Google Drive.','Fail PB dan MK dimuat naik atau diambil daripada Google Drive apabila anda menekan tindakan fail.':'Documents are organized by course and synced through Google Drive when connected.','Perubahan boleh disegerakkan melalui Google Drive.':'Changes can be synchronized through Google Drive.','Kursus dikemas kini.':'Course updated.','Nama paparan berjaya disimpan.':'Display name saved.','Tugasan ditandakan selesai. Penghantaran belum berubah.':'Task completed. Submission unchanged.','Tugasan ditandakan dihantar.':'Task marked as submitted.','Penghantaran dibatalkan.':'Submission undone.','Status siap dibatalkan. Status penghantaran tidak berubah.':'Completion undone. Submission unchanged.','Nama pensyarah':'Lecturer name','Pensyarah belum ditetapkan':'Lecturer not assigned','Ditanda siap':'Marked completed','Tandakan dihantar':'Mark submitted','Batalkan penghantaran':'Undo submission','Belum dihantar':'Not submitted','Selesai, belum dihantar':'Completed, not submitted','Penghantaran':'Submission','Status kemajuan':'Completion status','Nama paparan':'Display name','Kemas kini profil':'Edit profile','Simpan profil':'Save profile','Status penghantaran':'Submission status','Jumlah dihantar':'Total submitted','Tugasan belum dihantar':'Tasks not submitted','Serah tugasan':'Submit task','Belum siap':'Not completed','Siap':'Completed',
+    'Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.':'Organize your assessment and course files, and sync them through Google Drive.','Fail PB dan MK dimuat naik atau diambil daripada Google Drive apabila anda menekan tindakan fail.':'PB and course documents transfer through Google Drive only when you select Upload or Get files.','Perubahan boleh disegerakkan melalui Google Drive.':'Changes can be synchronized through Google Drive.','Kursus dikemas kini.':'Course updated.','Nama paparan berjaya disimpan.':'Display name saved.','Tugasan ditandakan selesai. Penghantaran belum berubah.':'Task completed. Submission unchanged.','Tugasan ditandakan dihantar.':'Task marked as submitted.','Penghantaran dibatalkan.':'Submission undone.','Status siap dibatalkan. Status penghantaran tidak berubah.':'Completion undone. Submission unchanged.','Nama pensyarah':'Lecturer name','Pensyarah belum ditetapkan':'Lecturer not assigned','Ditanda siap':'Marked completed','Tandakan dihantar':'Mark submitted','Batalkan penghantaran':'Undo submission','Belum dihantar':'Not submitted','Selesai, belum dihantar':'Completed, not submitted','Penghantaran':'Submission','Status kemajuan':'Completion status','Nama paparan':'Display name','Kemas kini profil':'Edit profile','Simpan profil':'Save profile','Status penghantaran':'Submission status','Jumlah dihantar':'Total submitted','Tugasan belum dihantar':'Tasks not submitted','Serah tugasan':'Submit task','Belum siap':'Not completed','Siap':'Completed',
     'Tema':'Theme','Bahasa':'Language','Dokumen dimuat naik.':'Documents uploaded.',
     'Dokumen berjaya dipadam.':'Document deleted.','Dokumen tidak ditemui.':'Document not found.',
     'Muat naik':'Upload','Dokumen kursus':'Course documents',
@@ -663,6 +714,16 @@
     if(t.type!=='Ujian')status.push(submitted(t)?'<span class="status submitted">Dihantar</span>':'<span class="status pending">Belum dihantar</span>');
     return status.join('');
   }
+  // Calendar status colors reflect distinct academic milestones, not the generic task badges.
+  function calendarStatusTag(t){
+    const en=preferences.language==='en';
+    const chips=[];
+    if(complete(t)) chips.push(`<span class="calendar-state completed">${en?'Completed':'Siap'}</span>`);
+    if(submitted(t)) chips.push(`<span class="calendar-state submitted">${en?'Submitted':'Dihantar'}</span>`);
+    if(!complete(t)&&!submitted(t)) chips.push(`<span class="calendar-state pending">${en?'Not completed / submitted':'Belum siap / dihantar'}</span>`);
+    else if(complete(t)&&!submitted(t)&&t.type!=='Ujian')chips.push(`<span class="calendar-state pending">${en?'Not submitted':'Belum dihantar'}</span>`);
+    return chips.join('');
+  }
   function taskDatePill(t){let diff=daysBetween(t.due);let cls=!actionable(t)?'success':(diff!==null&&diff<0?'overdue':(diff!==null&&diff<=7?'urgent':''));return `<span class="date-pill ${cls}">${e(t.due?formatDate(t.due):'Tiada tarikh')}</span>`;}
   function taskRow(t,compact=false) {
     const c=findCourse(t.course),done=complete(t),sent=submitted(t);
@@ -710,9 +771,9 @@
   function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Rekod dikemas kini secara automatik antara peranti selepas Log masuk Rekod Langsung.</span></div>`;}
   function renderCalendar() {
     let y=state.calMonth.getFullYear(),m=state.calMonth.getMonth(),first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();let cells=Math.ceil((offset+days)/7)*7;
-    let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${submitted(t)?'submitted':complete(t)?'done':''}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
+    let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${submitted(t)?'submitted':complete(t)?'completed':'pending'}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
     let dayTasks=data.tasks.filter(t=>t.due===state.selectedDay),dayExams=data.exams.filter(x=>x.date===state.selectedDay);
-    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat(language(),{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${statusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="status ${x.status==='completed'?'done':'pending'}">${x.status==='completed'?'Selesai':'Akan datang'}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="hint-box">${svg('info')}<span>${preferences.language==='en'?'<strong>Blue</strong> = pending assessments, <strong>green</strong> = completed, <strong>yellow</strong> = exams. Select a date to view details.':'<strong>Biru</strong> = PB belum siap / dihantar, <strong>hijau</strong> = PB selesai, <strong>kuning</strong> = peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.'}</span></div>`;
+    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat(language(),{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${calendarStatusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="calendar-state exam">${x.status==='completed'?(preferences.language==='en'?'Exam completed':'Peperiksaan selesai'):(preferences.language==='en'?'Upcoming exam':'Peperiksaan akan datang')}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="calendar-legend" aria-label="${preferences.language==='en'?'Calendar status legend':'Petunjuk status kalendar'}"><span class="calendar-legend-item"><i class="calendar-legend-swatch pending" aria-hidden="true"></i>${preferences.language==='en'?'Red = PB not completed':'Merah = PB belum siap'}</span><span class="calendar-legend-item"><i class="calendar-legend-swatch completed" aria-hidden="true"></i>${preferences.language==='en'?'Blue = PB completed':'Biru = PB siap'}</span><span class="calendar-legend-item"><i class="calendar-legend-swatch submitted" aria-hidden="true"></i>${preferences.language==='en'?'Green = PB submitted':'Hijau = PB dihantar'}</span><span class="calendar-legend-item"><i class="calendar-legend-swatch exam" aria-hidden="true"></i>${preferences.language==='en'?'Yellow = exams':'Kuning = peperiksaan'}</span><p class="calendar-legend-note">${preferences.language==='en'?'Select any date to view its details.':'Tekan mana-mana tarikh untuk melihat butirannya.'}</p></div>`;
   }
   function empty(title,sub) {return `<div class="empty"><div class="empty-icon">${svg('check-circle')}</div><h3>${e(title)}</h3><p>${e(sub)}</p></div>`;}
 
@@ -832,7 +893,7 @@
   function openCourse(id=null) {let c=id?data.courses.find(x=>x.id===id):null;state.modal={type:'course',id:id||null,label:c?'Edit kursus':'Tambah kursus'};let d=c||{id:'',name:'',lecturer:'',color:'#4366cf',soft:'#edf0ff'};
     modal(`<div class="modal-head"><h2>${c?'Edit kursus':'Tambah kursus baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="course-form">${formField('id','Kod kursus',d.id,'text','required maxlength="20" placeholder="Contoh: PKUK6043"')}${formField('name','Nama kursus',d.name,'text','required maxlength="200" placeholder="Nama penuh kursus"')}${formField('lecturer','Nama pensyarah',d.lecturer||'','text','maxlength="160" placeholder="Contoh: Dr. / Puan / Encik ..."')}<div class="hint-box">${svg('info')}<span>Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.</span></div><div class="modal-actions">${c?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-course" data-id="${e(c.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${c?'Simpan kursus':'Tambah kursus'}</button></div></form>`);
   }
-  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} PB WORKSPACE · v3.2</div><p class="subtitle" style="margin-top:11px">Urus tetapan dan sandaran data anda. Rekod akademik disegerakkan secara automatik melalui Rekod Langsung. Google Drive hanya untuk fail PB / MK.</p></div><div class="settings-option"><div><strong>Nama paparan</strong><p>${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu</p></div><button class="btn btn-light btn-small" data-action="edit-profile">${svg('settings')} Edit</button></div><div class="settings-option"><div><strong>${preferences.language==='en'?'Automatic record updates':'Rekod automatik antara peranti'}</strong><p>${e(realtimeStatus)} · ${preferences.language==='en'?'Courses, PB tasks, calendar and exams':'Kursus, PB, kalendar dan peperiksaan'}</p></div><button class="btn btn-primary btn-small" data-action="realtime-settings">${svg('globe')} ${preferences.language==='en'?'Account':'Akaun'}</button></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Rekod memerlukan akaun Rekod Langsung dan dokumen memerlukan Google Drive. Sandarkan data sebelum naik taraf.</div>`);}
+  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} PB WORKSPACE · IPG KAMPUS KOTA BHARU</div><p class="subtitle" style="margin-top:11px">Urus tetapan dan sandaran data anda. Rekod akademik disegerakkan secara automatik melalui Rekod Langsung. Google Drive hanya untuk fail PB / MK.</p></div><div class="settings-option"><div><strong>Nama paparan</strong><p>${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu</p></div><button class="btn btn-light btn-small" data-action="edit-profile">${svg('settings')} Edit</button></div><div class="settings-option"><div><strong>${preferences.language==='en'?'Automatic record updates':'Rekod automatik antara peranti'}</strong><p>${e(realtimeStatus)} · ${preferences.language==='en'?'Courses, PB tasks, calendar and exams':'Kursus, PB, kalendar dan peperiksaan'}</p></div><button class="btn btn-primary btn-small" data-action="realtime-settings">${svg('globe')} ${preferences.language==='en'?'Account':'Akaun'}</button></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Rekod memerlukan akaun Rekod Langsung dan dokumen memerlukan Google Drive. Simpan sandaran data secara berkala.</div>`);}
 
   function openProfile(){
     state.modal={type:'profile',label:'Nama paparan'};
@@ -847,7 +908,7 @@
   function newId(prefix) {return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
   function validateImported(v) {if(!v||!Array.isArray(v.courses)||!Array.isArray(v.tasks)||!Array.isArray(v.exams))return false;if(v.courses.length>100||v.tasks.length>10000||v.exams.length>1000)return false;return v.courses.every(c=>typeof c.id==='string'&&typeof c.name==='string')&&v.tasks.every(t=>typeof t.id==='string'&&typeof t.title==='string'&&typeof t.course==='string'&&['pending','submitted','completed'].includes(t.status))&&v.exams.every(x=>typeof x.id==='string'&&typeof x.course==='string'&&['pending','completed'].includes(x.status));}
 
-  // v3.2 architecture: live academic records -> Supabase; PB/MK files -> Google Drive on demand.
+  // Academic records -> Supabase; PB/MK files -> Google Drive on demand.
   // Google Drive is NEVER called by save() or by a change to a task/course/profile/exam.
   const RT_SETTINGS='pb-workspace-live-config-v32';
   const RT_STATE='pb-workspace-live-pending-v32';
@@ -1084,7 +1145,7 @@
   async function realtimeResolve(choice){
     const blocked=[...realtimePending].filter(([,x])=>x.blocked);
     if(!blocked.length)return toast('No conflicts pending.');
-    if(!window.confirm(choice==='remote'?'Use the newer cloud version for conflicted records? Local conflicted edits will be removed; export a backup first.':'Keep your local changes instead of the cloud version for conflicted records?'))return;
+    if(!window.confirm(choice==='remote'?'Use cloud data for conflicted records? Local conflicted edits will be removed; export a backup first.':'Keep your local changes instead of cloud data for conflicted records?'))return;
     // A successful backup must precede replacement of conflicting work.
     if(!await exportData())return;
     for(const [k,item] of blocked){
@@ -1117,7 +1178,7 @@
     modal(`<div class="modal-head"><h2>${en?'Google Drive · PB/MK files':'Google Drive · Fail PB/MK'}</h2><button class="icon-button" data-action="close-modal" aria-label="Close">${svg('x')}</button></div>
     <p class="subtitle">${en?'Google Drive handles only uploaded assessment (PB) and course-information (MK) files. Academic records automatically update through the separate records account.':'Google Drive hanya menyimpan fail Pentaksiran Berterusan (PB) dan Maklumat Kursus (MK). Rekod akademik dikemas kini secara automatik melalui akaun rekod berasingan.'}</p>
     <div class="hint-box">${svg('info')}<span>${e(cloudReady()?(cloudConfig.accountEmail||'Connected'):('Google Drive not connected'))}<div>${e(cloudStatus)}</div></span></div>
-    <div class="settings-option"><div><strong>Google OAuth Web Client ID</strong><p>${en?'Same Google Client ID as v3.1':'Client ID Google yang sama seperti v3.1'}</p></div><input id="cloud-client-id" class="rt-input" value="${e(cloudConfig.clientId)}" placeholder="123.apps.googleusercontent.com"></div>
+    <div class="settings-option"><div><strong>Google OAuth Web Client ID</strong><p>${en?'Your Google OAuth Client ID for this website':'Client ID OAuth Google untuk laman web ini'}</p></div><input id="cloud-client-id" class="rt-input" value="${e(cloudConfig.clientId)}" placeholder="123.apps.googleusercontent.com"></div>
     <div class="settings-option"><div><strong>${en?'Drive connection':'Sambungan Drive'}</strong></div><button class="btn btn-light btn-small" data-action="cloud-config">${en?'Save ID':'Simpan ID'}</button></div>
     <div class="settings-option"><div><strong>${en?'Google account':'Akaun Google'}</strong><p>${e(cloudConfig.accountEmail||'')}</p></div><button class="btn btn-${cloudReady()?'light':'primary'} btn-small" data-action="${cloudReady()?'cloud-logout':'cloud-login'}">${cloudReady()?(en?'Disconnect':'Putuskan'):(en?'Connect Google':'Sambung Google')}</button></div>
     ${cloudReady()?`<div class="settings-option"><div><strong>${en?'Upload PB/MK files':'Hantar fail PB/MK'}</strong><p>${en?'Send local documents to your Google Drive':'Hantar dokumen peranti ini ke Google Drive'}</p></div><button class="btn btn-primary btn-small" data-action="drive-doc-upload">${svg('upload')} ${en?'Upload files':'Hantar fail'}</button></div>
@@ -1203,7 +1264,7 @@
     const existing=await driveFindDocumentByAppId(meta.id);if(existing?.id)return existing.id;
     const folder=await driveCourseFolder(root,meta.course);const blob=await getStoredFile(meta.id);
     if(blob.size>MAX_FILE_BYTES)throw Error('File exceeds 25 MB: '+meta.name);
-    const row=await driveUploadNew(blob,{name:meta.name,mimeType:meta.mime||blob.type||'application/octet-stream',parents:[folder],appProperties:{pbDocId:meta.id,pbCourse:meta.course,pbCategory:meta.category,pbNotes:String(meta.notes||'').slice(0,120)}});
+    const row=await driveUploadNew(blob,{name:meta.name,mimeType:meta.mime||blob.type||'application/octet-stream',parents:[folder],appProperties:{pbDocId:meta.id,pbCourse:meta.course,pbCategory:meta.category,pbNotes:String(meta.notes||'').slice(0,24)}});
     return row.id;
   }
   async function cloudSaveDocDriveId(meta,id){meta.driveId=id;await docRequest('metadata','readwrite',s=>s.put({...meta}));}
@@ -1319,7 +1380,7 @@
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.modal)closeModal();});
   render();loadDocuments();
   window.addEventListener('load',()=>realtimeBoot());
-  // v3.2 website updates: retire the previous PWA cache so updates aren't hidden behind old HTML.
+  // Retire legacy caches so website updates are not hidden behind old HTML.
   if('serviceWorker' in navigator&&location.protocol!=='file:'){
     window.addEventListener('load',()=>navigator.serviceWorker.getRegistrations().then(list=>Promise.all(list.filter(r=>r.scope.startsWith(location.origin+location.pathname.replace(/[^/]*$/,''))).map(r=>r.unregister()))).catch(()=>{}));
   }
