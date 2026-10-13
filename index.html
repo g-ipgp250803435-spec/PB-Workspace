@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f7fb">
-  <meta name="description" content="Ruang kerja PB dan peperiksaan IPG. Ringkas, kemas, dan boleh digunakan tanpa internet.">
+  <meta name="description" content="Pengurusan PB, kursus, dokumen dan peperiksaan IPG Kampus Kota Bharu dengan Google Drive.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="PB Workspace">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png" type="image/png">
-  <title>PB Workspace — IPG</title>
+  <title>PB Workspace — IPG Kampus Kota Bharu</title>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     :root { --bg:#f6f7fb; --surface:#fff; --ink:#16233b; --muted:#788398; --line:#e9edf3; --blue:#275fe4; --blue-dark:#164abe; --blue-pale:#ebf1ff; --green:#087f71; --green-pale:#e5f6f1; --orange:#a66516; --orange-pale:#fff4e5; --red:#b4474c; --red-pale:#fceced; --shadow:0 10px 36px rgba(31,47,79,.045); --r:18px; }
@@ -332,6 +332,76 @@
     :root[data-theme="dark"] .btn-danger{background:#4b2933;color:#ffc8ca}
     :root[data-theme="dark"] .btn-primary,:root[data-theme="dark"] .fab{background:#4c78dc;color:white}
 
+
+    /* v3.1 · Calm corporate visual system, shared across languages and devices */
+    :root{--bg:#f4f6fa;--surface:#ffffff;--ink:#192b45;--muted:#687a93;--line:#e4eaf2;--blue:#285bd9;--blue-dark:#1e4bbe;--blue-pale:#eaf0ff;--shadow:0 8px 30px rgba(25,45,80,.035);--r:19px}
+    body{letter-spacing:.003em}
+    .sidebar{width:260px;padding:30px 18px 26px;border-right:1px solid var(--line);background:var(--surface)}
+    .workspace{margin-left:260px}
+    .brand{margin-bottom:47px;padding:0 8px;gap:12px}
+    .brand-logo{width:62px;height:44px;border-radius:13px;font-size:16px;letter-spacing:-.8px;background:linear-gradient(140deg,#1e418c,#2d69e7);box-shadow:0 5px 17px rgba(30,75,175,.18)}
+    .brand-title{font-size:16px;letter-spacing:-.5px}.brand-sub{font-size:10px}
+    .nav-btn{min-height:47px;font-size:12.5px;border-radius:12px}.nav-btn.active{font-weight:780}
+    .sidebar-foot{margin-top:auto;border-top:1px solid var(--line);padding:20px 12px 0}.sidebar-signature{font-size:11px;color:var(--muted);line-height:1.55;display:flex;gap:9px;align-items:center}.sidebar-signature svg{width:17px;height:17px;color:var(--blue)}
+    .topbar{padding:31px 44px 10px}.main-content{padding:24px 44px 96px}
+    .crumb{font-size:12px;letter-spacing:.02em}.crumb strong{color:var(--ink)}
+    .icon-button{border-radius:11px;background:var(--surface);color:var(--muted);transition:background .15s,border-color .15s,transform .15s}
+    .icon-button:hover{border-color:#baccef;transform:translateY(-1px)}
+    .page-head{margin-bottom:27px}.eyebrow{letter-spacing:1px;text-transform:none;font-size:11px;font-weight:750;color:var(--blue);margin-bottom:9px}
+    h1{font-weight:790;letter-spacing:-1.1px}.subtitle{font-size:13px;max-width:70ch}
+    .hero{background:linear-gradient(117deg,#152c53,#263f70);border-radius:20px;min-height:254px}.hero:before{background:radial-gradient(circle,#6083d870 0%,#4267b744 45%,transparent 70%)}
+    .progress-card,.surface,.stat-card,.course-card,.exam-card,.date-panel,.calendar-grid-wrap,.task-full{border-color:var(--line);box-shadow:var(--shadow)}
+    .stat-card{border-radius:16px;min-height:110px}.stat-card strong{font-size:27px}
+    .course-grid{gap:18px}.course-card{border-radius:19px;padding:23px}.course-card-top{margin-bottom:19px}
+    .course-symbol{width:auto;min-width:75px;max-width:110px;height:43px;padding:0 10px;border-radius:11px;font-size:10.5px;letter-spacing:.08em;white-space:nowrap}
+    .course-card-name{font-size:15px;min-height:44px;letter-spacing:-.26px}
+    .course-card-code{font-size:11px;min-height:17px;margin-bottom:21px;display:flex;align-items:center;gap:6px;color:var(--muted)}
+    .course-card-code svg{width:13px;height:13px;flex:none}
+    .course-card-foot{gap:14px;flex-wrap:wrap}.course-card-foot>div{flex-wrap:wrap;justify-content:flex-end}
+    .task-full{border-radius:16px;overflow:hidden}.task-full .task-row{padding:17px 18px}.task-extra{padding-bottom:14px}
+    .task-actions{display:flex;gap:6px;align-items:center;flex:none}.submitted-toggle{display:inline-flex;gap:5px;align-items:center;border:1px solid #d6e2f1;color:#496485;background:var(--surface);border-radius:9px;padding:7px 9px;font-size:10px;font-weight:750;white-space:nowrap}.submitted-toggle svg{width:13px;height:13px}.submitted-toggle.is-submitted{border-color:#b5e3d7;background:var(--green-pale);color:var(--green)}
+    .status.submitted{background:#eaf0ff;color:#295dcc}.status.completed-only{background:var(--green-pale);color:var(--green)}
+    .stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .stat-card .stat-icon.blue{background:#e9efff;color:#285bd9}
+    .calendar-day{min-height:68px;height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 4px 18px}
+    .calendar-day strong{display:grid;place-items:center;min-width:27px;height:27px;line-height:1;margin:0;font-size:12px}
+    .calendar-day.today strong{width:27px;height:27px;margin:0}
+    .cal-dots{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:3px}
+    .calendar-day.selected{border-color:#8aa9e9;box-shadow:inset 0 0 0 1px #aac0ef}
+    .doc-toolbar{gap:12px}.doc-course-head{gap:13px}
+    .settings-option{min-height:71px}.settings-option p{max-width:56ch}
+    .profile-icon{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:11px}
+    :root[data-theme="dark"]{color-scheme:dark;--bg:#0e1725;--surface:#172437;--ink:#eaf1fb;--muted:#a5b5c9;--line:#304055;--blue:#99baff;--blue-dark:#7aa5f3;--blue-pale:#273d62;--green:#68ddbf;--green-pale:#193e38;--shadow:0 8px 25px rgba(0,0,0,.13)}
+    :root[data-theme="dark"] .brand-logo{background:linear-gradient(140deg,#325aa7,#4d85e6)}
+    :root[data-theme="dark"] .hero{background:linear-gradient(125deg,#1d365c,#2a456d)}
+    :root[data-theme="dark"] .sidebar-foot{border-color:var(--line)}
+    :root[data-theme="dark"] .crumb strong{color:var(--ink)}
+    :root[data-theme="dark"] .course-card-code{color:var(--muted)}
+    :root[data-theme="dark"] .submitted-toggle{background:#1a2b41;color:#afc5e3;border-color:#3b506c}
+    :root[data-theme="dark"] .submitted-toggle.is-submitted{background:#1b3d38;border-color:#386759;color:#74e0c3}
+    :root[data-theme="dark"] .status.submitted{background:#263e64;color:#a4c2ff}
+    :root[data-theme="dark"] .status.completed-only{background:#1b3c38;color:#7de1c5}
+    :root[data-theme="dark"] .btn-light,:root[data-theme="dark"] .stat-card,:root[data-theme="dark"] .calendar-grid-wrap{background:var(--surface);border-color:var(--line)}
+    :root[data-theme="dark"] .segmented button.active{background:#2d4564;color:#d4e4ff}
+    :root[data-theme="dark"] .task-row:hover{background:#1b2c42}
+    :root[data-theme="dark"] .course-mini-top span,:root[data-theme="dark"] .course-mini-top b{color:var(--muted)}
+    :root[data-theme="dark"] .ring-hole{background:var(--surface)}
+    :root[data-theme="dark"] .calendar-day.today strong{background:#769fff;color:#0b1830}
+    :root[data-theme="dark"] .calendar-day.selected{background:#2b4165;color:#d1e1ff}
+    :root[data-theme="dark"] .stat-icon.blue{background:#263c61;color:#aac9ff}
+    @media(max-width:1090px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{padding:24px 26px 7px}.main-content{padding:21px 26px 85px}.sidebar{width:224px}.workspace{margin-left:224px}}
+    @media(max-width:850px){.sidebar{width:198px}.workspace{margin-left:198px}.sidebar .brand{gap:7px}.brand-logo{min-width:52px;width:52px}}
+    @media(max-width:640px){.workspace{margin:0}.topbar{padding:18px 18px 6px}.main-content{padding:22px 17px 120px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat-card{min-height:88px}.calendar-day{height:57px;min-height:57px;padding:3px 2px 13px}.cal-dots{bottom:5px}.calendar-day strong{font-size:11px;width:23px;height:23px}.calendar-day.today strong{width:24px;height:24px}.task-row{flex-wrap:wrap}.task-actions{width:100%;margin-left:37px;justify-content:flex-start}.submitted-toggle{padding:7px 11px}.task-full .task-row{gap:9px}.task-extra{padding-left:52px}.course-card-foot>div{justify-content:flex-start}.course-card-foot{justify-content:flex-start}.page-head{gap:10px}.eyebrow{line-height:1.5}}
+  
+    .two-status-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .two-status-inputs label{display:flex;align-items:center;gap:8px;padding:13px 10px;background:var(--bg);border:1px solid var(--line);border-radius:11px;cursor:pointer;color:var(--ink);font-size:11px;font-weight:700}
+    .two-status-inputs input{width:17px!important;height:17px!important;min-height:0!important;accent-color:var(--blue);flex:none}
+    .two-status-inputs svg{width:16px;height:16px;color:var(--blue)}
+    .field>small{font-size:10px;color:var(--muted);line-height:1.55}
+    .task-full .task-title.done{text-decoration:none!important;color:var(--ink)!important}
+    .cal-dots span.submitted{background:#5475e2}
+    :root[data-theme="dark"] .two-status-inputs label{background:#1a2a40;border-color:var(--line)}
+    @media(max-width:400px){.two-status-inputs{grid-template-columns:1fr}.task-actions{margin-left:0}}
     @media (prefers-reduced-motion:reduce) {*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
   </style>
 </head>
@@ -345,7 +415,8 @@
   'use strict';
   const KEY = 'pb-workspace-ipg-v1';
   const SEED = {
-    version: 2,
+    version: 4,
+    profile: {displayName: ""},
     courses: [
       {id:'MPU6122', name:'English Language Proficiency', abbr:'EN', color:'#4366cf', soft:'#edf0ff'},
       {id:'PKUK6013', name:'Pengurusan Tingkah Laku Murid Berkeperluan Pendidikan Khas', abbr:'PT', color:'#0d9284', soft:'#e6f7f3'},
@@ -414,6 +485,18 @@
   try { let saved = localStorage.getItem(KEY); data = saved ? JSON.parse(saved) : clone(SEED); if (!saved) localStorage.setItem(KEY,JSON.stringify(data)); }
   catch(e) {data=clone(SEED); storageEnabled=false;}
   if (!data || !Array.isArray(data.tasks) || !Array.isArray(data.courses) || !Array.isArray(data.exams)) {data=clone(SEED);}
+  function normalizeData(value){
+    const normalized={...value,version:4,profile:{displayName:String(value.profile?.displayName||'').slice(0,90)}};
+    normalized.courses=(value.courses||[]).map(c=>({...c,lecturer:String(c.lecturer||'').slice(0,160)}));
+    normalized.tasks=(value.tasks||[]).map(t=>{
+      // Backward compatibility: an old "submitted" task was completed AND handed in.
+      const completed=typeof t.completed==='boolean'?t.completed:t.status==='completed'||t.status==='submitted';
+      const submitted=typeof t.submitted==='boolean'?t.submitted:t.status==='submitted';
+      return {...t,completed,submitted,status:submitted?'submitted':completed?'completed':'pending'};
+    });
+    return normalized;
+  }
+  data=normalizeData(data);
   const state = { view:'dashboard', filter:'all', course:'all', docCourse:'all', search:'', calMonth:new Date(new Date().getFullYear(),new Date().getMonth(),1), selectedDay:dateKey(new Date()), modal:null };
 
   const PREF_KEY='pb-workspace-ipg-preferences-v2';
@@ -447,7 +530,7 @@
     'Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.':'Download tasks, courses, exams and all uploaded documents.',
     'Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.':'Export a backup and start with empty course, assessment, exam and document lists.',
     'Ringkasan':'Overview','Tugasan':'Tasks','Kalendar':'Calendar','Kursus':'Courses','Dokumen':'Documents','Peperiksaan':'Exams',
-    'MENU UTAMA':'MAIN MENU','Direka untuk offline.':'Built for offline.','Data anda disimpan dalam peranti ini, bukan di pelayan.':'Your data stays on this device, not on a server.',
+    'MENU UTAMA':'MAIN MENU',
     'Tetapan & sandaran':'Settings & backup','Buka tetapan':'Open settings','Tambah rekod':'Add record',
     'Selamat pagi':'Good morning','Selamat petang':'Good afternoon','Selamat malam':'Good evening',
     'Tugasan yang sedang menanti anda.':'Your upcoming assignments.','Tumpukan pada perkara yang paling penting hari ini.':'Focus on what matters most today.',
@@ -471,7 +554,7 @@
     'Senarai peperiksaan':'Exam list','Tambah':'Add','Tarikh belum diumumkan':'Date not announced','Akan datang':'Upcoming',
     'Belum ada peperiksaan':'No exams yet','Tambah peperiksaan untuk mula merancang.':'Add an exam to start planning.',
     'Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan':'Exam dates were not listed in the original notes. Tap',
-    'apabila jadual rasmi dikeluarkan. Semua perubahan disimpan secara offline.':'when the official timetable is released. All changes are saved offline.',
+    'apabila jadual rasmi dikeluarkan. Perubahan boleh disegerakkan melalui Google Drive.':'when the official timetable is released. Changes can sync via Google Drive.',
     'Kalendar akademik.':'Academic calendar.','Lihat semua tarikh penting dalam satu paparan.':'See all important dates in one place.',
     'Bulan sebelumnya':'Previous month','Bulan seterusnya':'Next month','Isn':'Mon','Sel':'Tue','Rab':'Wed','Kha':'Thu','Jum':'Fri','Sab':'Sat','Aha':'Sun',
     'Peperiksaan akhir':'Final exam','Tiada aktiviti':'No activity','Tiada tarikh akhir atau peperiksaan pada hari ini.':'No deadlines or exams on this day.',
@@ -488,29 +571,30 @@
     'Edit kursus':'Edit course','Tambah kursus baharu':'Add new course','Kod kursus':'Course code','Contoh: PKUK6043':'Example: PKUK6043',
     'Nama kursus':'Course name','Nama penuh kursus':'Full course name','Singkatan ikon (2 huruf)':'Icon initials (2 letters)',
     'Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.':'If you change a course code, all linked tasks, exams and documents will be updated automatically.',
-    'Simpan kursus':'Save course','Tetapan dan sandaran':'Settings and backup','SIMPANAN SETEMPAT':'LOCAL STORAGE',
+    'Simpan kursus':'Save course','Tetapan dan sandaran':'Settings and backup',
     'Semua perubahan disimpan pada peranti ini. Sandarkan fail JSON agar data tidak hilang apabila data pelayar dipadam atau anda bertukar telefon.':'All changes are saved on this device. Export a JSON backup before clearing browser data or switching phones.',
     'Eksport sandaran':'Export backup','Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.':'Download tasks, courses, exams and uploaded documents together.',
     'Eksport':'Export','Import sandaran':'Import backup','Pulihkan data daripada fail JSON yang pernah dieksport.':'Restore data from a previously exported JSON backup.',
     'Import':'Import','Mulakan semester baharu':'Start new semester','Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.':'Export a backup and start with empty course, assessment, exam and document lists.',
     'Baharu':'New','Set semula contoh asal':'Reset to sample data','Ganti semua data dengan senarai asal yang diberikan.':'Replace your records with the original sample data.',
-    'Reset':'Reset','Privasi:':'Privacy:','Aplikasi berfungsi offline selepas PWA dipasang. Sambungan ke Google Drive adalah pilihan dan memerlukan kebenaran anda.':'No accounts, ads or server connections. The app works offline once loaded / installed as a PWA.',
+    'Reset':'Reset','Privasi:':'Privacy:',
     'Penyimpanan tempatan aktif.':'Local storage is active.','Amaran: penyimpanan tempatan tidak tersedia pada pelayar ini.':'Warning: local storage is unavailable in this browser.',
     'Bahasa aplikasi':'App language','Tema paparan':'Appearance','Cerah':'Light','Gelap':'Dark',
     'Pilihan anda disimpan pada peranti ini.':'Your preferences are saved on this device.',
-    'Pustaka dokumen.':'Document library.','Simpan fail PB dan Maklumat Kursus mengikut kursus, walaupun tanpa internet.':'Keep assessments and course information files organized by course, even offline.',
+    'Pustaka dokumen.':'Document library.',
     'Muat naik dokumen':'Upload documents','Jumlah dokumen':'Total files','Kursus berfail':'Courses with files','Jenis dokumen':'Document categories',
     'Pilih kursus':'Select course','Pentaksiran Berterusan':'Continuous Assessment','Maklumat Kursus':'Course Information',
     'Tiada fail dimuat naik':'No files uploaded','Tambah dokumen':'Add document','Muat naik fail':'Upload files',
-    'Fail disimpan di peranti anda menggunakan IndexedDB.':'Files are saved on your device using IndexedDB.',
+    'Fail diproses dalam pelayar dan boleh disegerakkan melalui Google Drive.':'Files are saved on your device using IndexedDB.',
     'Fail (boleh pilih lebih daripada satu)':'Files (select more than one)','Pilih fail':'Choose files',
     'PDF, Word, PowerPoint, Excel, gambar atau teks · maksimum 25 MB setiap fail.':'PDF, Word, PowerPoint, Excel, images or text · 25 MB maximum per file.',
     'Kategori dokumen':'Document category','Catatan (pilihan)':'Notes (optional)',
     'Contoh: Arahan tugasan daripada pensyarah':'Example: Assessment instructions from lecturer',
     'Buka':'Open','Muat turun':'Download','Fail tidak boleh dipratonton di pelayar ini. Sila muat turun.':'This file cannot be previewed in your browser. Please download it.',
     'Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.':'Document storage is not available in this browser. Try HTTPS or another browser.',
-    'Fail tersimpan offline dan boleh disegerakkan ke Google Drive selepas disambungkan.':'Files remain on this device. Export a backup to transfer them to another device.',
+    'Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.':'Files remain on this device. Export a backup to transfer them to another device.',
     'Tiada fail untuk kursus ini.':'No files for this course.','Nama fail':'Filename','Saiz':'Size',
+    'Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.':'Organize your assessment and course files, and sync them through Google Drive.','Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.':'Documents are organized by course and synced through Google Drive when connected.','Perubahan boleh disegerakkan melalui Google Drive.':'Changes can be synchronized through Google Drive.','Kursus dikemas kini.':'Course updated.','Nama paparan berjaya disimpan.':'Display name saved.','Tugasan ditandakan selesai. Penghantaran belum berubah.':'Task completed. Submission unchanged.','Tugasan ditandakan dihantar.':'Task marked as submitted.','Penghantaran dibatalkan.':'Submission undone.','Status siap dibatalkan. Status penghantaran tidak berubah.':'Completion undone. Submission unchanged.','Nama pensyarah':'Lecturer name','Pensyarah belum ditetapkan':'Lecturer not assigned','Ditanda siap':'Marked completed','Tandakan dihantar':'Mark submitted','Batalkan penghantaran':'Undo submission','Belum dihantar':'Not submitted','Selesai, belum dihantar':'Completed, not submitted','Penghantaran':'Submission','Status kemajuan':'Completion status','Nama paparan':'Display name','Kemas kini profil':'Edit profile','Simpan profil':'Save profile','Status penghantaran':'Submission status','Jumlah dihantar':'Total submitted','Tugasan belum dihantar':'Tasks not submitted','Serah tugasan':'Submit task','Belum siap':'Not completed','Siap':'Completed',
     'Tema':'Theme','Bahasa':'Language','Dokumen dimuat naik.':'Documents uploaded.',
     'Dokumen berjaya dipadam.':'Document deleted.','Dokumen tidak ditemui.':'Document not found.',
     'Muat naik':'Upload','Dokumen kursus':'Course documents',
@@ -542,7 +626,7 @@
   }
   function localizeRoot(root){if(preferences.language!=='en'||!root)return;
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-    for(const node of nodes){if(node.parentElement?.closest('.course-card-name,.task-title,.exam-copy strong,.doc-file-content strong,.date-entry b,.note-chip,.doc-course-head h2'))continue;node.nodeValue=translateText(node.nodeValue);}
+    for(const node of nodes){if(node.parentElement?.closest('.course-card-name,.task-title,.exam-copy strong,.doc-file-content strong,.date-entry b,.note-chip,.doc-course-head h2,.user-greeting,.profile-name'))continue;node.nodeValue=translateText(node.nodeValue);}
     for(const el of root.querySelectorAll('[placeholder],[aria-label],[title]')){for(const a of ['placeholder','aria-label','title']){if(el.hasAttribute(a))el.setAttribute(a,translateText(el.getAttribute(a)));}}
   }
 
@@ -555,52 +639,74 @@
   function formatDate(d,opts={day:'numeric',month:'short'}) {if(!d)return preferences.language==='en'?'Not set':'Belum ditetapkan';const date=new Date(d+'T12:00:00');return Number.isNaN(date.getTime())? (preferences.language==='en'?'Invalid date':'Tarikh tidak sah') : new Intl.DateTimeFormat(language(),opts).format(date);}
   function e(s) {return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
   function findCourse(id) {return data.courses.find(c=>c.id===id) || {id:id||'?',name:'Kursus lain',abbr:'—',color:'#657c9c',soft:'#eef2f9'};}
-  function complete(t) {return t.status!=='pending';}
-  function pendingTasks() {return data.tasks.filter(t=>!complete(t)).sort(sortDue);}
+  function complete(t) {return Boolean(t.completed);}
+  function submitted(t) {return Boolean(t.submitted);}
+  function actionable(t) {return t.type==='Ujian'?!complete(t):!submitted(t);}
+  function pendingTasks() {return data.tasks.filter(actionable).sort(sortDue);}
   function sortDue(a,b) {return (a.due||'9999-12-31').localeCompare(b.due||'9999-12-31') || a.title.localeCompare(b.title);}
   function save() {cloudDirty=true;cloudChangeId++;cloudSchedule();try{localStorage.setItem(KEY,JSON.stringify(data)); storageEnabled=true;}catch(err){storageEnabled=false;toast('Storan peranti tidak tersedia. Sila eksport data sebelum keluar.');}}
   function toast(message) {const el=document.getElementById('toast');el.textContent=translateText(message);el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
-  function statusTag(t) { if (complete(t)) return `<span class="status done">${t.status==='submitted'?'Dihantar':'Selesai'}</span>`; return `<span class="status ${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'overdue':'pending'}">${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'Lewat':'Belum hantar'}</span>`; }
-  function taskDatePill(t){let diff=daysBetween(t.due);let cls=complete(t)?'success':(diff!==null&&diff<0?'overdue':(diff!==null&&diff<=7?'urgent':''));return `<span class="date-pill ${cls}">${e(t.due?formatDate(t.due):'Tiada tarikh')}</span>`;}
+  function statusTag(t) {
+    const status=[];
+    if(complete(t))status.push('<span class="status done">Selesai</span>');
+    else status.push(`<span class="status ${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'overdue':'pending'}">${daysBetween(t.due)!==null&&daysBetween(t.due)<0?'Lewat':'Belum siap'}</span>`);
+    if(t.type!=='Ujian')status.push(submitted(t)?'<span class="status submitted">Dihantar</span>':'<span class="status pending">Belum dihantar</span>');
+    return status.join('');
+  }
+  function taskDatePill(t){let diff=daysBetween(t.due);let cls=!actionable(t)?'success':(diff!==null&&diff<0?'overdue':(diff!==null&&diff<=7?'urgent':''));return `<span class="date-pill ${cls}">${e(t.due?formatDate(t.due):'Tiada tarikh')}</span>`;}
   function taskRow(t,compact=false) {
-    const c=findCourse(t.course), done=complete(t);
+    const c=findCourse(t.course),done=complete(t),sent=submitted(t);
     return `<div class="${compact?'':'task-full'}"><div class="task-row">
-      <button class="check-control ${done?'done':''}" data-action="toggle-task" data-id="${e(t.id)}" aria-label="${done?'Tandakan belum selesai':'Tandakan selesai'}: ${e(t.title)}" title="${done?'Tandakan belum selesai':'Tandakan selesai'}">${done?svg('check'):''}</button>
-      <div class="task-copy"><span class="task-title ${done?'done':''}">${e(t.title)}</span><div class="task-meta"><b>${e(c.id)}</b><span>·</span><span>${e(t.number||'PB')}</span>${!compact && t.group?`<span>·</span><span>${e(t.group)}</span>`:''}</div></div>
-      <div class="task-right">${taskDatePill(t)}<span class="task-day">${done?'Selesai':e(dayText(t.due))}</span></div>
-      <button class="row-more" data-action="edit-task" data-id="${e(t.id)}" aria-label="Edit ${e(t.title)}" title="Edit tugasan">${svg('more-horizontal')}</button>
+      <button class="check-control ${done?'done':''}" data-action="toggle-task" data-id="${e(t.id)}" aria-pressed="${done}" aria-label="${done?'Mark not completed / Batal siap':'Mark completed / Tandakan siap'}: ${e(t.title)}" title="${done?'Batalkan siap':'Tandakan siap'}">${done?svg('check'):''}</button>
+      <div class="task-copy"><span class="task-title ${done?'done':''}">${e(t.title)}</span><div class="task-meta"><b>${e(c.id)}</b><span>·</span><span>${e(t.number||'PB')}</span>${!compact&&t.group?`<span>·</span><span>${e(t.group)}</span>`:''}</div></div>
+      <div class="task-right">${taskDatePill(t)}<span class="task-day">${!actionable(t)?'Selesai':e(dayText(t.due))}</span></div>
+      <div class="task-actions">${t.type!=='Ujian'?`<button class="submitted-toggle ${sent?'is-submitted':''}" data-action="toggle-submitted" data-id="${e(t.id)}" aria-pressed="${sent}" title="${sent?'Batalkan penghantaran':'Tandakan dihantar'}">${svg(sent?'check-circle':'upload')}<span>${sent?'Dihantar':'Tandakan dihantar'}</span></button>`:''}<button class="row-more" data-action="edit-task" data-id="${e(t.id)}" aria-label="Edit ${e(t.title)}" title="Edit tugasan">${svg('more-horizontal')}</button></div>
     </div>${compact?'':`<div class="task-extra">${statusTag(t)}${t.type?`<span class="tiny-chip">${e(t.type)}</span>`:''}${t.notes?`<span class="tiny-chip note-chip">${e(t.notes)}</span>`:''}</div>`}</div>`;
   }
-  function counts(){const done=data.tasks.filter(complete).length;return {done,pending:data.tasks.length-done,total:data.tasks.length,percent:data.tasks.length?Math.round(done/data.tasks.length*100):0};}
-  function heading(title,sub,button){return `<div class="page-head"><div><p class="eyebrow">PB WORKSPACE / IPG</p><h1>${title}</h1><p class="subtitle">${sub}</p></div>${button||''}</div>`;}
+  function counts(){const done=data.tasks.filter(complete).length,submittedCount=data.tasks.filter(submitted).length,remaining=data.tasks.filter(actionable).length;return {done,submitted:submittedCount,pending:data.tasks.length-done,remaining,total:data.tasks.length,percent:data.tasks.length?Math.round(done/data.tasks.length*100):0};}
+  function profileLine(){return `${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu`;}
+  function heading(title,sub,button){return `<div class="page-head"><div><p class="eyebrow profile-name">${profileLine()}</p><h1>${title}</h1><p class="subtitle">${sub}</p></div>${button||''}</div>`;}
   function navHtml(location){return NAV.map(([id,label,icon])=>`<button class="${location==='desktop'?'nav-btn':''} ${state.view===id?'active':''}" data-action="nav" data-view="${id}" ${state.view===id?'aria-current="page"':''}>${svg(icon)}<span>${label}</span>${location==='desktop'&&(id==='tasks'||id==='documents')?`<span class="nav-count">${id==='tasks'?counts().pending:documents.length}</span>`:''}</button>`).join('');}
-  function frame(viewHtml) {return `<div class="app-shell"><aside class="sidebar"><div class="brand"><div class="brand-logo">P.</div><div><div class="brand-title">PB Workspace</div><div class="brand-sub">IPG · Academic planner</div></div></div><div class="section-label">MENU UTAMA</div><nav class="desktop-nav" aria-label="Navigasi utama">${navHtml('desktop')}</nav><div class="sidebar-foot"><div class="sidebar-note">${svg('shield-check')}<strong>Offline-first.</strong><p>Data disimpan setempat dan boleh disegerakkan ke Google Drive.</p></div><button class="nav-btn" data-action="cloud-settings">${svg('globe')}<span>Google Drive · v3</span></button><button class="nav-btn" data-action="settings">${svg('settings')}<span>Tetapan & sandaran</span></button></div></aside>
-    <div class="workspace"><header class="topbar"><div class="crumb">Workspace <span style="color:#c4cbd5;padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><button class="icon-button" data-action="cloud-settings" title="Google Drive sync" aria-label="Google Drive sync">${svg('globe')}</button><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat(language(),{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="language-toggle" title="Bahasa / Language" aria-label="Bahasa / Language"><span style="font-size:10px;font-weight:800">${preferences.language==='ms'?'EN':'BM'}</span></button><button class="icon-button" data-action="theme-toggle" title="Tema / Theme" aria-label="Tema / Theme">${svg(preferences.theme==='dark'?'sun':'moon')}</button><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
+  function frame(viewHtml) {return `<div class="app-shell"><aside class="sidebar"><div class="brand"><div class="brand-logo">PB-W.</div><div><div class="brand-title">PB Workspace</div><div class="brand-sub">IPG Kampus Kota Bharu</div></div></div><div class="section-label">MENU UTAMA</div><nav class="desktop-nav" aria-label="Navigasi utama">${navHtml('desktop')}</nav><div class="sidebar-foot"><div class="sidebar-signature">${svg('graduation-cap')}<span>IPG Kampus Kota Bharu<br>Academic Workspace</span></div></div></aside>
+    <div class="workspace"><header class="topbar"><div class="crumb">PB Workspace <span style="color:var(--muted);padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><button class="icon-button" data-action="cloud-settings" title="Google Drive sync" aria-label="Google Drive sync">${svg('globe')}</button><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat(language(),{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="language-toggle" title="Bahasa / Language" aria-label="Bahasa / Language"><span style="font-size:10px;font-weight:800">${preferences.language==='ms'?'EN':'BM'}</span></button><button class="icon-button" data-action="theme-toggle" title="Tema / Theme" aria-label="Tema / Theme">${svg(preferences.theme==='dark'?'sun':'moon')}</button><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
     <button class="fab" data-action="${state.view==='courses'?'add-course':state.view==='exams'?'add-exam':state.view==='documents'?'add-document':'add-task'}" title="Tambah" aria-label="Tambah rekod">${svg('plus')}</button><nav class="mobile-nav" aria-label="Navigasi mudah alih">${navHtml('mobile')}</nav></div>`;}
-  function greeting(){let h=new Date().getHours();return h<12?'Selamat pagi':h<18?'Selamat petang':'Selamat malam';}
+  function greeting(){let h=new Date().getHours();if(h<12)return preferences.language==='en'?'Good morning':'Selamat pagi';if(h<18)return preferences.language==='en'?'Good afternoon':'Selamat petang';return preferences.language==='en'?'Good evening':'Selamat petang';}
   function renderDashboard() {
     const n=counts(), pending=pendingTasks(), urgent=pending.filter(t=>daysBetween(t.due)!==null&&daysBetween(t.due)>=0&&daysBetween(t.due)<=7).length;
-    return `${heading(`${greeting()}.`,'Semua pentaksiran dan peperiksaan, dalam satu ruang kerja.')}
-    <div class="dashboard-grid"><section class="hero"><div><div class="hero-tag"><span class="dot"></span> SEMESTER SEMASA</div><h2>${n.pending?`${n.pending} tugasan menanti perhatian anda.`:'Semua tugasan telah selesai.'}</h2><p>${pending.length?`Seterusnya: ${e(pending[0].title)} · ${e(formatDate(pending[0].due))}. Susun keutamaan tanpa perlu mengira tarikh secara manual.`:'Tahniah! Anda telah mengemas kini semua pentaksiran dalam senarai.'}</p><button class="btn" data-action="nav" data-view="tasks">Urus tugasan ${svg('arrow-right')}</button></div><span class="hero-art" aria-hidden="true">PB.</span></section>
-    <section class="progress-card"><div class="mini-header"><span class="mini-label">Kemajuan keseluruhan PB</span>${svg('layers')}</div><div class="progress-body"><div class="ring" style="--pct:${n.percent}"><div class="ring-hole"><strong>${n.percent}%</strong><span>Diselesaikan</span></div></div><div class="progress-detail"><div class="progress-stat"><span class="legend-dot green"></span>Telah selesai <strong>${n.done}</strong></div><div class="progress-stat"><span class="legend-dot"></span>Belum selesai <strong>${n.pending}</strong></div><div class="progress-stat"><span class="legend-dot" style="background:#c9d2e0"></span>Jumlah PB <strong>${n.total}</strong></div></div></div><div class="progress-foot">Dikemas kini secara automatik mengikut status tugasan.</div></section></div>
-    <div class="stats-grid"><div class="stat-card"><div><span>Belum selesai</span><strong>${n.pending}</strong></div><div class="stat-icon">${svg('clipboard-list')}</div></div><div class="stat-card"><div><span>Selesai / dihantar</span><strong>${n.done}</strong></div><div class="stat-icon green">${svg('check-circle')}</div></div><div class="stat-card"><div><span>Dalam 7 hari</span><strong>${urgent}</strong></div><div class="stat-icon orange">${svg('clock')}</div></div></div>
+    return `${heading(`<span class="user-greeting">${greeting()}.</span>`,'Semua pentaksiran dan peperiksaan, dalam satu ruang kerja.')}
+    <div class="dashboard-grid"><section class="hero"><div><div class="hero-tag"><span class="dot"></span> SEMESTER SEMASA</div><h2>${n.remaining?`${n.remaining} tugasan menanti perhatian anda.`:'Semua tugasan telah selesai.'}</h2><p>${pending.length?`Seterusnya: ${e(pending[0].title)} · ${e(formatDate(pending[0].due))}. Susun keutamaan tanpa perlu mengira tarikh secara manual.`:'Tahniah! Anda telah mengemas kini semua pentaksiran dalam senarai.'}</p><button class="btn" data-action="nav" data-view="tasks">Urus tugasan ${svg('arrow-right')}</button></div><span class="hero-art" aria-hidden="true">PB.</span></section>
+    <section class="progress-card"><div class="mini-header"><span class="mini-label">Kemajuan keseluruhan PB</span>${svg('layers')}</div><div class="progress-body"><div class="ring" style="--pct:${n.percent}"><div class="ring-hole"><strong>${n.percent}%</strong><span>Diselesaikan</span></div></div><div class="progress-detail"><div class="progress-stat"><span class="legend-dot green"></span>Telah selesai <strong>${n.done}</strong></div><div class="progress-stat"><span class="legend-dot" style="background:#7aa4f8"></span>Dihantar <strong>${n.submitted}</strong></div><div class="progress-stat"><span class="legend-dot" style="background:#c9d2e0"></span>Jumlah PB <strong>${n.total}</strong></div></div></div><div class="progress-foot">Dikemas kini secara automatik mengikut status tugasan.</div></section></div>
+    <div class="stats-grid"><div class="stat-card"><div><span>Belum selesai</span><strong>${n.pending}</strong></div><div class="stat-icon">${svg('clipboard-list')}</div></div><div class="stat-card"><div><span>Selesai</span><strong>${n.done}</strong></div><div class="stat-icon green">${svg('check-circle')}</div></div><div class="stat-card"><div><span>Dihantar</span><strong>${n.submitted}</strong></div><div class="stat-icon blue">${svg('upload')}</div></div><div class="stat-card"><div><span>Dalam 7 hari</span><strong>${urgent}</strong></div><div class="stat-icon orange">${svg('clock')}</div></div></div>
     <div class="split-content"><section><div class="section-heading"><div><h2>Keutamaan terdekat</h2><p class="section-caption">Disusun automatik mengikut tarikh akhir</p></div><button class="text-link" data-action="nav" data-view="tasks">Lihat semua ${svg('arrow-right')}</button></div><div class="list-surface">${pending.length?pending.slice(0,6).map(t=>taskRow(t,true)).join(''):empty('Semua tugasan selesai','Tiada tugasan yang perlu diberi perhatian sekarang.')}</div></section>
-    <section><div class="section-heading"><div><h2>Kursus anda</h2><p class="section-caption">Kemajuan setiap kursus</p></div><button class="text-link" data-action="nav" data-view="courses">Lihat semua ${svg('arrow-right')}</button></div><div class="course-mini">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?done/ts.length*100:0;return `<div class="course-mini-row"><div class="course-mini-top"><b>${e(c.id)}</b><span>${done}/${ts.length} selesai</span></div><div class="bar"><span style="width:${p}%"></span></div></div>`;}).join('')}</div></section></div>`;
+    <section><div class="section-heading"><div><h2>Kursus anda</h2><p class="section-caption">Kemajuan setiap kursus</p></div><button class="text-link" data-action="nav" data-view="courses">Lihat semua ${svg('arrow-right')}</button></div><div class="course-mini">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?done/ts.length*100:0;return `<div class="course-mini-row"><div class="course-mini-top"><b>${e(c.name)}</b><span>${done}/${ts.length} selesai</span></div><div class="bar"><span style="width:${p}%"></span></div></div>`;}).join('')}</div></section></div>`;
   }
-  function filteredTasks(){let ts=data.tasks.filter(t=>state.filter==='all'||(state.filter==='pending'?!complete(t):complete(t))).filter(t=>state.course==='all'||t.course===state.course);if(state.search.trim()){let q=state.search.trim().toLowerCase();ts=ts.filter(t=>(t.title+' '+t.course+' '+t.number+' '+t.type+' '+t.notes+' '+t.group+' '+findCourse(t.course).name).toLowerCase().includes(q));}return ts.sort((a,b)=>Number(complete(a))-Number(complete(b))||sortDue(a,b));}
-  function renderTaskResults(){let ts=filteredTasks();if(!ts.length)return empty('Tiada tugasan ditemui','Cuba ubah carian atau penapis anda.');let pending=ts.filter(t=>!complete(t)),done=ts.filter(complete);return `${pending.length?`<div class="task-list-header">Belum selesai · ${pending.length}</div>${pending.map(t=>taskRow(t)).join('')}`:''}${done.length?`<div class="task-list-header">Selesai / dihantar · ${done.length}</div>${done.map(t=>taskRow(t)).join('')}`:''}`;}
-  function renderTasks() {let n=counts();return `${heading('Semua tugasan.',`${n.pending} belum selesai · ${n.done} sudah diselesaikan.`, `<button class="btn btn-primary" data-action="add-task">${svg('plus')} Tambah tugasan</button>`)}<div class="filter-row"><div class="segmented">${[['all','Semua'],['pending','Belum selesai'],['done','Selesai']].map(([v,l])=>`<button data-action="filter" data-filter="${v}" class="${state.filter===v?'active':''}">${l}</button>`).join('')}</div><label class="search">${svg('search')}<input id="task-search" data-search="true" type="search" value="${e(state.search)}" placeholder="Cari tugasan atau kod..." aria-label="Cari tugasan"></label><select class="course-select" id="course-filter" aria-label="Tapis mengikut kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.course===c.id?'selected':''}>${e(c.id)}</option>`).join('')}</select></div><div id="task-list-results">${renderTaskResults()}</div>`;}
-  function renderCourses() {return `${heading('Kursus semester ini.','Pantau kemajuan semua kursus dan pentaksiran anda.')}<div class="section-heading"><div><h2>Senarai kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div><button class="btn btn-light btn-small" data-action="add-course">${svg('plus')} Tambah kursus</button></div><div class="course-grid">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?Math.round(done/ts.length*100):0;return `<section class="course-card" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="course-card-top"><div class="course-symbol">${e(c.abbr)}</div>${done===ts.length?'<span class="status done">Lengkap</span>':`<span class="status pending">${ts.length-done} belum selesai</span>`}</div><h3 class="course-card-name">${e(c.name)}</h3><div class="course-card-code">${e(c.id)}</div><div class="course-bottom"><strong>Kemajuan PB</strong><span>${done}/${ts.length} · ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div><div class="course-card-foot"><span>${ts.length} pentaksiran berterusan</span><div style="display:flex;align-items:center;gap:12px"><button data-action="edit-course" data-id="${e(c.id)}">Edit</button><button data-action="open-course-documents" data-id="${e(c.id)}">Dokumen</button><button data-action="open-course" data-id="${e(c.id)}">Tugasan ${svg('arrow-right')}</button></div></div></section>`;}).join('')}</div>${data.courses.length?'':empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.')}`;}
-  function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Semua perubahan disimpan secara offline.</span></div>`;}
+  function filteredTasks(){
+    let ts=data.tasks.filter(t=>state.filter==='all'||(state.filter==='pending'?!complete(t):state.filter==='completed'?complete(t):submitted(t)))
+      .filter(t=>state.course==='all'||t.course===state.course);
+    if(state.search.trim()){const q=state.search.trim().toLowerCase();ts=ts.filter(t=>(t.title+' '+t.course+' '+t.number+' '+t.type+' '+t.notes+' '+t.group+' '+findCourse(t.course).name+' '+(findCourse(t.course).lecturer||'')).toLowerCase().includes(q));}
+    return ts.sort((a,b)=>Number(!actionable(a))-Number(!actionable(b))||sortDue(a,b));
+  }
+  function renderTaskResults(){
+    const ts=filteredTasks();if(!ts.length)return empty('Tiada tugasan ditemui','Cuba ubah carian atau penapis anda.');
+    return `${ts.map(t=>taskRow(t)).join('')}`;
+  }
+  function renderTasks(){const n=counts();return `${heading('Semua tugasan.',`${n.pending} belum selesai · ${n.done} selesai · ${n.submitted} dihantar.`, `<button class="btn btn-primary" data-action="add-task">${svg('plus')} Tambah tugasan</button>`)}
+    <div class="filter-row"><div class="segmented">${[['all','Semua'],['pending','Belum siap'],['completed','Selesai'],['submitted','Dihantar']].map(([v,l])=>`<button data-action="filter" data-filter="${v}" class="${state.filter===v?'active':''}">${l}</button>`).join('')}</div>
+    <label class="search">${svg('search')}<input id="task-search" data-search="true" type="search" value="${e(state.search)}" placeholder="Cari tugasan atau kod..." aria-label="Cari tugasan"></label>
+    <select class="course-select" id="course-filter" aria-label="Tapis mengikut kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.course===c.id?'selected':''}>${e(c.id)}</option>`).join('')}</select></div>
+    <div id="task-list-results">${renderTaskResults()}</div>`;
+  }
+  function renderCourses() {return `${heading('Kursus semester ini.','Pantau kemajuan semua kursus dan pentaksiran anda.')}<div class="section-heading"><div><h2>Senarai kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div><button class="btn btn-light btn-small" data-action="add-course">${svg('plus')} Tambah kursus</button></div><div class="course-grid">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?Math.round(done/ts.length*100):0;return `<section class="course-card" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="course-card-top"><div class="course-symbol">${e(c.id)}</div>${done===ts.length?'<span class="status done">Lengkap</span>':`<span class="status pending">${ts.length-done} belum selesai</span>`}</div><h3 class="course-card-name">${e(c.name)}</h3><div class="course-card-code">${svg('graduation-cap')} ${e(c.lecturer||'Pensyarah belum ditetapkan')}</div><div class="course-bottom"><strong>Kemajuan PB</strong><span>${done}/${ts.length} · ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div><div class="course-card-foot"><span>${ts.length} pentaksiran berterusan</span><div style="display:flex;align-items:center;gap:12px"><button data-action="edit-course" data-id="${e(c.id)}">Edit</button><button data-action="open-course-documents" data-id="${e(c.id)}">Dokumen</button><button data-action="open-course" data-id="${e(c.id)}">Tugasan ${svg('arrow-right')}</button></div></div></section>`;}).join('')}</div>${data.courses.length?'':empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.')}`;}
+  function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Perubahan boleh disegerakkan melalui Google Drive.</span></div>`;}
   function renderCalendar() {
     let y=state.calMonth.getFullYear(),m=state.calMonth.getMonth(),first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();let cells=Math.ceil((offset+days)/7)*7;
-    let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${complete(t)?'done':''}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
+    let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${submitted(t)?'submitted':complete(t)?'done':''}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
     let dayTasks=data.tasks.filter(t=>t.due===state.selectedDay),dayExams=data.exams.filter(x=>x.date===state.selectedDay);
-    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat(language(),{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${statusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="status ${x.status==='completed'?'done':'pending'}">${x.status==='completed'?'Selesai':'Akan datang'}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="hint-box">${svg('info')}<span><strong>Biru</strong> = PB belum selesai, <strong>hijau</strong> = PB selesai, <strong>kuning</strong> = peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.</span></div>`;
+    return `${heading('Kalendar akademik.','Lihat semua tarikh penting dalam satu paparan.')}<div class="calendar-layout"><div class="calendar-grid-wrap"><div class="calendar-controls"><strong>${e(new Intl.DateTimeFormat(language(),{month:'long',year:'numeric'}).format(first))}</strong><div class="calendar-actions"><button class="icon-button" data-action="month-prev" aria-label="Bulan sebelumnya">${svg('chevron-left')}</button><button class="btn btn-light btn-small" data-action="month-now">Hari ini</button><button class="icon-button" data-action="month-next" aria-label="Bulan seterusnya">${svg('chevron-right')}</button></div></div><div class="calendar-grid">${['Isn','Sel','Rab','Kha','Jum','Sab','Aha'].map(w=>`<div class="weekday">${w}</div>`).join('')}${html}</div></div><section class="date-panel"><h3>${e(formatDate(state.selectedDay,{day:'numeric',month:'long',year:'numeric'}))}</h3><p class="date-panel-sub">${dayTasks.length+dayExams.length} aktiviti pada tarikh ini</p>${dayTasks.map(t=>`<div class="date-entry"><b>${e(t.title)}</b><p>${e(t.course)} · ${e(t.number)}</p>${statusTag(t)}</div>`).join('')}${dayExams.map(x=>`<div class="date-entry"><b>Peperiksaan akhir</b><p>${e(x.course)}</p><span class="status ${x.status==='completed'?'done':'pending'}">${x.status==='completed'?'Selesai':'Akan datang'}</span></div>`).join('')}${!dayTasks.length&&!dayExams.length?empty('Tiada aktiviti','Tiada tarikh akhir atau peperiksaan pada hari ini.'):''}</section></div><div class="hint-box">${svg('info')}<span>${preferences.language==='en'?'<strong>Blue</strong> = pending assessments, <strong>green</strong> = completed, <strong>yellow</strong> = exams. Select a date to view details.':'<strong>Biru</strong> = PB belum siap / dihantar, <strong>hijau</strong> = PB selesai, <strong>kuning</strong> = peperiksaan. Tekan mana-mana tarikh untuk melihat butirannya.'}</span></div>`;
   }
   function empty(title,sub) {return `<div class="empty"><div class="empty-icon">${svg('check-circle')}</div><h3>${e(title)}</h3><p>${e(sub)}</p></div>`;}
 
-  // Offline documents are stored in IndexedDB, independently of the small localStorage planner records.
+  // Documents are temporarily cached in IndexedDB for safe previews and transfers.
   const DOCUMENT_DB='pb-workspace-documents-v2', MAX_FILE_BYTES=25*1024*1024;
   let docDB=null,documents=[],docsStatus='loading';
   const docDate = iso => iso&&!Number.isNaN(new Date(iso).getTime())?new Intl.DateTimeFormat(language(),{day:'numeric',month:'short',year:'numeric'}).format(new Date(iso)):'—';
@@ -652,13 +758,13 @@
   function fileCard(d){return `<div class="doc-item"><div class="doc-file-icon">${svg('file-text')}</div><div class="doc-file-content"><strong>${e(d.name)}</strong><p>${readableSize(d.size)} · ${e(docDate(d.createdAt))}${d.notes?` · ${e(d.notes)}`:''}</p></div><div class="doc-actions"><button data-action="open-document" data-id="${e(d.id)}" title="Buka" aria-label="Buka ${e(d.name)}">${svg('eye')}</button><button data-action="download-document" data-id="${e(d.id)}" title="Muat turun" aria-label="Muat turun ${e(d.name)}">${svg('download')}</button><button class="danger" data-action="delete-document" data-id="${e(d.id)}" title="Padam" aria-label="Padam ${e(d.name)}">${svg('trash')}</button></div></div>`;}
   function renderDocsBucket(c,category){const ds=documentsOf(c.id,category);return `<div class="doc-section"><div class="doc-section-head"><b>${docCategory(category)} <span style="font-size:10px;color:var(--muted)">· ${ds.length}</span></b>${docsUploadButton(c.id,category)}</div>${ds.length?ds.map(fileCard).join(''):`<div class="doc-empty">Tiada fail dimuat naik</div>`}</div>`;}
   function renderDocuments(){const activeCourses=state.docCourse==='all'?data.courses:data.courses.filter(c=>c.id===state.docCourse),courseCount=new Set(documents.map(d=>d.course)).size;
-    return `${heading('Pustaka dokumen.','Simpan fail PB dan Maklumat Kursus mengikut kursus, walaupun tanpa internet.',`<button class="btn btn-primary" data-action="add-document">${svg('upload')} Muat naik dokumen</button>`)}
+    return `${heading('Pustaka dokumen.','Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.')}
       ${docsStatus==='error'?`<div class="storage-warning">${svg('alert-circle')} Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.</div>`:''}
       <div class="doc-stat-row"><div class="doc-stat"><span>Jumlah dokumen</span><strong>${documents.length}</strong></div><div class="doc-stat"><span>Kursus berfail</span><strong>${courseCount}</strong></div><div class="doc-stat"><span>Jenis dokumen</span><strong>2</strong></div></div>
       <div class="doc-toolbar"><div class="section-heading" style="margin:0"><div><h2>Dokumen kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div></div><select id="documents-course-filter" class="course-select" aria-label="Pilih kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.docCourse===c.id?'selected':''}>${e(c.id)} — ${e(c.name)}</option>`).join('')}</select><button class="btn btn-primary btn-small" data-action="add-document" ${docsStatus==='ready'?'':'disabled'}>${svg('upload')} Muat naik dokumen</button></div>
-      <div class="doc-courses">${activeCourses.map(c=>{const num=documents.filter(d=>d.course===c.id).length;return `<section class="doc-course" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="doc-course-head"><div class="course-symbol">${e(c.abbr)}</div><div style="min-width:0"><div class="doc-code">${e(c.id)}</div><h2>${e(c.name)}</h2></div><span class="doc-count">${num} fail</span></div>${renderDocsBucket(c,'pb')}${renderDocsBucket(c,'courseinfo')}</section>`;}).join('')}</div>
+      <div class="doc-courses">${activeCourses.map(c=>{const num=documents.filter(d=>d.course===c.id).length;return `<section class="doc-course" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="doc-course-head"><div class="course-symbol">${e(c.id)}</div><div style="min-width:0"><div class="doc-code">${e(c.id)}</div><h2>${e(c.name)}</h2></div><span class="doc-count">${num} fail</span></div>${renderDocsBucket(c,'pb')}${renderDocsBucket(c,'courseinfo')}</section>`;}).join('')}</div>
       ${!data.courses.length?empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.'):''}
-      <div class="hint-box">${svg('shield-check')}<span>Fail tersimpan offline dan boleh disegerakkan ke Google Drive selepas disambungkan.</span></div>`;
+      <div class="hint-box">${svg('shield-check')}<span>Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.</span></div>`;
   }
   function openDocumentUpload(course='',category='pb'){
     if(docsStatus!=='ready')return toast('Storan dokumen belum tersedia.');
@@ -698,12 +804,13 @@
   function selectField(name,label,values,value) {return `<div class="field"><label for="field-${name}">${label}</label><select id="field-${name}" name="${name}">${values.map(([k,v])=>`<option value="${e(k)}" ${k===value?'selected':''}>${e(v)}</option>`).join('')}</select></div>`;}
   function modal(content) {document.getElementById('modal-root').innerHTML=`<div class="modal-backdrop" data-action="close-modal"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-label="${e(state.modal?.label||'Dialog')}">${content}</div>`;document.body.classList.add('modal-open');localizeRoot(document.getElementById('modal-root'));const first=document.querySelector('.modal-panel input:not([type="file"]),.modal-panel select,.modal-panel button'); if(first)first.focus({preventScroll:true});}
   function closeModal() {state.modal=null;document.getElementById('modal-root').innerHTML='';document.body.classList.remove('modal-open');}
-  function openTask(id=null) {if(!data.courses.length){toast('Tambah kursus dahulu sebelum membuat tugasan.');navigate('courses');return;}let t=id?data.tasks.find(t=>t.id===id):null;state.modal={type:'task',id:id||null,label:t?'Edit tugasan':'Tambah tugasan'};let d=t||{title:'',number:'T1',course:state.course!=='all'?state.course:data.courses[0]?.id||'',type:'Penulisan',due:'',group:'',notes:'',status:'pending'};
+  function openTask(id=null) {if(!data.courses.length){toast('Tambah kursus dahulu sebelum membuat tugasan.');navigate('courses');return;}let t=id?data.tasks.find(t=>t.id===id):null;state.modal={type:'task',id:id||null,label:t?'Edit tugasan':'Tambah tugasan'};let d=t||{title:'',number:'T1',course:state.course!=='all'?state.course:data.courses[0]?.id||'',type:'Penulisan',due:'',group:'',notes:'',status:'pending',completed:false,submitted:false};
     modal(`<div class="modal-head"><h2>${t?'Edit tugasan':'Tambah tugasan baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="task-form">
       ${formField('title','Nama tugasan',d.title,'text','required maxlength="140" placeholder="Contoh: Penulisan refleksi"')}
       ${selectField('course','Kursus',data.courses.map(c=>[c.id,`${c.id} — ${c.name}`]),d.course)}
       <div class="field-grid">${formField('number','Nombor tugasan',d.number,'text','maxlength="20" placeholder="T1 / T2 / T3"')}${formField('due','Tarikh akhir',d.due,'date')}</div>
-      <div class="field-grid">${selectField('type','Jenis pentaksiran',['Penulisan','Penghasilan produk','Persembahan','Ujian','Lain-lain'].map(v=>[v,v]),d.type)}${selectField('status','Status',[['pending','Belum hantar'],['submitted','Dihantar'],['completed','Selesai']],d.status)}</div>
+      ${selectField('type','Jenis pentaksiran',['Penulisan','Penghasilan produk','Persembahan','Ujian','Lain-lain'].map(v=>[v,v]),d.type)}
+      <div class="field"><label>Status kemajuan & penghantaran / Completion & submission</label><div class="two-status-inputs"><label><input type="checkbox" name="completed" value="1" ${d.completed?'checked':''}> ${svg('check-circle')} <span>Selesai / Completed</span></label><label><input type="checkbox" name="submitted" value="1" ${d.submitted?'checked':''}> ${svg('upload')} <span>Dihantar / Submitted</span></label></div><small>Menyiapkan tugasan tidak akan menandakannya sebagai dihantar. / Completion does not mean submission.</small></div>
       ${formField('group','Ahli kumpulan / pasangan',d.group,'text','maxlength="160" placeholder="Pilihan"')}
       <div class="field"><label for="field-notes">Nota tambahan</label><textarea id="field-notes" name="notes" maxlength="1200" placeholder="Arahan, bahan, pautan rujukan...">${e(d.notes)}</textarea></div>
       <div class="modal-actions">${t?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-task" data-id="${e(t.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${t?'Simpan perubahan':'Tambah tugasan'}</button></div>
@@ -712,10 +819,15 @@
   function openExam(id=null) {if(!data.courses.length){toast('Tambah kursus dahulu sebelum membuat peperiksaan.');navigate('courses');return;}let x=id?data.exams.find(x=>x.id===id):null;state.modal={type:'exam',id:id||null,label:x?'Edit peperiksaan':'Tambah peperiksaan'};let d=x||{course:data.courses[0]?.id||'',date:'',venue:'',notes:'',status:'pending'};
     modal(`<div class="modal-head"><h2>${x?'Edit peperiksaan':'Tambah peperiksaan'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="exam-form">${selectField('course','Kursus',data.courses.map(c=>[c.id,`${c.id} — ${c.name}`]),d.course)}${formField('date','Tarikh peperiksaan (jika ada)',d.date,'date')}${formField('venue','Lokasi / dewan',d.venue,'text','maxlength="160" placeholder="Belum diumumkan"')}${selectField('status','Status',[['pending','Akan datang'],['completed','Selesai']],d.status)}<div class="field"><label for="field-notes">Nota persediaan</label><textarea id="field-notes" name="notes" maxlength="1200" placeholder="Topik ulang kaji, maklumat penting...">${e(d.notes)}</textarea></div><div class="modal-actions">${x?`<button class="btn btn-danger btn-small push" type="button" data-action="delete-exam" data-id="${e(x.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">Simpan peperiksaan</button></div></form>`);
   }
-  function openCourse(id=null) {let c=id?data.courses.find(x=>x.id===id):null;state.modal={type:'course',id:id||null,label:c?'Edit kursus':'Tambah kursus'};let d=c||{id:'',name:'',abbr:'',color:'#4366cf',soft:'#edf0ff'};
-    modal(`<div class="modal-head"><h2>${c?'Edit kursus':'Tambah kursus baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="course-form">${formField('id','Kod kursus',d.id,'text','required maxlength="20" placeholder="Contoh: PKUK6043"')}${formField('name','Nama kursus',d.name,'text','required maxlength="200" placeholder="Nama penuh kursus"')}${formField('abbr','Singkatan ikon (2 huruf)',d.abbr,'text','maxlength="3" placeholder="PK"')}<div class="hint-box">${svg('info')}<span>Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.</span></div><div class="modal-actions">${c?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-course" data-id="${e(c.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${c?'Simpan kursus':'Tambah kursus'}</button></div></form>`);
+  function openCourse(id=null) {let c=id?data.courses.find(x=>x.id===id):null;state.modal={type:'course',id:id||null,label:c?'Edit kursus':'Tambah kursus'};let d=c||{id:'',name:'',lecturer:'',color:'#4366cf',soft:'#edf0ff'};
+    modal(`<div class="modal-head"><h2>${c?'Edit kursus':'Tambah kursus baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="course-form">${formField('id','Kod kursus',d.id,'text','required maxlength="20" placeholder="Contoh: PKUK6043"')}${formField('name','Nama kursus',d.name,'text','required maxlength="200" placeholder="Nama penuh kursus"')}${formField('lecturer','Nama pensyarah',d.lecturer||'','text','maxlength="160" placeholder="Contoh: Dr. / Puan / Encik ..."')}<div class="hint-box">${svg('info')}<span>Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.</span></div><div class="modal-actions">${c?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-course" data-id="${e(c.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${c?'Simpan kursus':'Tambah kursus'}</button></div></form>`);
   }
-  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} SIMPANAN SETEMPAT</div><p class="subtitle" style="margin-top:11px">Semua perubahan disimpan pada peranti ini. Sandarkan fail JSON agar data tidak hilang apabila data pelayar dipadam atau anda bertukar telefon.</p></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Aplikasi berfungsi offline selepas PWA dipasang. Sambungan ke Google Drive adalah pilihan dan memerlukan kebenaran anda. ${storageEnabled?'Penyimpanan tempatan aktif.':'Amaran: penyimpanan tempatan tidak tersedia pada pelayar ini.'}</div>`);}
+  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} PB WORKSPACE · v3.1</div><p class="subtitle" style="margin-top:11px">Urus tetapan dan sandaran data anda. Google Drive boleh digunakan untuk menyegerakkan perubahan antara peranti.</p></div><div class="settings-option"><div><strong>Nama paparan</strong><p>${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu</p></div><button class="btn btn-light btn-small" data-action="edit-profile">${svg('settings')} Edit</button></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Google Drive memerlukan sambungan akaun anda. Buat sandaran sebelum mengganti data pada peranti lain.</div>`);}
+
+  function openProfile(){
+    state.modal={type:'profile',label:'Nama paparan'};
+    modal(`<div class="modal-head"><h2>Nama paparan / Display name</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="profile-form">${formField('displayName','Nama paparan',data.profile?.displayName||'','text','maxlength="90" placeholder="Nama anda / Your name"')}<p class="subtitle">Nama ini akan dipaparkan sebagai: [Name] • IPG Kampus Kota Bharu dan boleh disegerakkan dengan Google Drive.</p><div class="modal-actions"><span class="push"></span><button type="button" class="btn btn-light" data-action="close-modal">Batal</button><button type="submit" class="btn btn-primary">Simpan profil</button></div></form>`);
+  }
   async function exportData(){try{if(docsStatus==='loading')throw new Error('Sila cuba sebentar lagi.');if(docsStatus==='error')throw new Error('Storan dokumen tidak tersedia.');
     const files=[];for(const meta of documents){const blob=await getStoredFile(meta.id);files.push({...meta,base64:await blobAsBase64(blob)});}
     const out={...data,version:2,files,exportedAt:new Date().toISOString(),app:'PB Workspace IPG'};
@@ -734,7 +846,7 @@
   const DRIVE_ROOT_NAME='PB Workspace';
   const DRIVE_SNAPSHOT_NAME='pb-workspace-data.json';
   let cloudConfig={clientId:'',accountId:'',accountEmail:'',folderId:'',fileId:''};
-  let cloudToken='',cloudTokenExpiresAt=0,cloudRevision=null,cloudDirty=false,cloudBusy=false,cloudTimer=null,cloudChangeId=0,cloudStatus='Local only';
+  let cloudToken='',cloudTokenExpiresAt=0,cloudRevision=null,cloudDirty=false,cloudBusy=false,cloudTimer=null,cloudChangeId=0,cloudStatus='Google Drive not connected';
   try{
     const saved=JSON.parse(localStorage.getItem(CLOUD_SETTINGS)||'{}');
     if(saved&&typeof saved==='object'){
@@ -757,8 +869,8 @@
     const en=preferences.language==='en',connected=cloudReady();
     const details=connected?(cloudConfig.accountEmail||'Google Drive connected'):(cloudConfig.accountId?(en?'Reconnect to renew access':'Sambung semula untuk memperbaharui akses'):(en?'Not connected':'Belum disambungkan'));
     modal(`<div class="modal-head"><h2>${cloudLabel()}</h2><button class="icon-button" data-action="close-modal" aria-label="Close">${svg('x')}</button></div>
-      <p class="subtitle" style="margin:3px 0 18px">${en?'Use your own Google Drive to sync courses, PB tasks, exams and documents between devices. Offline files stay on this device.':'Gunakan Google Drive sendiri untuk menyegerakkan kursus, PB, peperiksaan dan dokumen antara peranti. Fail offline kekal pada peranti ini.'}</p>
-      <div class="hint-box" style="margin-bottom:15px">${svg('info')}<span><strong>${e(details)}</strong> · ${navigator.onLine?'Online':'Offline'}${cloudDirty?` · ${en?'Unsynced changes':'Perubahan belum disegerakkan'}`:''}<div style="margin-top:5px">${e(cloudStatus)}</div></span></div>
+      <p class="subtitle" style="margin:3px 0 18px">${en?'Use your own Google Drive to sync courses, PB tasks, exams and documents between devices. Documents are managed in Google Drive after synchronization.':'Gunakan Google Drive sendiri untuk menyegerakkan kursus, PB, peperiksaan dan dokumen antara peranti. Dokumen akan disegerakkan ke Google Drive selepas disambungkan.'}</p>
+      <div class="hint-box" style="margin-bottom:15px">${svg('info')}<span><strong>${e(details)}</strong> · ${navigator.onLine?(en?'Online':'Dalam talian'):(en?'No connection':'Tiada sambungan')}${cloudDirty?` · ${en?'Unsynced changes':'Perubahan belum disegerakkan'}`:''}<div style="margin-top:5px">${e(cloudStatus)}</div></span></div>
       <div class="settings-option"><div><strong>Google OAuth Client ID</strong><p>${en?'Create a Web application OAuth client in Google Cloud Console. Only enter the Client ID, not a client secret.':'Cipta OAuth Client untuk aplikasi Web di Google Cloud Console. Masukkan Client ID sahaja, bukan client secret.'}</p></div><input id="cloud-client-id" type="text" autocomplete="off" spellcheck="false" style="width:270px;max-width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink)" placeholder="123-abc.apps.googleusercontent.com" value="${e(cloudConfig.clientId)}"></div>
       <div class="settings-option"><div><strong>${en?'Google Cloud configuration':'Konfigurasi Google Cloud'}</strong><p>${en?'Enable Google Drive API and add the website origin under Authorized JavaScript origins.':'Aktifkan Google Drive API dan daftar domain laman di Authorized JavaScript origins.'}</p></div><button class="btn btn-light btn-small" data-action="cloud-config">${svg('check')} ${en?'Save ID':'Simpan ID'}</button></div>
       <div class="settings-option"><div><strong>${en?'Google account':'Akaun Google'}</strong><p>${connected?e(details):(en?'Your password is never handled by PB Workspace.':'Kata laluan anda tidak dikendalikan oleh PB Workspace.')}</p></div>${connected?`<button class="btn btn-light btn-small" data-action="cloud-logout">${en?'Disconnect':'Putuskan'}</button>`:`<button class="btn btn-primary btn-small" data-action="cloud-login">${svg('globe')} ${en?'Connect Google':'Sambung Google'}</button>`}</div>
@@ -813,11 +925,11 @@
   }
   function cloudLogout(){
     cloudToken='';cloudTokenExpiresAt=0;clearTimeout(cloudTimer);
-    cloudSetStatus('Disconnected. Offline data remains on this device.');
+    cloudSetStatus('Google Drive disconnected. Data on this device is unchanged.');
     openCloudSettings();
   }
   async function driveFetch(url,{method='GET',headers={},body}={}){
-    if(!navigator.onLine)throw Error('Device is offline.');
+    if(!navigator.onLine)throw Error('No internet connection.');
     if(!cloudReady())throw Error('Google Drive access expired. Reconnect your Google account.');
     const path=new URL(url);
     if(path.protocol!=='https:'||path.hostname!=='www.googleapis.com')throw Error('Unexpected Google Drive URL');
@@ -907,10 +1019,10 @@
   }
   async function cloudPush(interactive){
     if(!cloudReady())return interactive&&toast('Connect your Google account first.');
-    if(docsStatus!=='ready')return interactive&&toast('Offline document storage is not ready.');
+    if(docsStatus!=='ready')return interactive&&toast('Document storage is not ready.');
     if(cloudBusy)return interactive&&toast('Sync already in progress.');
     if(cloudRevision===null&&!interactive)return;
-    if(!navigator.onLine)return interactive&&toast('Offline. Sync will need a connection.');
+    if(!navigator.onLine)return interactive&&toast('Internet connection required for synchronization.');
     cloudBusy=true;
     const startingChange=cloudChangeId;
     let didCommit=false;
@@ -936,7 +1048,7 @@
         const id=await driveUploadDocument(meta,root,Boolean(old&&!sameFile));
         await cloudSaveDocDriveId(meta,id);
       }
-      const payload={version:3,app:'PB Workspace IPG',updatedAt:new Date().toISOString(),courses:clone(data.courses),tasks:clone(data.tasks),exams:clone(data.exams),documents:documents.map(d=>({...d}))};
+      const payload={version:3,app:'PB Workspace IPG',updatedAt:new Date().toISOString(),courses:clone(data.courses),tasks:clone(data.tasks),exams:clone(data.exams),profile:clone(data.profile),documents:documents.map(d=>({...d}))};
       const jsonBlob=new Blob([JSON.stringify(payload)],{type:'application/json'});
       // Re-read the Drive version just before writing. This is a best-effort check,
       // NOT an atomic compare-and-swap on concurrent Google Drive updates.
@@ -992,7 +1104,7 @@
         incoming.push({meta,blob});
       }
       if(cloudChangeId!==startingChange)throw Error('Local data changed during download. Download canceled to protect your changes.');
-      // Download all files successfully before replacing the offline IndexedDB data.
+      // Download all files successfully before replacing existing document data.
       const db=await docDatabase();
       await new Promise((resolve,reject)=>{
         const tx=db.transaction(['metadata','files'],'readwrite'),ms=tx.objectStore('metadata'),fs=tx.objectStore('files');
@@ -1001,7 +1113,7 @@
         tx.onabort=()=>reject(tx.error||new Error('IndexedDB storage failed'));
       });
       documents=metas.slice().sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
-      data={version:3,courses:content.courses,tasks:content.tasks,exams:content.exams};
+      data=normalizeData({version:4,courses:content.courses,tasks:content.tasks,exams:content.exams,profile:content.profile});
       localStorage.setItem(KEY,JSON.stringify(data));
       cloudRevision=remote.revision;cloudDirty=false;cloudPersist();
       cloudSetStatus('Downloaded from Google Drive · '+new Date().toLocaleString());
@@ -1029,13 +1141,15 @@
     else if(action==='add-course')openCourse();
     else if(action==='edit-course')openCourse(id);
     else if(action==='edit-task')openTask(id);
-    else if(action==='toggle-task') {let t=data.tasks.find(x=>x.id===id);if(t){t.status=complete(t)?'pending':(t.type==='Ujian'?'completed':'submitted');save();render();toast(complete(t)?'Tugasan ditandakan selesai.':'Tugasan dikembalikan ke belum selesai.');}}
+    else if(action==='toggle-task'){const t=data.tasks.find(x=>x.id===id);if(t){t.completed=!t.completed;t.status=t.submitted?'submitted':t.completed?'completed':'pending';save();render();toast(t.completed?'Tugasan ditandakan selesai. Penghantaran belum berubah.':'Status siap dibatalkan. Status penghantaran tidak berubah.');}}
+    else if(action==='toggle-submitted'){const t=data.tasks.find(x=>x.id===id);if(t){t.submitted=!t.submitted;t.status=t.submitted?'submitted':t.completed?'completed':'pending';save();render();toast(t.submitted?'Tugasan ditandakan dihantar.':'Penghantaran dibatalkan.');}}
     else if(action==='filter'){state.filter=b.dataset.filter;render();}
     else if(action==='open-course-documents'){state.docCourse=id;navigate('documents');}
     else if(action==='open-course'){state.course=id;state.filter='all';state.search='';navigate('tasks');}
     else if(action==='add-exam')openExam();
     else if(action==='edit-exam')openExam(id);
     else if(action==='settings')openSettings();
+    else if(action==='edit-profile')openProfile();
     else if(action==='cloud-settings')openCloudSettings();
     else if(action==='cloud-config')cloudConfigure();
     else if(action==='cloud-login')cloudAuthorize();
@@ -1059,7 +1173,7 @@
     else if(action==='export')await exportData();
     else if(action==='import')document.getElementById('import-file').click();
     else if(action==='reset'){if(window.confirm(preferences.language==='en'?'Reset all tasks, courses, exams AND uploaded files to the initial sample data?':'Semua tugasan, kursus, peperiksaan DAN dokumen akan dipadam dan diganti dengan data contoh asal. Teruskan?')){try{await clearDocuments();data=clone(SEED);save();closeModal();navigate('dashboard');toast('Data contoh asal telah dipulihkan.');}catch(err){toast(err.message);}}}
-    else if(action==='new-semester'){if(window.confirm(preferences.language==='en'?'Export a backup before clearing all semester data including files?':'Mulakan semester baharu? Semua rekod dan fail akan disandarkan dahulu sebelum dikosongkan.')){if(!await exportData())return;try{await clearDocuments();data={version:2,courses:[],tasks:[],exams:[]};state.course='all';state.docCourse='all';state.filter='all';state.search='';save();closeModal();navigate('courses');toast('Semester baharu sedia. Tambah kursus pertama anda.');}catch(err){toast(err.message);}}}
+    else if(action==='new-semester'){if(window.confirm(preferences.language==='en'?'Export a backup before clearing all semester data including files?':'Mulakan semester baharu? Semua rekod dan fail akan disandarkan dahulu sebelum dikosongkan.')){if(!await exportData())return;try{await clearDocuments();data=normalizeData({version:4,profile:data.profile,courses:[],tasks:[],exams:[]});state.course='all';state.docCourse='all';state.filter='all';state.search='';save();closeModal();navigate('courses');toast('Semester baharu sedia. Tambah kursus pertama anda.');}catch(err){toast(err.message);}}}
     else if(action==='delete-task'){if(window.confirm('Padam tugasan ini?')){data.tasks=data.tasks.filter(t=>t.id!==id);save();closeModal();render();toast('Tugasan dipadam.');}}
     else if(action==='delete-exam'){if(window.confirm('Padam peperiksaan ini?')){data.exams=data.exams.filter(t=>t.id!==id);save();closeModal();render();toast('Peperiksaan dipadam.');}}
     else if(action==='delete-course'){let related=data.tasks.filter(t=>t.course===id).length+data.exams.filter(x=>x.course===id).length, fileNum=documents.filter(x=>x.course===id).length;
@@ -1069,8 +1183,9 @@
   });
   document.addEventListener('submit',async event=>{let form=event.target;if(form.id==='document-form'){event.preventDefault();const btn=form.querySelector('[type="submit"]'),files=Array.from(form.elements.files.files||[]);if(!files.length)return toast('Pilih sekurang-kurangnya satu fail.');if(files.length>15)return toast('Maksimum 15 fail setiap muat naik.');if(files.some(f=>f.size>MAX_FILE_BYTES))return toast('Saiz maksimum 25 MB setiap fail.');if(!data.courses.some(c=>c.id===form.elements.course.value))return toast('Kursus tidak sah.');
       btn.disabled=true;try{await addStoredDocuments(files,form.elements.course.value,form.elements.category.value,form.elements.notes.value.trim());closeModal();state.docCourse='all';render();toast('Dokumen dimuat naik.');}catch(err){toast('Gagal simpan fail: '+err.message);btn.disabled=false;}return;
-    }else if(form.getAttribute('id')==='course-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.id=(v.id||'').trim().toUpperCase();v.name=(v.name||'').trim();v.abbr=(v.abbr||v.id.slice(0,2)).trim().toUpperCase().slice(0,3);if(!v.id||!v.name)return toast('Sila isi kod dan nama kursus.');let existing=state.modal?.id?data.courses.find(c=>c.id===state.modal.id):null;if(data.courses.some(c=>c.id===v.id&&c!==existing))return toast('Kod kursus ini sudah wujud.');if(existing){let old=existing.id;Object.assign(existing,v);if(old!==v.id){try{await updateCourseDocuments(old,v.id);}catch(err){return toast('Gagal ubah dokumen: '+err.message);}data.tasks.filter(t=>t.course===old).forEach(t=>t.course=v.id);data.exams.filter(x=>x.course===old).forEach(x=>x.course=v.id);if(state.course===old)state.course=v.id;}}else{let palette=[['#4366cf','#edf0ff'],['#0d9284','#e6f7f3'],['#a47a32','#fdf4e5'],['#8b64bb','#f5edff'],['#c16b70','#fff0f0'],['#498ba3','#e8f6fb']][data.courses.length%6];data.courses.push({...v,color:palette[0],soft:palette[1]});}save();closeModal();render();toast(existing?'Kursus dikemas kini.':'Kursus baharu ditambah.');}
-    else if(form.id==='task-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.title=(v.title||'').trim();if(!v.title)return toast('Sila masukkan nama tugasan.');let existing=state.modal?.id?data.tasks.find(t=>t.id===state.modal.id):null;if(existing)Object.assign(existing,v);else data.tasks.push({id:newId('t'),...v});save();closeModal();if(!existing){state.filter='all';state.course='all';state.search='';}render();toast(existing?'Tugasan dikemas kini.':'Tugasan ditambah.');}
+    }else if(form.getAttribute('id')==='course-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.id=(v.id||'').trim().toUpperCase();v.name=(v.name||'').trim();v.lecturer=(v.lecturer||'').trim().slice(0,160);if(!v.id||!v.name)return toast('Sila isi kod dan nama kursus.');let existing=state.modal?.id?data.courses.find(c=>c.id===state.modal.id):null;if(data.courses.some(c=>c.id===v.id&&c!==existing))return toast('Kod kursus ini sudah wujud.');if(existing){let old=existing.id;Object.assign(existing,v);if(old!==v.id){try{await updateCourseDocuments(old,v.id);}catch(err){return toast('Gagal ubah dokumen: '+err.message);}data.tasks.filter(t=>t.course===old).forEach(t=>t.course=v.id);data.exams.filter(x=>x.course===old).forEach(x=>x.course=v.id);if(state.course===old)state.course=v.id;}}else{let palette=[['#4366cf','#edf0ff'],['#0d9284','#e6f7f3'],['#a47a32','#fdf4e5'],['#8b64bb','#f5edff'],['#c16b70','#fff0f0'],['#498ba3','#e8f6fb']][data.courses.length%6];data.courses.push({...v,color:palette[0],soft:palette[1]});}save();closeModal();render();toast(existing?'Kursus dikemas kini.':'Kursus baharu ditambah.');}
+    else if(form.id==='task-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));v.completed=Boolean(form.elements.completed?.checked);v.submitted=Boolean(form.elements.submitted?.checked);v.status=v.submitted?'submitted':v.completed?'completed':'pending';v.title=(v.title||'').trim();if(!v.title)return toast('Sila masukkan nama tugasan.');let existing=state.modal?.id?data.tasks.find(t=>t.id===state.modal.id):null;if(existing)Object.assign(existing,v);else data.tasks.push({id:newId('t'),...v});save();closeModal();if(!existing){state.filter='all';state.course='all';state.search='';}render();toast(existing?'Tugasan dikemas kini.':'Tugasan ditambah.');}
+    else if(form.id==='profile-form'){event.preventDefault();data.profile={displayName:String(form.elements.displayName.value||'').trim().slice(0,90)};save();closeModal();render();toast('Nama paparan berjaya disimpan.');}
     else if(form.id==='exam-form'){event.preventDefault();let v=Object.fromEntries(new FormData(form));let existing=state.modal?.id?data.exams.find(x=>x.id===state.modal.id):null;if(existing)Object.assign(existing,v);else data.exams.push({id:newId('e'),...v});save();closeModal();render();toast(existing?'Peperiksaan dikemas kini.':'Peperiksaan ditambah.');}
   });
   document.addEventListener('input',event=>{if(event.target.matches('[data-search]')){state.search=event.target.value;const el=document.getElementById('task-list-results');if(el){el.innerHTML=renderTaskResults();localizeRoot(el);}}});
@@ -1079,13 +1194,17 @@
     try{if(file.size>180*1024*1024)throw new Error('Fail sandaran terlalu besar (180 MB).');const obj=JSON.parse(await file.text());if(!validateImported(obj))throw new Error('Format sandaran tidak sah.');if(obj.files!==undefined&&(!Array.isArray(obj.files)||obj.files.length>500))throw new Error('Senarai dokumen tidak sah.');
       if(window.confirm(preferences.language==='en'?'Import will replace all existing tasks, courses, exams and uploaded documents. Continue?':'Import akan menggantikan semua tugasan, kursus, peperiksaan dan fail dokumen sedia ada. Teruskan?')){
         if(docsStatus!=='ready')throw new Error('Storan dokumen tidak tersedia.');await replaceAllDocuments(obj.files||[]);
-        data={version:2,courses:obj.courses,tasks:obj.tasks,exams:obj.exams};save();closeModal();state.docCourse='all';state.course='all';navigate('dashboard');toast(preferences.language==='en'?'Backup imported.':'Sandaran berjaya diimport.');
+        data=normalizeData({version:4,courses:obj.courses,tasks:obj.tasks,exams:obj.exams,profile:obj.profile});save();closeModal();state.docCourse='all';state.course='all';navigate('dashboard');toast(preferences.language==='en'?'Backup imported.':'Sandaran berjaya diimport.');
       }
     }catch(err){toast('Gagal import: '+err.message);}event.target.value='';});
 
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.modal)closeModal();});
   render();loadDocuments();
-  if('serviceWorker' in navigator && location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}
+  // v3.1 is online-only: retire the previous PWA cache so updates aren't hidden behind old HTML.
+  if('serviceWorker' in navigator&&location.protocol!=='file:'){
+    window.addEventListener('load',()=>navigator.serviceWorker.getRegistrations().then(list=>Promise.all(list.filter(r=>r.scope.startsWith(location.origin+location.pathname.replace(/[^/]*$/,''))).map(r=>r.unregister()))).catch(()=>{}));
+  }
+  if('caches' in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('pb-workspace-offline-')).map(k=>caches.delete(k)))).catch(()=>{});}
 })();
 </script>
 </body>

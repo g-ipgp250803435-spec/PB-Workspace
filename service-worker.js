@@ -1,22 +1,9 @@
-const CACHE_NAME = 'pb-workspace-offline-v3-drive-1';
-const ASSETS = [
-  './',
-  './index.html',
-  './manifest.webmanifest',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/apple-touch-icon.png'
-];
-self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
-});
-self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('pb-workspace-offline-') && key !== CACHE_NAME).map(key => caches.delete(key)))).then(() => self.clients.claim()));
-});
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
-  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-    if(response.ok) {const copy=response.clone(); caches.open(CACHE_NAME).then(cache => cache.put(event.request,copy));}
-    return response;
-  }).catch(() => event.request.mode === 'navigate' ? caches.match('./index.html') : Response.error())));
-});
+// v3.1 migration: retire the legacy offline service worker and cached pages.
+self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{
+  const keys=await caches.keys();
+  await Promise.all(keys.filter(k=>k.startsWith('pb-workspace-offline-')).map(k=>caches.delete(k)));
+  await self.registration.unregister();
+  const clientsList=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+  for(const client of clientsList){if(client.url.startsWith(self.location.origin))client.navigate(client.url);}
+})()));

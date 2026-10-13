@@ -1,15 +1,25 @@
 {
-  "name": "PB Workspace — IPG",
+  "name": "PB Workspace — IPG Kampus Kota Bharu",
   "short_name": "PB Workspace",
-  "description": "Pengurus PB, peperiksaan dan dokumen kursus IPG. Menyokong BM/EN, tema gelap dan penggunaan offline.",
+  "description": "Pengurusan Pentaksiran Berterusan, kursus, peperiksaan dan dokumen melalui Google Drive.",
   "lang": "ms",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f7fb",
-  "theme_color": "#f6f7fb",
+  "background_color": "#f4f6fa",
+  "theme_color": "#f4f6fa",
   "icons": [
-    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
