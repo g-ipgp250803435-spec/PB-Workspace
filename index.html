@@ -11,8 +11,9 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png" type="image/png">
-  <title>PB Workspace — IPG Kampus Kota Bharu</title>
+  <title>PB Workspace v3.2 — IPG Kampus Kota Bharu</title>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js" defer></script>
   <style>
     :root { --bg:#f6f7fb; --surface:#fff; --ink:#16233b; --muted:#788398; --line:#e9edf3; --blue:#275fe4; --blue-dark:#164abe; --blue-pale:#ebf1ff; --green:#087f71; --green-pale:#e5f6f1; --orange:#a66516; --orange-pale:#fff4e5; --red:#b4474c; --red-pale:#fceced; --shadow:0 10px 36px rgba(31,47,79,.045); --r:18px; }
     * { box-sizing:border-box; }
@@ -402,6 +403,15 @@
     .cal-dots span.submitted{background:#5475e2}
     :root[data-theme="dark"] .two-status-inputs label{background:#1a2a40;border-color:var(--line)}
     @media(max-width:400px){.two-status-inputs{grid-template-columns:1fr}.task-actions{margin-left:0}}
+
+    .rt-status-button{display:inline-flex;align-items:center;gap:7px;min-height:37px;padding:7px 11px;border:1px solid var(--line);border-radius:11px;color:var(--ink);background:var(--surface);font-size:11px;font-weight:730;white-space:nowrap}
+    .rt-status-button svg{height:16px;width:16px;color:var(--blue)}
+    .rt-indicator{color:var(--muted)}.rt-indicator.connected{color:var(--green)}.rt-indicator.warn{color:var(--red)}
+    .rt-input{font-size:11px;padding:9px 10px;background:var(--surface);border:1px solid var(--line);border-radius:9px;color:var(--ink);width:240px;max-width:100%;min-width:100px}
+    :root[data-theme="dark"] .rt-status-button{border-color:var(--line)}
+    @media(max-width:1080px){.rt-status-button{max-width:155px}.rt-indicator{overflow:hidden;text-overflow:ellipsis}}
+    @media(max-width:640px){.rt-status-button{padding:7px 9px;min-height:38px}.rt-indicator{display:none}.rt-status-button svg{width:18px;height:18px}}
+    .doc-toolbar{flex-wrap:wrap}
     @media (prefers-reduced-motion:reduce) {*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
   </style>
 </head>
@@ -592,9 +602,9 @@
     'Contoh: Arahan tugasan daripada pensyarah':'Example: Assessment instructions from lecturer',
     'Buka':'Open','Muat turun':'Download','Fail tidak boleh dipratonton di pelayar ini. Sila muat turun.':'This file cannot be previewed in your browser. Please download it.',
     'Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.':'Document storage is not available in this browser. Try HTTPS or another browser.',
-    'Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.':'Files remain on this device. Export a backup to transfer them to another device.',
+    'Fail PB dan MK dimuat naik atau diambil daripada Google Drive apabila anda menekan tindakan fail.':'Files remain on this device. Export a backup to transfer them to another device.',
     'Tiada fail untuk kursus ini.':'No files for this course.','Nama fail':'Filename','Saiz':'Size',
-    'Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.':'Organize your assessment and course files, and sync them through Google Drive.','Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.':'Documents are organized by course and synced through Google Drive when connected.','Perubahan boleh disegerakkan melalui Google Drive.':'Changes can be synchronized through Google Drive.','Kursus dikemas kini.':'Course updated.','Nama paparan berjaya disimpan.':'Display name saved.','Tugasan ditandakan selesai. Penghantaran belum berubah.':'Task completed. Submission unchanged.','Tugasan ditandakan dihantar.':'Task marked as submitted.','Penghantaran dibatalkan.':'Submission undone.','Status siap dibatalkan. Status penghantaran tidak berubah.':'Completion undone. Submission unchanged.','Nama pensyarah':'Lecturer name','Pensyarah belum ditetapkan':'Lecturer not assigned','Ditanda siap':'Marked completed','Tandakan dihantar':'Mark submitted','Batalkan penghantaran':'Undo submission','Belum dihantar':'Not submitted','Selesai, belum dihantar':'Completed, not submitted','Penghantaran':'Submission','Status kemajuan':'Completion status','Nama paparan':'Display name','Kemas kini profil':'Edit profile','Simpan profil':'Save profile','Status penghantaran':'Submission status','Jumlah dihantar':'Total submitted','Tugasan belum dihantar':'Tasks not submitted','Serah tugasan':'Submit task','Belum siap':'Not completed','Siap':'Completed',
+    'Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.':'Organize your assessment and course files, and sync them through Google Drive.','Fail PB dan MK dimuat naik atau diambil daripada Google Drive apabila anda menekan tindakan fail.':'Documents are organized by course and synced through Google Drive when connected.','Perubahan boleh disegerakkan melalui Google Drive.':'Changes can be synchronized through Google Drive.','Kursus dikemas kini.':'Course updated.','Nama paparan berjaya disimpan.':'Display name saved.','Tugasan ditandakan selesai. Penghantaran belum berubah.':'Task completed. Submission unchanged.','Tugasan ditandakan dihantar.':'Task marked as submitted.','Penghantaran dibatalkan.':'Submission undone.','Status siap dibatalkan. Status penghantaran tidak berubah.':'Completion undone. Submission unchanged.','Nama pensyarah':'Lecturer name','Pensyarah belum ditetapkan':'Lecturer not assigned','Ditanda siap':'Marked completed','Tandakan dihantar':'Mark submitted','Batalkan penghantaran':'Undo submission','Belum dihantar':'Not submitted','Selesai, belum dihantar':'Completed, not submitted','Penghantaran':'Submission','Status kemajuan':'Completion status','Nama paparan':'Display name','Kemas kini profil':'Edit profile','Simpan profil':'Save profile','Status penghantaran':'Submission status','Jumlah dihantar':'Total submitted','Tugasan belum dihantar':'Tasks not submitted','Serah tugasan':'Submit task','Belum siap':'Not completed','Siap':'Completed',
     'Tema':'Theme','Bahasa':'Language','Dokumen dimuat naik.':'Documents uploaded.',
     'Dokumen berjaya dipadam.':'Document deleted.','Dokumen tidak ditemui.':'Document not found.',
     'Muat naik':'Upload','Dokumen kursus':'Course documents',
@@ -644,7 +654,7 @@
   function actionable(t) {return t.type==='Ujian'?!complete(t):!submitted(t);}
   function pendingTasks() {return data.tasks.filter(actionable).sort(sortDue);}
   function sortDue(a,b) {return (a.due||'9999-12-31').localeCompare(b.due||'9999-12-31') || a.title.localeCompare(b.title);}
-  function save() {cloudDirty=true;cloudChangeId++;cloudSchedule();try{localStorage.setItem(KEY,JSON.stringify(data)); storageEnabled=true;}catch(err){storageEnabled=false;toast('Storan peranti tidak tersedia. Sila eksport data sebelum keluar.');}}
+  function save() {realtimeLocalSave();}
   function toast(message) {const el=document.getElementById('toast');el.textContent=translateText(message);el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
   function statusTag(t) {
     const status=[];
@@ -668,7 +678,7 @@
   function heading(title,sub,button){return `<div class="page-head"><div><p class="eyebrow profile-name">${profileLine()}</p><h1>${title}</h1><p class="subtitle">${sub}</p></div>${button||''}</div>`;}
   function navHtml(location){return NAV.map(([id,label,icon])=>`<button class="${location==='desktop'?'nav-btn':''} ${state.view===id?'active':''}" data-action="nav" data-view="${id}" ${state.view===id?'aria-current="page"':''}>${svg(icon)}<span>${label}</span>${location==='desktop'&&(id==='tasks'||id==='documents')?`<span class="nav-count">${id==='tasks'?counts().pending:documents.length}</span>`:''}</button>`).join('');}
   function frame(viewHtml) {return `<div class="app-shell"><aside class="sidebar"><div class="brand"><div class="brand-logo">PB-W.</div><div><div class="brand-title">PB Workspace</div><div class="brand-sub">IPG Kampus Kota Bharu</div></div></div><div class="section-label">MENU UTAMA</div><nav class="desktop-nav" aria-label="Navigasi utama">${navHtml('desktop')}</nav><div class="sidebar-foot"><div class="sidebar-signature">${svg('graduation-cap')}<span>IPG Kampus Kota Bharu<br>Academic Workspace</span></div></div></aside>
-    <div class="workspace"><header class="topbar"><div class="crumb">PB Workspace <span style="color:var(--muted);padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><button class="icon-button" data-action="cloud-settings" title="Google Drive sync" aria-label="Google Drive sync">${svg('globe')}</button><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat(language(),{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="language-toggle" title="Bahasa / Language" aria-label="Bahasa / Language"><span style="font-size:10px;font-weight:800">${preferences.language==='ms'?'EN':'BM'}</span></button><button class="icon-button" data-action="theme-toggle" title="Tema / Theme" aria-label="Tema / Theme">${svg(preferences.theme==='dark'?'sun':'moon')}</button><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
+    <div class="workspace"><header class="topbar"><div class="crumb">PB Workspace <span style="color:var(--muted);padding:0 7px">/</span> <strong>${NAV.find(x=>x[0]===state.view)?.[1]||'Ringkasan'}</strong></div><div class="top-actions"><button class="rt-status-button" data-action="realtime-settings" title="Academic record account" aria-label="Academic record account">${svg('globe')}<span id="rt-indicator" class="rt-indicator">Rekod langsung</span></button><div class="top-date">${svg('calendar-days')}<span>${e(new Intl.DateTimeFormat(language(),{day:'numeric',month:'long',year:'numeric'}).format(new Date()))}</span></div><button class="icon-button" data-action="language-toggle" title="Bahasa / Language" aria-label="Bahasa / Language"><span style="font-size:10px;font-weight:800">${preferences.language==='ms'?'EN':'BM'}</span></button><button class="icon-button" data-action="theme-toggle" title="Tema / Theme" aria-label="Tema / Theme">${svg(preferences.theme==='dark'?'sun':'moon')}</button><button class="icon-button" data-action="settings" title="Tetapan" aria-label="Buka tetapan">${svg('settings')}</button></div></header><main class="main-content">${viewHtml}</main></div>
     <button class="fab" data-action="${state.view==='courses'?'add-course':state.view==='exams'?'add-exam':state.view==='documents'?'add-document':'add-task'}" title="Tambah" aria-label="Tambah rekod">${svg('plus')}</button><nav class="mobile-nav" aria-label="Navigasi mudah alih">${navHtml('mobile')}</nav></div>`;}
   function greeting(){let h=new Date().getHours();if(h<12)return preferences.language==='en'?'Good morning':'Selamat pagi';if(h<18)return preferences.language==='en'?'Good afternoon':'Selamat petang';return preferences.language==='en'?'Good evening':'Selamat petang';}
   function renderDashboard() {
@@ -697,7 +707,7 @@
     <div id="task-list-results">${renderTaskResults()}</div>`;
   }
   function renderCourses() {return `${heading('Kursus semester ini.','Pantau kemajuan semua kursus dan pentaksiran anda.')}<div class="section-heading"><div><h2>Senarai kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div><button class="btn btn-light btn-small" data-action="add-course">${svg('plus')} Tambah kursus</button></div><div class="course-grid">${data.courses.map(c=>{let ts=data.tasks.filter(t=>t.course===c.id),done=ts.filter(complete).length,p=ts.length?Math.round(done/ts.length*100):0;return `<section class="course-card" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="course-card-top"><div class="course-symbol">${e(c.id)}</div>${done===ts.length?'<span class="status done">Lengkap</span>':`<span class="status pending">${ts.length-done} belum selesai</span>`}</div><h3 class="course-card-name">${e(c.name)}</h3><div class="course-card-code">${svg('graduation-cap')} ${e(c.lecturer||'Pensyarah belum ditetapkan')}</div><div class="course-bottom"><strong>Kemajuan PB</strong><span>${done}/${ts.length} · ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div><div class="course-card-foot"><span>${ts.length} pentaksiran berterusan</span><div style="display:flex;align-items:center;gap:12px"><button data-action="edit-course" data-id="${e(c.id)}">Edit</button><button data-action="open-course-documents" data-id="${e(c.id)}">Dokumen</button><button data-action="open-course" data-id="${e(c.id)}">Tugasan ${svg('arrow-right')}</button></div></div></section>`;}).join('')}</div>${data.courses.length?'':empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.')}`;}
-  function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Perubahan boleh disegerakkan melalui Google Drive.</span></div>`;}
+  function renderExams() {const completed=data.exams.filter(x=>x.status==='completed').length;return `${heading('Peperiksaan akhir.','Rancang persediaan dan rekod tarikh peperiksaan anda.')}<div class="section-heading"><div><h2>Senarai peperiksaan</h2><p class="section-caption">${completed} daripada ${data.exams.length} selesai</p></div><button class="btn btn-light btn-small" data-action="add-exam">${svg('plus')} Tambah</button></div>${data.exams.length?data.exams.slice().sort((a,b)=>(a.date||'9999-12-31').localeCompare(b.date||'9999-12-31')).map(x=>{const c=findCourse(x.course);return `<div class="exam-card"><div class="exam-icon">${svg('graduation-cap')}</div><div class="exam-copy"><strong>${e(c.name)}</strong><small>${e(c.id)} · ${x.date?e(formatDate(x.date,{day:'numeric',month:'long',year:'numeric'})):'Tarikh belum diumumkan'}${x.venue?` · ${e(x.venue)}`:''}</small></div><div class="exam-right">${x.status==='completed'?'<span class="status done">Selesai</span>':'<span class="status pending">Akan datang</span>'}<button class="btn btn-light btn-small" data-action="edit-exam" data-id="${e(x.id)}">Edit</button></div></div>`;}).join(''):empty('Belum ada peperiksaan','Tambah peperiksaan untuk mula merancang.')}<div class="hint-box">${svg('info')}<span>Tarikh peperiksaan belum dinyatakan dalam catatan asal. Tekan <strong>Edit</strong> apabila jadual rasmi dikeluarkan. Rekod dikemas kini secara automatik antara peranti selepas Log masuk Rekod Langsung.</span></div>`;}
   function renderCalendar() {
     let y=state.calMonth.getFullYear(),m=state.calMonth.getMonth(),first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();let cells=Math.ceil((offset+days)/7)*7;
     let html='';for(let i=0;i<cells;i++){let d=new Date(y,m,1-offset+i),key=dateKey(d),items=data.tasks.filter(t=>t.due===key),exams=data.exams.filter(x=>x.date===key),outside=d.getMonth()!==m;html+=`<button class="calendar-day ${outside?'outside':''} ${key===today()?'today':''} ${key===state.selectedDay?'selected':''}" data-action="select-day" data-day="${key}" aria-label="${e(formatDate(key,{day:'numeric',month:'long',year:'numeric'}))}${items.length?' · '+items.length+' tugasan':''}"><strong>${d.getDate()}</strong>${items.length||exams.length?`<div class="cal-dots">${items.slice(0,3).map(t=>`<span class="${submitted(t)?'submitted':complete(t)?'done':''}"></span>`).join('')}${exams.length?'<span class="exam"></span>':''}</div>`:''}</button>`;}
@@ -733,15 +743,15 @@
       for(const file of files){const id=newId('d');const row={id,course,category,name:file.name,size:file.size,mime:file.type||'application/octet-stream',notes,createdAt:now};
         meta.put(row);bin.put({id,blob:file});metas.push(row);}
       tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('Storage quota exceeded'));tx.onabort=()=>reject(tx.error||new Error('Storage quota exceeded'));
-    });documents.unshift(...metas);documents.sort((a,b)=>b.createdAt.localeCompare(a.createdAt));cloudDirty=true;cloudChangeId++;cloudSchedule();
+    });documents.unshift(...metas);documents.sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
   }
   async function removeStoredDocument(id){const db=await docDatabase();await new Promise((resolve,reject)=>{
     const tx=db.transaction(['metadata','files'],'readwrite');tx.objectStore('metadata').delete(id);tx.objectStore('files').delete(id);
     tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
-  });documents=documents.filter(x=>x.id!==id);cloudDirty=true;cloudChangeId++;cloudSchedule();}
+  });documents=documents.filter(x=>x.id!==id);}
   async function updateCourseDocuments(oldCode,newCode){if(oldCode===newCode)return;const targets=documents.filter(x=>x.course===oldCode);if(!targets.length)return;
     const db=await docDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction('metadata','readwrite');for(const m of targets)tx.objectStore('metadata').put({...m,course:newCode});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});
-    targets.forEach(x=>x.course=newCode);cloudDirty=true;cloudChangeId++;cloudSchedule();
+    targets.forEach(x=>x.course=newCode);
   }
   async function clearDocuments(ids=null){if(docsStatus!=='ready'){
       if(ids===null||documents.some(x=>ids.includes(x.course)))throw new Error('Document storage is not ready');return;
@@ -751,7 +761,7 @@
       if(ids===null){tx.objectStore('metadata').clear();tx.objectStore('files').clear();}
       else for(const row of deleting){tx.objectStore('metadata').delete(row.id);tx.objectStore('files').delete(row.id);}
       tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
-    });documents=ids===null?[]:documents.filter(x=>!ids.includes(x.course));cloudDirty=true;cloudChangeId++;cloudSchedule();
+    });documents=ids===null?[]:documents.filter(x=>!ids.includes(x.course));
   }
   function documentsOf(course,category){return documents.filter(x=>x.course===course&&x.category===category);}
   function docsUploadButton(course='',category=''){return `<button class="btn btn-light btn-small" data-action="add-document" ${course?`data-course="${e(course)}"`:''} ${category?`data-category="${e(category)}"`:''}>${svg('plus')} <span>Tambah dokumen</span></button>`;}
@@ -761,10 +771,10 @@
     return `${heading('Pustaka dokumen.','Simpan fail PB dan Maklumat Kursus mengikut kursus dan segerakkan melalui Google Drive.')}
       ${docsStatus==='error'?`<div class="storage-warning">${svg('alert-circle')} Storan dokumen tidak tersedia pada pelayar ini. Cuba buka aplikasi melalui HTTPS atau pelayar lain.</div>`:''}
       <div class="doc-stat-row"><div class="doc-stat"><span>Jumlah dokumen</span><strong>${documents.length}</strong></div><div class="doc-stat"><span>Kursus berfail</span><strong>${courseCount}</strong></div><div class="doc-stat"><span>Jenis dokumen</span><strong>2</strong></div></div>
-      <div class="doc-toolbar"><div class="section-heading" style="margin:0"><div><h2>Dokumen kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div></div><select id="documents-course-filter" class="course-select" aria-label="Pilih kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.docCourse===c.id?'selected':''}>${e(c.id)} — ${e(c.name)}</option>`).join('')}</select><button class="btn btn-primary btn-small" data-action="add-document" ${docsStatus==='ready'?'':'disabled'}>${svg('upload')} Muat naik dokumen</button></div>
+      <div class="doc-toolbar"><div class="section-heading" style="margin:0"><div><h2>Dokumen kursus</h2><p class="section-caption">${data.courses.length} kursus didaftarkan</p></div></div><select id="documents-course-filter" class="course-select" aria-label="Pilih kursus"><option value="all">Semua kursus</option>${data.courses.map(c=>`<option value="${e(c.id)}" ${state.docCourse===c.id?'selected':''}>${e(c.id)} — ${e(c.name)}</option>`).join('')}</select><button class="btn btn-light btn-small" data-action="cloud-settings">${svg('globe')} Google Drive</button><button class="btn btn-light btn-small" data-action="drive-doc-download">${svg('download')} ${preferences.language==='en'?'Get files':'Ambil fail'}</button><button class="btn btn-light btn-small" data-action="drive-doc-upload">${svg('upload')} ${preferences.language==='en'?'Upload files':'Hantar fail'}</button><button class="btn btn-primary btn-small" data-action="add-document" ${docsStatus==='ready'?'':'disabled'}>${svg('plus')} Tambah dokumen</button></div>
       <div class="doc-courses">${activeCourses.map(c=>{const num=documents.filter(d=>d.course===c.id).length;return `<section class="doc-course" style="--accent:${e(c.color)};--soft:${e(c.soft)}"><div class="doc-course-head"><div class="course-symbol">${e(c.id)}</div><div style="min-width:0"><div class="doc-code">${e(c.id)}</div><h2>${e(c.name)}</h2></div><span class="doc-count">${num} fail</span></div>${renderDocsBucket(c,'pb')}${renderDocsBucket(c,'courseinfo')}</section>`;}).join('')}</div>
       ${!data.courses.length?empty('Belum ada kursus','Tambah kursus untuk mula merekod pentaksiran anda.'):''}
-      <div class="hint-box">${svg('shield-check')}<span>Dokumen disusun mengikut kursus dan disegerakkan melalui Google Drive apabila akaun disambungkan.</span></div>`;
+      <div class="hint-box">${svg('shield-check')}<span>Fail PB dan MK dikendalikan melalui Google Drive sahaja. Semua tugasan, kursus dan peperiksaan disegerakkan automatik melalui Rekod Langsung selepas akaun disambungkan.</span></div>`;
   }
   function openDocumentUpload(course='',category='pb'){
     if(docsStatus!=='ready')return toast('Storan dokumen belum tersedia.');
@@ -798,7 +808,7 @@
     documents=parsed.map(x=>x.meta).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));docsStatus='ready';
   }
 
-  function render() {const views={dashboard:renderDashboard,tasks:renderTasks,courses:renderCourses,documents:renderDocuments,calendar:renderCalendar,exams:renderExams};const root=document.getElementById('app');root.innerHTML=frame((views[state.view]||renderDashboard)());localizeRoot(root);}
+  function render() {const views={dashboard:renderDashboard,tasks:renderTasks,courses:renderCourses,documents:renderDocuments,calendar:renderCalendar,exams:renderExams};const root=document.getElementById('app');root.innerHTML=frame((views[state.view]||renderDashboard)());localizeRoot(root);realtimeUI();}
   function navigate(view) {state.view=view;if(view==='tasks'){}render();window.scrollTo({top:0,behavior:'instant'});}
   function formField(name,label,value='',type='text',extra='') {return `<div class="field"><label for="field-${name}">${label}</label><input id="field-${name}" name="${name}" type="${type}" value="${e(value)}" ${extra}></div>`;}
   function selectField(name,label,values,value) {return `<div class="field"><label for="field-${name}">${label}</label><select id="field-${name}" name="${name}">${values.map(([k,v])=>`<option value="${e(k)}" ${k===value?'selected':''}>${e(v)}</option>`).join('')}</select></div>`;}
@@ -822,11 +832,11 @@
   function openCourse(id=null) {let c=id?data.courses.find(x=>x.id===id):null;state.modal={type:'course',id:id||null,label:c?'Edit kursus':'Tambah kursus'};let d=c||{id:'',name:'',lecturer:'',color:'#4366cf',soft:'#edf0ff'};
     modal(`<div class="modal-head"><h2>${c?'Edit kursus':'Tambah kursus baharu'}</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="course-form">${formField('id','Kod kursus',d.id,'text','required maxlength="20" placeholder="Contoh: PKUK6043"')}${formField('name','Nama kursus',d.name,'text','required maxlength="200" placeholder="Nama penuh kursus"')}${formField('lecturer','Nama pensyarah',d.lecturer||'','text','maxlength="160" placeholder="Contoh: Dr. / Puan / Encik ..."')}<div class="hint-box">${svg('info')}<span>Jika anda mengubah kod kursus, semua tugasan dan peperiksaan yang berkaitan akan dikemas kini secara automatik.</span></div><div class="modal-actions">${c?`<button type="button" class="btn btn-danger btn-small push" data-action="delete-course" data-id="${e(c.id)}">${svg('trash')} Padam</button>`:'<span class="push"></span>'}<button class="btn btn-light" type="button" data-action="close-modal">Batal</button><button class="btn btn-primary" type="submit">${c?'Simpan kursus':'Tambah kursus'}</button></div></form>`);
   }
-  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} PB WORKSPACE · v3.1</div><p class="subtitle" style="margin-top:11px">Urus tetapan dan sandaran data anda. Google Drive boleh digunakan untuk menyegerakkan perubahan antara peranti.</p></div><div class="settings-option"><div><strong>Nama paparan</strong><p>${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu</p></div><button class="btn btn-light btn-small" data-action="edit-profile">${svg('settings')} Edit</button></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Google Drive memerlukan sambungan akaun anda. Buat sandaran sebelum mengganti data pada peranti lain.</div>`);}
+  function openSettings() {state.modal={type:'settings',label:'Tetapan dan sandaran'};modal(`<div class="modal-head"><h2>Tetapan & sandaran</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><div style="margin-bottom:17px"><div class="hero-tag" style="background:#eaf7f1;border-color:#d5f0e4;color:#138670">${svg('shield-check')} PB WORKSPACE · v3.2</div><p class="subtitle" style="margin-top:11px">Urus tetapan dan sandaran data anda. Rekod akademik disegerakkan secara automatik melalui Rekod Langsung. Google Drive hanya untuk fail PB / MK.</p></div><div class="settings-option"><div><strong>Nama paparan</strong><p>${e(data.profile?.displayName||'[Name]')} • IPG Kampus Kota Bharu</p></div><button class="btn btn-light btn-small" data-action="edit-profile">${svg('settings')} Edit</button></div><div class="settings-option"><div><strong>${preferences.language==='en'?'Automatic record updates':'Rekod automatik antara peranti'}</strong><p>${e(realtimeStatus)} · ${preferences.language==='en'?'Courses, PB tasks, calendar and exams':'Kursus, PB, kalendar dan peperiksaan'}</p></div><button class="btn btn-primary btn-small" data-action="realtime-settings">${svg('globe')} ${preferences.language==='en'?'Account':'Akaun'}</button></div><div class="settings-option"><div><strong>Bahasa aplikasi</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-language" data-value="ms" class="${preferences.language==='ms'?'selected':''}" aria-pressed="${preferences.language==='ms'}">BM</button><button data-action="set-language" data-value="en" class="${preferences.language==='en'?'selected':''}" aria-pressed="${preferences.language==='en'}">EN</button></div></div><div class="settings-option"><div><strong>Tema paparan</strong><p>Pilihan anda disimpan pada peranti ini.</p></div><div class="setting-choices"><button data-action="set-theme" data-value="light" class="${preferences.theme==='light'?'selected':''}" aria-pressed="${preferences.theme==='light'}">${svg('sun')} Cerah</button><button data-action="set-theme" data-value="dark" class="${preferences.theme==='dark'?'selected':''}" aria-pressed="${preferences.theme==='dark'}">${svg('moon')} Gelap</button></div></div><div class="settings-option"><div><strong>Eksport sandaran</strong><p>Muat turun tugasan, kursus, peperiksaan dan semua fail dokumen.</p></div><button class="btn btn-light btn-small" data-action="export">${svg('download')} Eksport</button></div><div class="settings-option"><div><strong>Import sandaran</strong><p>Pulihkan data daripada fail JSON yang pernah dieksport.</p></div><button class="btn btn-light btn-small" data-action="import">${svg('upload')} Import</button></div><div class="settings-option"><div><strong>Mulakan semester baharu</strong><p>Eksport sandaran dan kosongkan kursus, PB, peperiksaan serta dokumen.</p></div><button class="btn btn-light btn-small" data-action="new-semester">${svg('plus')} Baharu</button></div><div class="settings-option"><div><strong>Set semula contoh asal</strong><p>Ganti semua data dengan senarai asal yang diberikan.</p></div><button class="btn btn-danger btn-small" data-action="reset">${svg('trash')} Reset</button></div><div class="settings-about">${svg('info')} <strong>Privasi:</strong> Rekod memerlukan akaun Rekod Langsung dan dokumen memerlukan Google Drive. Sandarkan data sebelum naik taraf.</div>`);}
 
   function openProfile(){
     state.modal={type:'profile',label:'Nama paparan'};
-    modal(`<div class="modal-head"><h2>Nama paparan / Display name</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="profile-form">${formField('displayName','Nama paparan',data.profile?.displayName||'','text','maxlength="90" placeholder="Nama anda / Your name"')}<p class="subtitle">Nama ini akan dipaparkan sebagai: [Name] • IPG Kampus Kota Bharu dan boleh disegerakkan dengan Google Drive.</p><div class="modal-actions"><span class="push"></span><button type="button" class="btn btn-light" data-action="close-modal">Batal</button><button type="submit" class="btn btn-primary">Simpan profil</button></div></form>`);
+    modal(`<div class="modal-head"><h2>Nama paparan / Display name</h2><button class="icon-button" data-action="close-modal" aria-label="Tutup">${svg('x')}</button></div><form id="profile-form">${formField('displayName','Nama paparan',data.profile?.displayName||'','text','maxlength="90" placeholder="Nama anda / Your name"')}<p class="subtitle">Nama ini akan dipaparkan sebagai: [Name] • IPG Kampus Kota Bharu dan disegerakkan melalui Rekod Langsung apabila akaun disambungkan.</p><div class="modal-actions"><span class="push"></span><button type="button" class="btn btn-light" data-action="close-modal">Batal</button><button type="submit" class="btn btn-primary">Simpan profil</button></div></form>`);
   }
   async function exportData(){try{if(docsStatus==='loading')throw new Error('Sila cuba sebentar lagi.');if(docsStatus==='error')throw new Error('Storan dokumen tidak tersedia.');
     const files=[];for(const meta of documents){const blob=await getStoredFile(meta.id);files.push({...meta,base64:await blobAsBase64(blob)});}
@@ -837,303 +847,404 @@
   function newId(prefix) {return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
   function validateImported(v) {if(!v||!Array.isArray(v.courses)||!Array.isArray(v.tasks)||!Array.isArray(v.exams))return false;if(v.courses.length>100||v.tasks.length>10000||v.exams.length>1000)return false;return v.courses.every(c=>typeof c.id==='string'&&typeof c.name==='string')&&v.tasks.every(t=>typeof t.id==='string'&&typeof t.title==='string'&&typeof t.course==='string'&&['pending','submitted','completed'].includes(t.status))&&v.exams.every(x=>typeof x.id==='string'&&typeof x.course==='string'&&['pending','completed'].includes(x.status));}
 
-  // v3 Drive-only backend. Google Identity Services provides short-lived OAuth tokens
-  // in memory; no account password, refresh token or secret is stored in the PWA.
+  // v3.2 architecture: live academic records -> Supabase; PB/MK files -> Google Drive on demand.
+  // Google Drive is NEVER called by save() or by a change to a task/course/profile/exam.
+  const RT_SETTINGS='pb-workspace-live-config-v32';
+  const RT_STATE='pb-workspace-live-pending-v32';
+  const RT_SNAPSHOT='pb-workspace-live-last-v32';
+  const RT_TABLE='pb_records';
+  let realtimeConfig={url:'',key:'',lastUid:''};
+  let realtimeClient=null,realtimeUser=null,realtimeChannel=null,realtimeReady=false,realtimeBusy=false,realtimeConnecting=false;
+  let realtimeStatus='Belum disambungkan / Not connected',realtimeTimer=null,realtimeFetchTimer=null;
+  let realtimeVersions={},realtimePending=new Map(),realtimeBaseline=clone(data),realtimeConflict=false;
+  try {
+    const c=JSON.parse(localStorage.getItem(RT_SETTINGS)||'{}');
+    if(c&&typeof c==='object')for(const field of Object.keys(realtimeConfig))if(typeof c[field]==='string')realtimeConfig[field]=c[field];
+    const p=JSON.parse(localStorage.getItem(RT_STATE)||'{}');
+    if(p&&p.uid===realtimeConfig.lastUid){realtimeVersions=p.versions||{};realtimePending=new Map(Object.entries(p.pending||{}));}
+  }catch(_err){}
+  const recordKinds=[['course','courses'],['task','tasks'],['exam','exams']];
+  const recordKey=(type,id)=>type+'|'+id;
+  const languageEN=()=>preferences.language==='en';
+  function persistAcademic(){try{localStorage.setItem(KEY,JSON.stringify(data));storageEnabled=true;}catch(_err){storageEnabled=false;toast('Unable to save local academic records.');}}
+  function realtimeStore(){
+    try{
+      localStorage.setItem(RT_STATE,JSON.stringify({uid:realtimeConfig.lastUid,versions:realtimeVersions,pending:Object.fromEntries(realtimePending)}));
+    }catch(err){console.warn('Academic sync queue could not be saved:',err);}
+  }
+  function realtimeUI(){
+    const el=document.getElementById('rt-indicator');if(!el)return;
+    el.textContent=realtimeConflict?(languageEN()?'Review changes':'Semak perubahan'):
+      !realtimeReady?(languageEN()?'Connect records':'Sambung rekod'):
+      realtimePending.size?(languageEN()?`${realtimePending.size} pending`:`${realtimePending.size} menunggu`):
+      (languageEN()?'Records up to date':'Rekod terkini');
+    el.className='rt-indicator '+(realtimeConflict?'warn':realtimeReady?'connected':'');
+    el.title=realtimeStatus;
+  }
+  function snapshotEntries(snapshot){
+    const map=new Map();
+    for(const [kind,field] of recordKinds)for(const row of snapshot[field]||[])map.set(recordKey(kind,String(row.id)),{kind,id:String(row.id),payload:row});
+    map.set('profile|self',{kind:'profile',id:'self',payload:snapshot.profile||{displayName:''}});
+    return map;
+  }
+  function queueRecord(kind,id,payload,deleted){
+    const k=recordKey(kind,id),prior=realtimePending.get(k);
+    realtimePending.set(k,{kind,id,payload:deleted?{}:clone(payload),deleted:Boolean(deleted),expected:prior?prior.expected:(realtimeVersions[k]||0),blocked:false});
+  }
+  function realtimeLocalSave(){
+    const before=snapshotEntries(realtimeBaseline),after=snapshotEntries(data);
+    for(const [k,old] of before){
+      if(!after.has(k))queueRecord(old.kind,old.id,{},true);
+      else if(JSON.stringify(old.payload)!==JSON.stringify(after.get(k).payload))queueRecord(old.kind,old.id,after.get(k).payload,false);
+    }
+    for(const [k,value] of after)if(!before.has(k))queueRecord(value.kind,value.id,value.payload,false);
+    realtimeBaseline=clone(data);
+    persistAcademic();realtimeStore();realtimeUI();realtimeSchedule();
+  }
+  function realtimeSchedule(delay=450){
+    clearTimeout(realtimeTimer);
+    if(!realtimeReady||!navigator.onLine||!realtimePending.size)return;
+    realtimeTimer=setTimeout(()=>realtimeFlush(),delay);
+  }
+  function openRealtimeSettings(){
+    state.modal={type:'realtime',label:'Rekod Langsung / Live records'};
+    const en=languageEN(),logged=Boolean(realtimeUser),issues=[...realtimePending.values()].filter(x=>x.blocked).length;
+    modal(`<div class="modal-head"><h2>${en?'Automatic academic updates':'Kemas kini rekod automatik'}</h2><button class="icon-button" data-action="close-modal" aria-label="Close">${svg('x')}</button></div>
+      <p class="subtitle" style="margin:0 0 16px">${en?'Your profile, courses, task completion/submission, calendar and exams update across signed-in devices without an Upload/Download button. PB/MK files stay in the Documents tab and use Google Drive separately.':'Nama, kursus, status siap/hantar tugasan, kalendar dan peperiksaan dikemas kini pada semua peranti yang log masuk, tanpa menekan Upload/Download. Fail PB/MK sahaja menggunakan Google Drive di tab Dokumen.'}</p>
+      <div class="hint-box">${svg('info')}<span><strong>${e(realtimeStatus)}</strong><div>${e(logged?realtimeUser.email:'No academic records account signed in')} · ${realtimePending.size} ${en?'local changes queued':'perubahan menunggu'}${issues?` · ${issues} ${en?'conflicts':'konflik'}`:''}</div></span></div>
+      <div class="settings-option"><div><strong>Supabase Project URL</strong><p>${en?'Public project URL (not a service role key)':'URL projek Supabase (bukan service role key)'}</p></div><input class="rt-input" id="rt-url" placeholder="https://your-project.supabase.co" value="${e(realtimeConfig.url)}"></div>
+      <div class="settings-option"><div><strong>Supabase publishable / anon key</strong><p>${en?'Use only a public browser key. Keep RLS enabled.':'Gunakan kunci awam pelayar sahaja. Kekalkan RLS.'}</p></div><input class="rt-input" id="rt-key" placeholder="sb_publishable_..." value="${e(realtimeConfig.key)}"></div>
+      <div class="settings-option"><div><strong>${en?'Save connection':'Simpan sambungan'}</strong><p>${en?'Run the included SQL in Supabase first. This is a one-time setup.':'Jalankan SQL dalam Supabase dahulu. Tetapan ini hanya sekali.'}</p></div><button class="btn btn-light btn-small" data-action="rt-config">${svg('check')} ${en?'Save':'Simpan'}</button></div>
+      ${logged?`<div class="settings-option"><div><strong>${e(realtimeUser.email)}</strong><p>${en?'Changes synchronize automatically while signed in.':'Perubahan disegerakkan automatik semasa log masuk.'}</p></div><button class="btn btn-light btn-small" data-action="rt-logout">${en?'Sign out':'Log keluar'}</button></div>`:
+      `<div class="field-grid"><div class="field"><label for="rt-email">Email</label><input id="rt-email" type="email" autocomplete="email" placeholder="email@example.com"></div><div class="field"><label for="rt-password">Password / Kata laluan</label><input id="rt-password" type="password" autocomplete="current-password" minlength="6"></div></div>
+      <div class="modal-actions"><button class="btn btn-light" data-action="rt-signup">${en?'Create account':'Daftar akaun'}</button><button class="btn btn-primary" data-action="rt-login">${en?'Sign in':'Log masuk'}</button></div>`}
+      ${issues?`<div class="settings-option"><div><strong>${en?'Conflicting edits':'Perubahan bertindih'}</strong><p>${en?'Some records changed elsewhere before your local edits could reach the cloud. Export a backup before resolving.':'Sesetengah rekod diubah pada peranti lain sebelum perubahan anda dihantar. Eksport sandaran dahulu.'}</p></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn btn-light btn-small" data-action="rt-use-remote">${en?'Use cloud':'Guna awan'}</button><button class="btn btn-light btn-small" data-action="rt-use-local">${en?'Keep mine':'Kekalkan saya'}</button></div></div>`:''}
+      <div class="settings-about">${svg('shield-check')} ${en?'Academic records: Supabase database with per-user security. Uploaded documents: Google Drive only. A one-time initial import happens automatically for an empty account; signing into an existing account downloads its academic records.':'Rekod akademik: pangkalan data Supabase dengan kawalan setiap pengguna. Dokumen: Google Drive sahaja. Import awal ke akaun kosong dilakukan secara automatik; log masuk ke akaun sedia ada mengambil rekod akademik.'}</div>`);
+  }
+  function configureRealtime(){
+    const url=(document.getElementById('rt-url')?.value||'').trim().replace(/\/$/,'');
+    const key=(document.getElementById('rt-key')?.value||'').trim();
+    if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url)||!(/^(sb_publishable_|eyJ)/.test(key)))return toast('Invalid Supabase URL or publishable/anon key.');
+    if(realtimeUser)return toast('Sign out before changing your Supabase project.');
+    realtimeConfig={...realtimeConfig,url,key};
+    localStorage.setItem(RT_SETTINGS,JSON.stringify(realtimeConfig));
+    realtimeClient=null;realtimeBoot();toast('Academic records service configured.');
+    openRealtimeSettings();
+  }
+  async function realtimeBoot(){
+    if(!realtimeConfig.url||!realtimeConfig.key){realtimeStatus='Set up academic records in Settings';realtimeUI();return;}
+    if(!window.supabase?.createClient){realtimeStatus='Supabase library unavailable; check connection';realtimeUI();return;}
+    if(realtimeClient)return;
+    try{
+      realtimeClient=window.supabase.createClient(realtimeConfig.url,realtimeConfig.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
+      realtimeClient.auth.onAuthStateChange((event,session)=>{
+        if(event==='SIGNED_IN'&&session?.user&&!realtimeReady)setTimeout(()=>realtimeConnect(session.user),0);
+        if(event==='SIGNED_OUT')realtimeDisconnect();
+      });
+      const {data:auth,error}=await realtimeClient.auth.getSession();if(error)throw error;
+      if(auth?.session?.user)await realtimeConnect(auth.session.user);
+      else{realtimeStatus='Sign in to enable automatic record updates';realtimeUI();}
+    }catch(err){realtimeStatus='Setup error: '+err.message;realtimeUI();}
+  }
+  async function realtimeLogin(){
+    if(!realtimeClient)return toast('Save the Supabase connection first.');
+    const email=document.getElementById('rt-email')?.value.trim()||'',password=document.getElementById('rt-password')?.value||'';
+    if(!email||!password)return toast('Enter email and password.');
+    const {data:auth,error}=await realtimeClient.auth.signInWithPassword({email,password});
+    if(error){realtimeStatus=error.message;toast(error.message);return;}
+    await realtimeConnect(auth.user);openRealtimeSettings();
+  }
+  async function realtimeSignUp(){
+    if(!realtimeClient)return toast('Save the Supabase connection first.');
+    const email=document.getElementById('rt-email')?.value.trim()||'',password=document.getElementById('rt-password')?.value||'';
+    if(!email||password.length<6)return toast('Enter an email and password of at least 6 characters.');
+    const {data:auth,error}=await realtimeClient.auth.signUp({email,password});
+    if(error)return toast(error.message);
+    if(auth.session&&auth.user){await realtimeConnect(auth.user);openRealtimeSettings();}
+    else toast('Account created. Check your email to confirm, then sign in.');
+  }
+  function realtimeDisconnect(){
+    realtimeReady=false;realtimeUser=null;clearTimeout(realtimeTimer);clearTimeout(realtimeFetchTimer);
+    if(realtimeChannel&&realtimeClient)realtimeClient.removeChannel(realtimeChannel);
+    realtimeChannel=null;realtimeStatus='Signed out · records are stored on this device';realtimeUI();
+  }
+  async function realtimeLogout(){
+    if(realtimeClient)await realtimeClient.auth.signOut();realtimeDisconnect();openRealtimeSettings();
+  }
+  async function realtimeConnect(user){
+    if(!user||!realtimeClient||realtimeBusy||realtimeConnecting)return;
+    if(realtimeReady&&realtimeUser?.id===user.id)return;
+    if(realtimeConfig.lastUid&&realtimeConfig.lastUid!==user.id&&realtimePending.size){
+      realtimeStatus='Pending edits belong to another account. Export a backup first.';realtimeUI();return;
+    }
+    if(realtimeConfig.lastUid!==user.id){
+      // Preserve pre-sign-in edits for the very first account; never reuse edits owned by another user.
+      if(realtimeConfig.lastUid)realtimePending.clear();
+      realtimeConfig.lastUid=user.id;realtimeVersions={};
+      localStorage.setItem(RT_SETTINGS,JSON.stringify(realtimeConfig));realtimeStore();
+    }
+    realtimeConnecting=true;realtimeUser=user;realtimeStatus='Connecting to academic records…';realtimeUI();
+    try{
+      const rows=await realtimeFetch();
+      // A new account gets the current device's workspace once; this is setup, not an ongoing manual upload.
+      if(!rows.length){
+        for(const {kind,id,payload} of snapshotEntries(data).values())queueRecord(kind,id,payload,false);
+        realtimeStore();realtimeReady=true;
+      }else{
+        // Never silently overwrite queued edits. They are compared with record revisions on upload.
+        realtimeApplyRows(rows);
+        realtimeReady=true;
+      }
+      if(realtimeChannel)await realtimeClient.removeChannel(realtimeChannel);
+      realtimeChannel=realtimeClient.channel('pb-workspace-'+user.id)
+        .on('postgres_changes',{event:'*',schema:'public',table:RT_TABLE,filter:'user_id=eq.'+user.id},()=>realtimeScheduleRefresh())
+        .subscribe(status=>{
+          if(status==='SUBSCRIBED')realtimeScheduleRefresh();
+          if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'){realtimeStatus='Realtime connection interrupted; retrying';realtimeUI();}
+        });
+      realtimeStatus='Connected · automatic academic updates active';realtimeUI();realtimeSchedule(25);
+      if(state.modal?.type==='realtime')openRealtimeSettings();
+    }catch(err){realtimeReady=false;realtimeStatus='Academic sync error: '+err.message;realtimeUI();console.warn(err);}
+    finally{realtimeConnecting=false;}
+  }
+  async function realtimeFetch(){
+    if(!realtimeClient||!realtimeUser)throw Error('Not signed in');
+    const {data:rows,error}=await realtimeClient.from(RT_TABLE).select('entity_type,entity_id,payload,deleted,revision').eq('user_id',realtimeUser.id).limit(12000);
+    if(error)throw error;return rows||[];
+  }
+  function realtimeApplyRows(rows){
+    const objects={profile:{displayName:''},courses:[],tasks:[],exams:[]};
+    const versions={};
+    for(const row of rows){
+      const k=recordKey(row.entity_type,row.entity_id);
+      versions[k]=Number(row.revision)||0;
+      if(row.deleted)continue;
+      if(row.entity_type==='profile'){objects.profile=row.payload||{displayName:''};continue;}
+      const field=recordKinds.find(([kind])=>kind===row.entity_type)?.[1];
+      if(field&&row.payload&&typeof row.payload==='object')objects[field].push(row.payload);
+    }
+    for(const [k,item] of realtimePending){
+      const rev=versions[k]||0;
+      if(rev!==item.expected)item.blocked=true;
+      else if(item.blocked)item.blocked=false;
+      const field=recordKinds.find(([kind])=>kind===item.kind)?.[1];
+      if(item.kind==='profile'){if(!item.deleted)objects.profile=item.payload;continue;}
+      if(field){objects[field]=objects[field].filter(x=>String(x.id)!==item.id);
+        if(!item.deleted)objects[field].push(item.payload);}
+    }
+    realtimeConflict=[...realtimePending.values()].some(x=>x.blocked);
+    realtimeVersions=versions;
+    // Save an untouched migration copy before the first cloud replacement.
+    try{if(!localStorage.getItem(RT_SNAPSHOT))localStorage.setItem(RT_SNAPSHOT,JSON.stringify(data));}catch(_err){}
+    data=normalizeData({...data,...objects});
+    realtimeBaseline=clone(data);persistAcademic();realtimeStore();render();realtimeUI();
+    if(realtimeConflict)realtimeStatus='Conflict: another device changed some of these records.';
+  }
+  function realtimeScheduleRefresh(delay=250){
+    clearTimeout(realtimeFetchTimer);if(!realtimeReady||!navigator.onLine)return;
+    realtimeFetchTimer=setTimeout(()=>realtimeRefresh(),delay);
+  }
+  async function realtimeRefresh(){
+    if(!realtimeReady||realtimeBusy||!navigator.onLine)return;
+    try{const rows=await realtimeFetch();if(rows.length)realtimeApplyRows(rows);
+      if(!realtimeConflict){realtimeStatus='Academic records up to date';realtimeSchedule();}realtimeUI();
+    }catch(err){realtimeStatus='Refresh failed: '+err.message;realtimeUI();}
+  }
+  async function realtimeFlush(){
+    if(!realtimeReady||!realtimeUser||realtimeBusy||!navigator.onLine)return;
+    if(!realtimePending.size)return realtimeUI();
+    realtimeBusy=true;realtimeStatus='Saving academic changes automatically…';realtimeUI();
+    try{
+      for(const [k,item] of [...realtimePending]){
+        if(item.blocked)continue;
+        // If remote changed since this device last fetched it, the SQL revision check rejects this edit.
+        const {data:result,error}=await realtimeClient.rpc('pb_apply_change',{
+          p_kind:item.kind,p_id:item.id,p_payload:item.payload,p_deleted:item.deleted,p_expected:item.expected
+        });
+        if(error){
+          if((error.message||'').includes('PB_CONFLICT')){item.blocked=true;realtimeConflict=true;realtimeStore();continue;}
+          throw error;
+        }
+        const latest=Number(result);
+        realtimeVersions[k]=latest;
+        if(realtimePending.get(k)===item)realtimePending.delete(k);
+        else if(realtimePending.has(k))realtimePending.get(k).expected=latest;
+        realtimeStore();
+      }
+      realtimeStatus=realtimeConflict?'Some edits need review · no data overwritten':'Academic records saved automatically';
+    }catch(err){realtimeStatus='Save pending: '+err.message;console.warn('Live record save:',err);}
+    finally{
+      realtimeBusy=false;realtimeUI();
+      if(realtimePending.size&&[...realtimePending.values()].some(v=>!v.blocked)&&navigator.onLine){
+        // Retry normal network errors, avoiding a retry loop for conflicts.
+        clearTimeout(realtimeTimer);realtimeTimer=setTimeout(()=>realtimeFlush(),5000);
+      }
+    }
+  }
+  async function realtimeResolve(choice){
+    const blocked=[...realtimePending].filter(([,x])=>x.blocked);
+    if(!blocked.length)return toast('No conflicts pending.');
+    if(!window.confirm(choice==='remote'?'Use the newer cloud version for conflicted records? Local conflicted edits will be removed; export a backup first.':'Keep your local changes instead of the cloud version for conflicted records?'))return;
+    // A successful backup must precede replacement of conflicting work.
+    if(!await exportData())return;
+    for(const [k,item] of blocked){
+      if(choice==='remote')realtimePending.delete(k);
+      else{item.expected=realtimeVersions[k]||0;item.blocked=false;}
+    }
+    realtimeConflict=false;realtimeStore();await realtimeRefresh();
+    if(choice==='local')realtimeSchedule(30);
+    if(state.modal?.type==='realtime')openRealtimeSettings();
+  }
+  window.addEventListener('online',()=>{if(realtimeReady){realtimeScheduleRefresh(200);realtimeSchedule(300);}});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&realtimeReady)realtimeScheduleRefresh(200);});
+  setInterval(()=>{if(!document.hidden&&realtimeReady)realtimeScheduleRefresh(100);},25000);
+
+  // Drive limited to PB and MK files. No task/course/exam JSON is written to Drive.
   const CLOUD_SETTINGS='pb-workspace-drive-config-v3';
   const DRIVE_SCOPE='https://www.googleapis.com/auth/drive.file';
   const DRIVE_API='https://www.googleapis.com/drive/v3';
   const DRIVE_UPLOAD='https://www.googleapis.com/upload/drive/v3';
   const DRIVE_ROOT_NAME='PB Workspace';
-  const DRIVE_SNAPSHOT_NAME='pb-workspace-data.json';
   let cloudConfig={clientId:'',accountId:'',accountEmail:'',folderId:'',fileId:''};
-  let cloudToken='',cloudTokenExpiresAt=0,cloudRevision=null,cloudDirty=false,cloudBusy=false,cloudTimer=null,cloudChangeId=0,cloudStatus='Google Drive not connected';
-  try{
-    const saved=JSON.parse(localStorage.getItem(CLOUD_SETTINGS)||'{}');
-    if(saved&&typeof saved==='object'){
-      for(const key of Object.keys(cloudConfig))if(typeof saved[key]==='string')cloudConfig[key]=saved[key];
-      if(typeof saved.revision==='string')cloudRevision=saved.revision;
-      cloudDirty=Boolean(saved.dirty);
-    }
-  }catch(_err){}
-  function cloudPersist(){try{localStorage.setItem(CLOUD_SETTINGS,JSON.stringify({...cloudConfig,revision:cloudRevision,dirty:cloudDirty}));}catch(_err){}}
+  let cloudToken='',cloudTokenExpiresAt=0,cloudBusy=false,cloudStatus='Google Drive files not connected';
+  try{const saved=JSON.parse(localStorage.getItem(CLOUD_SETTINGS)||'{}');if(saved&&typeof saved==='object')for(const key of Object.keys(cloudConfig))if(typeof saved[key]==='string')cloudConfig[key]=saved[key];}catch(_err){}
+  function cloudPersist(){try{localStorage.setItem(CLOUD_SETTINGS,JSON.stringify(cloudConfig));}catch(_err){}}
   const cloudReady=()=>Boolean(cloudToken&&Date.now()<cloudTokenExpiresAt-60000);
-  const cloudLabel=()=>preferences.language==='en'?'Google Drive synchronization':'Penyegerakan Google Drive';
-  function cloudSchedule(){
-    cloudPersist();clearTimeout(cloudTimer);
-    if(!cloudDirty||cloudRevision===null||!cloudReady()||!navigator.onLine)return;
-    cloudTimer=setTimeout(()=>cloudPush(false),3500);
-  }
-  function cloudSetStatus(message,showToast=false){cloudStatus=message;if(showToast)toast(message);}
+  function cloudSetStatus(msg,showToast=false){cloudStatus=msg;if(showToast)toast(msg);}
   function openCloudSettings(){
-    state.modal={type:'cloud',label:cloudLabel()};
-    const en=preferences.language==='en',connected=cloudReady();
-    const details=connected?(cloudConfig.accountEmail||'Google Drive connected'):(cloudConfig.accountId?(en?'Reconnect to renew access':'Sambung semula untuk memperbaharui akses'):(en?'Not connected':'Belum disambungkan'));
-    modal(`<div class="modal-head"><h2>${cloudLabel()}</h2><button class="icon-button" data-action="close-modal" aria-label="Close">${svg('x')}</button></div>
-      <p class="subtitle" style="margin:3px 0 18px">${en?'Use your own Google Drive to sync courses, PB tasks, exams and documents between devices. Documents are managed in Google Drive after synchronization.':'Gunakan Google Drive sendiri untuk menyegerakkan kursus, PB, peperiksaan dan dokumen antara peranti. Dokumen akan disegerakkan ke Google Drive selepas disambungkan.'}</p>
-      <div class="hint-box" style="margin-bottom:15px">${svg('info')}<span><strong>${e(details)}</strong> · ${navigator.onLine?(en?'Online':'Dalam talian'):(en?'No connection':'Tiada sambungan')}${cloudDirty?` · ${en?'Unsynced changes':'Perubahan belum disegerakkan'}`:''}<div style="margin-top:5px">${e(cloudStatus)}</div></span></div>
-      <div class="settings-option"><div><strong>Google OAuth Client ID</strong><p>${en?'Create a Web application OAuth client in Google Cloud Console. Only enter the Client ID, not a client secret.':'Cipta OAuth Client untuk aplikasi Web di Google Cloud Console. Masukkan Client ID sahaja, bukan client secret.'}</p></div><input id="cloud-client-id" type="text" autocomplete="off" spellcheck="false" style="width:270px;max-width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink)" placeholder="123-abc.apps.googleusercontent.com" value="${e(cloudConfig.clientId)}"></div>
-      <div class="settings-option"><div><strong>${en?'Google Cloud configuration':'Konfigurasi Google Cloud'}</strong><p>${en?'Enable Google Drive API and add the website origin under Authorized JavaScript origins.':'Aktifkan Google Drive API dan daftar domain laman di Authorized JavaScript origins.'}</p></div><button class="btn btn-light btn-small" data-action="cloud-config">${svg('check')} ${en?'Save ID':'Simpan ID'}</button></div>
-      <div class="settings-option"><div><strong>${en?'Google account':'Akaun Google'}</strong><p>${connected?e(details):(en?'Your password is never handled by PB Workspace.':'Kata laluan anda tidak dikendalikan oleh PB Workspace.')}</p></div>${connected?`<button class="btn btn-light btn-small" data-action="cloud-logout">${en?'Disconnect':'Putuskan'}</button>`:`<button class="btn btn-primary btn-small" data-action="cloud-login">${svg('globe')} ${en?'Connect Google':'Sambung Google'}</button>`}</div>
-      ${connected?`<div class="settings-option"><div><strong>${en?'Upload from this device':'Muat naik peranti ini'}</strong><p>${en?'Copy local records and documents to your Drive. For the first upload, existing Drive data requires confirmation.':'Salin rekod dan dokumen ke Drive anda. Muat naik pertama ke Drive yang sudah mempunyai data memerlukan pengesahan.'}</p></div><button class="btn btn-primary btn-small" data-action="cloud-push">${svg('upload')} ${en?'Upload':'Muat naik'}</button></div>
-      <div class="settings-option"><div><strong>${en?'Download to this device':'Muat turun ke peranti ini'}</strong><p>${en?'Replace local records and documents with your Drive version. Export a backup first.':'Gantikan rekod dan dokumen setempat dengan versi Drive. Eksport sandaran dahulu.'}</p></div><button class="btn btn-light btn-small" data-action="cloud-pull">${svg('download')} ${en?'Download':'Muat turun'}</button></div>
-      <div class="settings-option"><div><strong>${en?'Synchronize now':'Segerakkan sekarang'}</strong><p>${en?'Upload pending edits or check Drive for newer data.':'Muat naik perubahan atau semak data baharu di Drive.'}</p></div><button class="btn btn-light btn-small" data-action="cloud-sync">${svg('globe')} Sync</button></div>
-      ${cloudConfig.folderId?`<div class="settings-option"><div><strong>PB Workspace / Google Drive</strong><p>${en?'View the folder created by the app.':'Lihat folder yang dicipta aplikasi.'}</p></div><button class="btn btn-light btn-small" data-action="cloud-open-folder">${svg('folder-open')} ${en?'Open folder':'Buka folder'}</button></div>`:''}`:''}
-      <div class="settings-about">${svg('shield-check')} ${en?'Uses the limited <strong>drive.file</strong> permission for files this app creates, not full access to your Drive. The OAuth token stays in memory and expires; reconnect if requested. On the first sync, choose <strong>Upload</strong> on your main device and <strong>Download</strong> on other devices.':'Menggunakan kebenaran terhad <strong>drive.file</strong> bagi fail yang dicipta aplikasi ini, bukan semua fail Drive. Token akses hanya disimpan dalam memori dan boleh tamat tempoh; sambung semula jika diminta. Kali pertama, pilih <strong>Muat naik</strong> pada peranti utama dan <strong>Muat turun</strong> pada peranti lain.'}</div>`);
+    state.modal={type:'cloud',label:'Google Drive files'};
+    const en=languageEN();
+    modal(`<div class="modal-head"><h2>${en?'Google Drive · PB/MK files':'Google Drive · Fail PB/MK'}</h2><button class="icon-button" data-action="close-modal" aria-label="Close">${svg('x')}</button></div>
+    <p class="subtitle">${en?'Google Drive handles only uploaded assessment (PB) and course-information (MK) files. Academic records automatically update through the separate records account.':'Google Drive hanya menyimpan fail Pentaksiran Berterusan (PB) dan Maklumat Kursus (MK). Rekod akademik dikemas kini secara automatik melalui akaun rekod berasingan.'}</p>
+    <div class="hint-box">${svg('info')}<span>${e(cloudReady()?(cloudConfig.accountEmail||'Connected'):('Google Drive not connected'))}<div>${e(cloudStatus)}</div></span></div>
+    <div class="settings-option"><div><strong>Google OAuth Web Client ID</strong><p>${en?'Same Google Client ID as v3.1':'Client ID Google yang sama seperti v3.1'}</p></div><input id="cloud-client-id" class="rt-input" value="${e(cloudConfig.clientId)}" placeholder="123.apps.googleusercontent.com"></div>
+    <div class="settings-option"><div><strong>${en?'Drive connection':'Sambungan Drive'}</strong></div><button class="btn btn-light btn-small" data-action="cloud-config">${en?'Save ID':'Simpan ID'}</button></div>
+    <div class="settings-option"><div><strong>${en?'Google account':'Akaun Google'}</strong><p>${e(cloudConfig.accountEmail||'')}</p></div><button class="btn btn-${cloudReady()?'light':'primary'} btn-small" data-action="${cloudReady()?'cloud-logout':'cloud-login'}">${cloudReady()?(en?'Disconnect':'Putuskan'):(en?'Connect Google':'Sambung Google')}</button></div>
+    ${cloudReady()?`<div class="settings-option"><div><strong>${en?'Upload PB/MK files':'Hantar fail PB/MK'}</strong><p>${en?'Send local documents to your Google Drive':'Hantar dokumen peranti ini ke Google Drive'}</p></div><button class="btn btn-primary btn-small" data-action="drive-doc-upload">${svg('upload')} ${en?'Upload files':'Hantar fail'}</button></div>
+    <div class="settings-option"><div><strong>${en?'Get PB/MK files':'Ambil fail PB/MK'}</strong><p>${en?'Download missing documents from Google Drive':'Ambil dokumen yang belum ada di peranti ini'}</p></div><button class="btn btn-light btn-small" data-action="drive-doc-download">${svg('download')} ${en?'Get files':'Ambil fail'}</button></div>`:''}
+    ${cloudConfig.folderId?`<div class="settings-option"><strong>PB Workspace / Drive</strong><button class="btn btn-light btn-small" data-action="cloud-open-folder">${svg('folder-open')} ${en?'Open folder':'Buka folder'}</button></div>`:''}
+    <div class="settings-about">${svg('shield-check')} ${en?'The limited drive.file scope can manage files created by this application. No academic records are written to the old workspace JSON snapshot.':'Kebenaran terhad drive.file mengurus fail yang dicipta aplikasi ini. Rekod akademik tidak ditulis ke fail JSON lama.'}</div>`);
   }
   function cloudConfigure(){
     const val=(document.getElementById('cloud-client-id')?.value||'').trim();
-    if(!/^[a-zA-Z0-9_.-]+\.apps\.googleusercontent\.com$/.test(val))return toast('Invalid OAuth Web Client ID.');
-    if(val!==cloudConfig.clientId){
-      cloudConfig={clientId:val,accountId:'',accountEmail:'',folderId:'',fileId:''};
-      cloudToken='';cloudTokenExpiresAt=0;cloudRevision=null;
-    }
+    if(!/^[a-zA-Z0-9_.-]+\.apps\.googleusercontent\.com$/.test(val))return toast('Invalid Google OAuth Client ID');
+    if(val!==cloudConfig.clientId){cloudConfig={clientId:val,accountId:'',accountEmail:'',folderId:'',fileId:''};cloudToken='';cloudTokenExpiresAt=0;}
     cloudPersist();cloudSetStatus('Google OAuth Client ID saved.');openCloudSettings();
-    toast(preferences.language==='en'?'Client ID saved.':'Client ID disimpan.');
   }
   function cloudAuthorize(){
-    if(!navigator.onLine)return toast(preferences.language==='en'?'Connect to the internet to sign in.':'Sambungkan internet untuk log masuk.');
-    if(!cloudConfig.clientId)return toast('Save a Google OAuth Client ID first.');
-    if(!window.google?.accounts?.oauth2?.initTokenClient)return toast('Google login has not loaded. Check internet and retry.');
+    if(!navigator.onLine)return toast('Internet is required to connect Google Drive.');
+    if(!cloudConfig.clientId)return toast('Save your Google OAuth Client ID first.');
+    if(!window.google?.accounts?.oauth2?.initTokenClient)return toast('Google sign-in is not loaded. Retry.');
     try{
-      const client=google.accounts.oauth2.initTokenClient({
-        client_id:cloudConfig.clientId,
-        scope:DRIVE_SCOPE,
-        callback:async response=>{
-          if(response.error||!response.access_token)return toast('Google authorization failed: '+(response.error||'No access token'));
-          if(!String(response.scope||'').split(' ').includes(DRIVE_SCOPE))return toast('Google Drive file permission was not granted.');
-          cloudToken=response.access_token;
-          cloudTokenExpiresAt=Date.now()+Number(response.expires_in||3000)*1000;
-          try{
-            const about=await driveJSON(`${DRIVE_API}/about?fields=user(emailAddress,permissionId,displayName)`);
-            const newAccount=String(about?.user?.permissionId||about?.user?.emailAddress||'');
-            if(!newAccount)throw Error('Unable to identify Google Drive account');
-            if(cloudConfig.accountId&&cloudConfig.accountId!==newAccount){
-              // Keep local data untouched and require a deliberate first sync.
-              cloudRevision=null;cloudDirty=true;cloudConfig.folderId='';cloudConfig.fileId='';
-              cloudSetStatus('Different Google account. Choose Upload or Download carefully.');
-            }else cloudSetStatus('Connected · choose Upload or Download on first use.');
-            cloudConfig.accountId=newAccount;
-            cloudConfig.accountEmail=about.user.emailAddress||about.user.displayName||'';
-            cloudPersist();openCloudSettings();
-            if(cloudRevision!==null){if(cloudDirty)cloudSchedule();else cloudPull(false);}
-          }catch(err){cloudToken='';cloudTokenExpiresAt=0;cloudSetStatus(err.message,true);openCloudSettings();}
-        }
-      });
-      // Directly initiated by a user click, as required for Google's popup flow.
+      const client=google.accounts.oauth2.initTokenClient({client_id:cloudConfig.clientId,scope:DRIVE_SCOPE,callback:async response=>{
+        if(response.error||!response.access_token)return toast('Google authorization failed: '+(response.error||'No access token'));
+        if(!String(response.scope||'').split(' ').includes(DRIVE_SCOPE))return toast('Google Drive scope not authorized.');
+        cloudToken=response.access_token;cloudTokenExpiresAt=Date.now()+Number(response.expires_in||3000)*1000;
+        try{
+          const about=await driveJSON(DRIVE_API+'/about?fields=user(emailAddress,permissionId,displayName)');
+          const accountId=String(about?.user?.permissionId||about?.user?.emailAddress||'');
+          if(cloudConfig.accountId&&cloudConfig.accountId!==accountId)cloudConfig.folderId='';
+          cloudConfig.accountId=accountId;cloudConfig.accountEmail=about.user.emailAddress||about.user.displayName||'';
+          cloudPersist();cloudSetStatus('Connected for PB/MK files only.');openCloudSettings();
+        }catch(err){cloudToken='';cloudTokenExpiresAt=0;cloudSetStatus(err.message,true);openCloudSettings();}
+      }});
       client.requestAccessToken({prompt:'select_account'});
-    }catch(err){toast('Google sign-in unavailable: '+err.message);}
+    }catch(err){toast(err.message);}
   }
-  function cloudLogout(){
-    cloudToken='';cloudTokenExpiresAt=0;clearTimeout(cloudTimer);
-    cloudSetStatus('Google Drive disconnected. Data on this device is unchanged.');
-    openCloudSettings();
-  }
+  function cloudLogout(){cloudToken='';cloudTokenExpiresAt=0;cloudSetStatus('Google Drive disconnected.');openCloudSettings();}
   async function driveFetch(url,{method='GET',headers={},body}={}){
-    if(!navigator.onLine)throw Error('No internet connection.');
-    if(!cloudReady())throw Error('Google Drive access expired. Reconnect your Google account.');
-    const path=new URL(url);
-    if(path.protocol!=='https:'||path.hostname!=='www.googleapis.com')throw Error('Unexpected Google Drive URL');
-    let response;
-    try{response=await fetch(url,{method,headers:{Authorization:`Bearer ${cloudToken}`,...headers},body});}
-    catch(_err){throw Error('Cannot reach Google Drive. Check your internet connection.');}
-    if(!response.ok){
-      let message='';try{const raw=await response.json();message=raw?.error?.message||raw?.error_description||'';}catch(_err){}
-      if(response.status===401)cloudTokenExpiresAt=0;
-      throw Error(`Drive ${response.status}: ${message||response.statusText}`);
-    }
-    return response;
+    if(!navigator.onLine)throw Error('Internet connection required.');
+    if(!cloudReady())throw Error('Connect Google Drive again to renew access.');
+    const parsed=new URL(url);
+    if(parsed.protocol!=='https:'||parsed.hostname!=='www.googleapis.com')throw Error('Unexpected Google Drive URL.');
+    let res;try{res=await fetch(url,{method,headers:{Authorization:'Bearer '+cloudToken,...headers},body});}
+    catch(_err){throw Error('Unable to reach Google Drive.');}
+    if(!res.ok){let msg='';try{msg=(await res.json())?.error?.message||'';}catch(_err){}if(res.status===401)cloudTokenExpiresAt=0;throw Error('Drive '+res.status+': '+(msg||res.statusText));}
+    return res;
   }
-  async function driveJSON(url,options){return (await driveFetch(url,options)).json();}
-  async function driveList(query,fields='nextPageToken,files(id,name,version,modifiedTime,mimeType)'){
-    const url=`${DRIVE_API}/files?spaces=drive&page_size=100&fields=${encodeURIComponent(fields)}&q=${encodeURIComponent(query)}`;
-    const result=await driveJSON(url);return result.files||[];
+  async function driveJSON(url,opts){return (await driveFetch(url,opts)).json();}
+  async function driveList(q,fields='nextPageToken,files(id,name,version,modifiedTime,mimeType,size,appProperties)'){
+    const all=[];let page='';do{
+      const params=new URLSearchParams({spaces:'drive',pageSize:'1000',fields,q});if(page)params.set('pageToken',page);
+      const result=await driveJSON(DRIVE_API+'/files?'+params.toString());
+      all.push(...(result.files||[]));page=result.nextPageToken||'';
+    }while(page&&all.length<15000);
+    return all;
   }
   async function driveFolder(create){
-    // appProperties makes this folder discoverable on the same OAuth app across devices.
     const q="trashed = false and mimeType = 'application/vnd.google-apps.folder' and appProperties has { key='pbWorkspace' and value='root-v3' }";
-    const list=await driveList(q);
-    if(list.length){cloudConfig.folderId=list[0].id;cloudPersist();return list[0].id;}
+    const found=await driveList(q);
+    if(found.length){cloudConfig.folderId=found[0].id;cloudPersist();return found[0].id;}
     if(!create)return null;
-    const created=await driveJSON(`${DRIVE_API}/files?fields=id,name`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:DRIVE_ROOT_NAME,mimeType:'application/vnd.google-apps.folder',appProperties:{pbWorkspace:'root-v3'}})});
-    cloudConfig.folderId=created.id;cloudPersist();return created.id;
+    const row=await driveJSON(DRIVE_API+'/files?fields=id,name',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'PB Workspace',mimeType:'application/vnd.google-apps.folder',appProperties:{pbWorkspace:'root-v3'}})});
+    cloudConfig.folderId=row.id;cloudPersist();return row.id;
   }
   async function driveCourseFolder(parentId,code){
-    const safeCode=String(code).replace(/'/g,"\\'");
-    const list=await driveList(`trashed = false and name = '${safeCode}' and mimeType = 'application/vnd.google-apps.folder' and '${parentId}' in parents`);
-    if(list.length)return list[0].id;
-    const row=await driveJSON(`${DRIVE_API}/files?fields=id`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:String(code),mimeType:'application/vnd.google-apps.folder',parents:[parentId]})});
+    const name=String(code).replace(/'/g,"\\'");
+    const found=await driveList(`trashed = false and name = '${name}' and mimeType = 'application/vnd.google-apps.folder' and '${parentId}' in parents`);
+    if(found.length)return found[0].id;
+    const row=await driveJSON(DRIVE_API+'/files?fields=id',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:String(code),mimeType:'application/vnd.google-apps.folder',parents:[parentId]})});
     return row.id;
-  }
-  async function driveRemote(withContent=true){
-    const root=await driveFolder(false);
-    if(!root)return {revision:null,content:null,fileId:null,folderId:null};
-    const list=await driveList(`trashed = false and name = '${DRIVE_SNAPSHOT_NAME}' and '${root}' in parents`);
-    const row=list.sort((a,b)=>String(b.modifiedTime||'').localeCompare(String(a.modifiedTime||'')))[0];
-    if(!row)return {revision:null,content:null,fileId:null,folderId:root};
-    cloudConfig.fileId=row.id;
-    cloudPersist();
-    let content=null;
-    if(withContent){try{content=await driveJSON(`${DRIVE_API}/files/${encodeURIComponent(row.id)}?alt=media`);}catch(err){throw Error('Workspace file cannot be read: '+err.message);}}
-    return {revision:String(row.version),content,fileId:row.id,folderId:root};
   }
   async function driveUploadNew(blob,metadata){
     const mime=blob.type||'application/octet-stream';
-    let url=`${DRIVE_UPLOAD}/files?uploadType=multipart&fields=id,name,version,modifiedTime`;
     if(blob.size<=5*1024*1024){
-      const boundary='pb_'+newId('boundary');
-      const body=new Blob([
-        `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n`,
-        JSON.stringify(metadata),
-        `\r\n--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`,blob,`\r\n--${boundary}--\r\n`
-      ]);
-      return driveJSON(url,{method:'POST',headers:{'Content-Type':`multipart/related; boundary=${boundary}`},body});
+      const boundary='pb_'+newId('b');const body=new Blob([`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n`,JSON.stringify(metadata),`\r\n--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`,blob,`\r\n--${boundary}--\r\n`]);
+      return driveJSON(DRIVE_UPLOAD+'/files?uploadType=multipart&fields=id,name,version',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body});
     }
-    url=`${DRIVE_UPLOAD}/files?uploadType=resumable&fields=id,name,version,modifiedTime`;
-    const res=await driveFetch(url,{method:'POST',headers:{'Content-Type':'application/json; charset=UTF-8','X-Upload-Content-Type':mime},body:JSON.stringify(metadata)});
-    const location=res.headers.get('Location');
-    if(!location)throw Error('Google Drive did not return a resumable upload URL.');
-    // Upload in one request; Drive supports resumable sessions for 5–25MB files.
+    const res=await driveFetch(DRIVE_UPLOAD+'/files?uploadType=resumable&fields=id,name',{method:'POST',headers:{'Content-Type':'application/json; charset=UTF-8','X-Upload-Content-Type':mime},body:JSON.stringify(metadata)});
+    const location=res.headers.get('Location');if(!location)throw Error('Drive upload session missing');
     return driveJSON(location,{method:'PUT',headers:{'Content-Type':mime},body:blob});
   }
-  async function driveUpdateFile(id,blob){
-    const result=await driveJSON(`${DRIVE_UPLOAD}/files/${encodeURIComponent(id)}?uploadType=media&fields=id,version,modifiedTime`,{method:'PATCH',headers:{'Content-Type':blob.type||'application/json'},body:blob});
-    if(result.version!==undefined)return result;
-    return driveJSON(`${DRIVE_API}/files/${encodeURIComponent(id)}?fields=id,version`);
-  }
   async function driveFindDocumentByAppId(id){
-    const q=`trashed = false and appProperties has { key='pbDocId' and value='${String(id).replace(/'/g,"\\'")}' }`;
-    return (await driveList(q))[0]||null;
+    const value=String(id).replace(/'/g,"\\'");return (await driveList(`trashed = false and appProperties has { key='pbDocId' and value='${value}' }`))[0]||null;
   }
-  async function driveUploadDocument(meta,rootId,forceNew=false){
-    const duplicate=forceNew?null:await driveFindDocumentByAppId(meta.id);
-    if(duplicate?.id)return duplicate.id;
-    const courseFolder=await driveCourseFolder(rootId,meta.course);
-    const blob=await getStoredFile(meta.id);
+  async function driveUploadDocument(meta,root){
+    const existing=await driveFindDocumentByAppId(meta.id);if(existing?.id)return existing.id;
+    const folder=await driveCourseFolder(root,meta.course);const blob=await getStoredFile(meta.id);
     if(blob.size>MAX_FILE_BYTES)throw Error('File exceeds 25 MB: '+meta.name);
-    const result=await driveUploadNew(blob,{name:meta.name,mimeType:meta.mime||blob.type||'application/octet-stream',parents:[courseFolder],appProperties:{pbDocId:meta.id,pbCourse:meta.course,pbCategory:meta.category}});
-    return result.id;
+    const row=await driveUploadNew(blob,{name:meta.name,mimeType:meta.mime||blob.type||'application/octet-stream',parents:[folder],appProperties:{pbDocId:meta.id,pbCourse:meta.course,pbCategory:meta.category,pbNotes:String(meta.notes||'').slice(0,120)}});
+    return row.id;
   }
-  async function cloudSaveDocDriveId(meta,id){
-    meta.driveId=id;
-    await docRequest('metadata','readwrite',s=>s.put({...meta}));
+  async function cloudSaveDocDriveId(meta,id){meta.driveId=id;await docRequest('metadata','readwrite',s=>s.put({...meta}));}
+  async function driveDocsUpload(){
+    if(!cloudReady())return toast('Connect Google Drive in the Documents tab first.');
+    if(cloudBusy||docsStatus!=='ready')return toast('Documents are busy. Retry.');
+    cloudBusy=true;let n=0;
+    try{const root=await driveFolder(true);
+      for(const d of documents){const id=await driveUploadDocument(d,root);if(d.driveId!==id)await cloudSaveDocDriveId(d,id);n++;cloudSetStatus('Uploaded '+n+'/'+documents.length+' files');}
+      toast((languageEN()?'Drive files uploaded: ':'Fail dihantar ke Drive: ')+n);cloudSetStatus('PB/MK file upload completed.');
+    }catch(err){cloudSetStatus('File upload failed: '+err.message);toast(err.message);}
+    finally{cloudBusy=false;if(state.view==='documents')render();if(state.modal?.type==='cloud')openCloudSettings();}
   }
-  async function cloudPush(interactive){
-    if(!cloudReady())return interactive&&toast('Connect your Google account first.');
-    if(docsStatus!=='ready')return interactive&&toast('Document storage is not ready.');
-    if(cloudBusy)return interactive&&toast('Sync already in progress.');
-    if(cloudRevision===null&&!interactive)return;
-    if(!navigator.onLine)return interactive&&toast('Internet connection required for synchronization.');
-    cloudBusy=true;
-    const startingChange=cloudChangeId;
-    let didCommit=false;
+  async function driveDocsDownload(){
+    if(!cloudReady())return toast('Connect Google Drive in the Documents tab first.');
+    if(cloudBusy||docsStatus!=='ready')return toast('Documents are busy. Retry.');
+    cloudBusy=true;let received=0;
     try{
-      cloudSetStatus('Checking Google Drive...');
-      let remote=await driveRemote(true);
-      if(cloudRevision===null&&remote.revision!==null){
-        if(!interactive)throw Error('First sync: choose Upload or Download.');
-        if(!window.confirm(preferences.language==='en'?'Drive already has a workspace. Overwrite it with THIS device? Export a backup of both devices first.':'Drive sudah mempunyai rekod PB Workspace. Ganti dengan data daripada peranti INI? Eksport sandaran kedua-dua peranti dahulu.'))return;
-      }else if(cloudRevision!==null&&remote.revision!==cloudRevision){
-        throw Error('SYNC CONFLICT: Drive has a newer version. Export a local backup and choose Download. No data was overwritten.');
+      const root=await driveFolder(false);if(!root)return toast('No PB Workspace Drive folder found.');
+      const folders=await driveList(`trashed = false and mimeType = 'application/vnd.google-apps.folder' and '${root}' in parents`);
+      for(const folder of folders){
+        const rows=await driveList(`trashed = false and '${folder.id}' in parents`);
+        for(const file of rows){
+          const props=file.appProperties||{},id=props.pbDocId,category=props.pbCategory;
+          if(!id||!['pb','courseinfo'].includes(category))continue;
+          const course=props.pbCourse||folder.name;
+          if(!data.courses.some(c=>c.id===course))continue;
+          const present=documents.find(x=>x.id===id);
+          if(present){if(!present.driveId)await cloudSaveDocDriveId(present,file.id);continue;}
+          const blob=await (await driveFetch(DRIVE_API+'/files/'+encodeURIComponent(file.id)+'?alt=media')).blob();
+          if(blob.size>MAX_FILE_BYTES)continue;
+          const row={id,course,category,name:file.name,size:blob.size,mime:file.mimeType||blob.type||'application/octet-stream',notes:props.pbNotes||'',createdAt:file.modifiedTime||new Date().toISOString(),driveId:file.id};
+          const db=await docDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction(['metadata','files'],'readwrite');tx.objectStore('metadata').put(row);tx.objectStore('files').put({id,blob});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});
+          documents.push(row);received++;cloudSetStatus('Downloaded '+received+' files');
+        }
       }
-      let root=remote.folderId;
-      if(!root)root=await driveFolder(true);
-      const remoteDocs=new Map((remote.content?.documents||[]).map(d=>[d.id,d]));
-      for(const meta of documents){
-        const old=remoteDocs.get(meta.id);
-        const sameFile=old&&old.size===meta.size&&old.name===meta.name&&old.mime===meta.mime;
-        const knownId=sameFile?old.driveId:null;
-        // Never trust a local Drive ID on first upload: it may belong to a different Google account.
-        if(knownId){if(meta.driveId!==knownId)await cloudSaveDocDriveId(meta,knownId);continue;}
-        cloudSetStatus('Uploading document: '+meta.name);
-        const id=await driveUploadDocument(meta,root,Boolean(old&&!sameFile));
-        await cloudSaveDocDriveId(meta,id);
-      }
-      const payload={version:3,app:'PB Workspace IPG',updatedAt:new Date().toISOString(),courses:clone(data.courses),tasks:clone(data.tasks),exams:clone(data.exams),profile:clone(data.profile),documents:documents.map(d=>({...d}))};
-      const jsonBlob=new Blob([JSON.stringify(payload)],{type:'application/json'});
-      // Re-read the Drive version just before writing. This is a best-effort check,
-      // NOT an atomic compare-and-swap on concurrent Google Drive updates.
-      if(remote.fileId){
-        const latest=await driveJSON(`${DRIVE_API}/files/${encodeURIComponent(remote.fileId)}?fields=id,version`);
-        if(String(latest.version)!==remote.revision)throw Error('SYNC CONFLICT: Drive changed while uploading. Export a backup and Download.');
-      }
-      const result=remote.fileId?await driveUpdateFile(remote.fileId,jsonBlob):await driveUploadNew(jsonBlob,{name:DRIVE_SNAPSHOT_NAME,mimeType:'application/json',parents:[root],appProperties:{pbWorkspace:'workspace-data-v3'}});
-      cloudConfig.fileId=result.id;
-      cloudRevision=String(result.version);
-      didCommit=true;
-      cloudDirty=cloudChangeId!==startingChange;
-      cloudPersist();
-      cloudSetStatus('Synced to Google Drive · '+new Date().toLocaleString());
-      // Files removed from the workspace are trashed only after the JSON snapshot
-      // has been saved; failures here leave harmless orphaned Drive files.
-      const activeIds=new Set(documents.map(d=>d.id));
-      for(const old of remoteDocs.values())if(!activeIds.has(old.id)&&old.driveId){
-        try{await driveJSON(`${DRIVE_API}/files/${encodeURIComponent(old.driveId)}?fields=id`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({trashed:true})});}
-        catch(err){console.warn('Could not trash old Drive document:',err.message);}
-      }
-      if(interactive){openCloudSettings();toast(preferences.language==='en'?'Google Drive upload complete.':'Muat naik ke Google Drive selesai.');}
-    }catch(err){cloudSetStatus(err.message);if(interactive){openCloudSettings();toast(err.message);}else console.warn('Drive sync:',err.message);}
-    finally{cloudBusy=false;if(didCommit&&cloudDirty&&cloudRevision!==null)cloudSchedule();}
+      documents.sort((a,b)=>b.createdAt.localeCompare(a.createdAt));cloudSetStatus('PB/MK file download completed.');toast((languageEN()?'New files received: ':'Fail baharu diterima: ')+received);
+    }catch(err){cloudSetStatus('File download failed: '+err.message);toast(err.message);}
+    finally{cloudBusy=false;if(state.view==='documents')render();if(state.modal?.type==='cloud')openCloudSettings();}
   }
-  async function cloudPull(interactive){
-    if(!cloudReady())return interactive&&toast('Connect your Google account first.');
-    if(cloudBusy||docsStatus!=='ready')return;
-    if(!navigator.onLine)return interactive&&toast('Internet connection required.');
-    if(!interactive&&cloudDirty)return;
-    if(interactive&&!window.confirm(preferences.language==='en'?'Replace ALL local courses, PB records, exams and files with Google Drive data? Export a backup first.':'Gantikan SEMUA kursus, PB, peperiksaan dan dokumen setempat dengan data Google Drive? Eksport sandaran dahulu.'))return;
-    cloudBusy=true;
-    const startingChange=cloudChangeId;
-    try{
-      cloudSetStatus('Checking Google Drive...');
-      const remote=await driveRemote(false);
-      if(!remote.fileId)throw Error('No PB Workspace data on Drive yet. Upload from your main device first.');
-      if(!interactive&&remote.revision===cloudRevision){cloudSetStatus('Up to date · '+new Date().toLocaleString());return;}
-      const content=await driveJSON(`${DRIVE_API}/files/${encodeURIComponent(remote.fileId)}?alt=media`);
-      if(!validateImported(content))throw Error('Drive workspace has invalid data.');
-      const metas=content.documents||[];
-      if(!Array.isArray(metas)||metas.length>500)throw Error('Invalid Drive document list.');
-      const incoming=[];
-      for(const meta of metas){
-        if(!meta||typeof meta.id!=='string'||!/^[a-zA-Z0-9_-]{1,100}$/.test(meta.id)||typeof meta.name!=='string'||
-          !['pb','courseinfo'].includes(meta.category)||!content.courses.some(c=>c.id===meta.course)||
-          typeof meta.driveId!=='string'||!/^[a-zA-Z0-9_-]{5,256}$/.test(meta.driveId)||
-          !Number.isFinite(meta.size)||meta.size<0||meta.size>MAX_FILE_BYTES)throw Error('Invalid document metadata on Drive');
-        const existing=documents.find(d=>d.id===meta.id&&d.driveId===meta.driveId&&d.size===meta.size);
-        cloudSetStatus('Downloading document: '+meta.name);
-        const blob=existing?await getStoredFile(meta.id):await (await driveFetch(`${DRIVE_API}/files/${encodeURIComponent(meta.driveId)}?alt=media`)).blob();
-        if(blob.size!==meta.size)throw Error('Document size does not match: '+meta.name);
-        incoming.push({meta,blob});
-      }
-      if(cloudChangeId!==startingChange)throw Error('Local data changed during download. Download canceled to protect your changes.');
-      // Download all files successfully before replacing existing document data.
-      const db=await docDatabase();
-      await new Promise((resolve,reject)=>{
-        const tx=db.transaction(['metadata','files'],'readwrite'),ms=tx.objectStore('metadata'),fs=tx.objectStore('files');
-        ms.clear();fs.clear();for(const item of incoming){ms.put(item.meta);fs.put({id:item.meta.id,blob:item.blob});}
-        tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('IndexedDB storage failed'));
-        tx.onabort=()=>reject(tx.error||new Error('IndexedDB storage failed'));
-      });
-      documents=metas.slice().sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
-      data=normalizeData({version:4,courses:content.courses,tasks:content.tasks,exams:content.exams,profile:content.profile});
-      localStorage.setItem(KEY,JSON.stringify(data));
-      cloudRevision=remote.revision;cloudDirty=false;cloudPersist();
-      cloudSetStatus('Downloaded from Google Drive · '+new Date().toLocaleString());
-      state.docCourse='all';state.course='all';state.filter='all';state.search='';
-      if(interactive)closeModal();render();
-      if(interactive)toast(preferences.language==='en'?'Drive download complete.':'Muat turun Google Drive selesai.');
-    }catch(err){cloudSetStatus(err.message);if(interactive){openCloudSettings();toast(err.message);}else console.warn('Drive sync:',err.message);}
-    finally{cloudBusy=false;}
-  }
-  async function cloudSync(){
-    if(cloudRevision===null)return toast('First sync: choose Upload on main device or Download on other devices.');
-    if(cloudDirty)await cloudPush(true);else await cloudPull(true);
-  }
-  function cloudOpenFolder(){
-    if(!cloudConfig.folderId||!/^[a-zA-Z0-9_-]+$/.test(cloudConfig.folderId))return toast('Upload a workspace to Drive first.');
-    window.open('https://drive.google.com/drive/folders/'+encodeURIComponent(cloudConfig.folderId),'_blank','noopener,noreferrer');
-  }
-  window.addEventListener('online',()=>{if(cloudReady()&&cloudRevision!==null){if(cloudDirty)cloudSchedule();else cloudPull(false);}});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cloudReady()&&cloudRevision!==null&&!cloudBusy&&navigator.onLine){if(cloudDirty)cloudSchedule();else cloudPull(false);}});
-  setInterval(()=>{if(!document.hidden&&cloudReady()&&cloudRevision!==null&&!cloudBusy&&navigator.onLine){if(cloudDirty)cloudSchedule();else cloudPull(false);}},150000);
+  function cloudOpenFolder(){if(!cloudConfig.folderId)return toast('Upload documents to Drive first.');window.open('https://drive.google.com/drive/folders/'+encodeURIComponent(cloudConfig.folderId),'_blank','noopener,noreferrer');}
 
   document.addEventListener('click',async event=>{const b=event.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,id=b.dataset.id;
     if(action==='nav')navigate(b.dataset.view);
@@ -1154,10 +1265,17 @@
     else if(action==='cloud-config')cloudConfigure();
     else if(action==='cloud-login')cloudAuthorize();
     else if(action==='cloud-logout')cloudLogout();
-    else if(action==='cloud-push')cloudPush(true);
-    else if(action==='cloud-pull')cloudPull(true);
-    else if(action==='cloud-sync')cloudSync();
+    else if(action==='drive-doc-upload')driveDocsUpload();
+    else if(action==='drive-doc-download')driveDocsDownload();
+    else if(action==='realtime-settings')openRealtimeSettings();
     else if(action==='cloud-open-folder')cloudOpenFolder();
+    else if(action==='rt-config')configureRealtime();
+    else if(action==='rt-login')realtimeLogin();
+    else if(action==='rt-signup')realtimeSignUp();
+    else if(action==='rt-logout')realtimeLogout();
+    else if(action==='rt-retry')realtimeFlush();
+    else if(action==='rt-use-remote')realtimeResolve('remote');
+    else if(action==='rt-use-local')realtimeResolve('local');
     else if(action==='language-toggle')preference('language',preferences.language==='ms'?'en':'ms');
     else if(action==='theme-toggle')preference('theme',preferences.theme==='light'?'dark':'light');
     else if(action==='set-language')preference('language',b.dataset.value);
@@ -1200,7 +1318,8 @@
 
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.modal)closeModal();});
   render();loadDocuments();
-  // v3.1 is online-only: retire the previous PWA cache so updates aren't hidden behind old HTML.
+  window.addEventListener('load',()=>realtimeBoot());
+  // v3.2 website updates: retire the previous PWA cache so updates aren't hidden behind old HTML.
   if('serviceWorker' in navigator&&location.protocol!=='file:'){
     window.addEventListener('load',()=>navigator.serviceWorker.getRegistrations().then(list=>Promise.all(list.filter(r=>r.scope.startsWith(location.origin+location.pathname.replace(/[^/]*$/,''))).map(r=>r.unregister()))).catch(()=>{}));
   }

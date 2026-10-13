@@ -1,46 +1,27 @@
-# PB Workspace v3.1 — IPG Kampus Kota Bharu
+# PB Workspace v3.2 — automatic academic records + Google Drive document files
 
-Online academic workspace with Google Drive synchronization, bilingual Malay/English UI and light/dark themes.
+## What changed
+- Ringkasan, Tugasan (Completed and Submitted independently), Kalendar, Kursus, Peperiksaan, and profile display name synchronize **automatically** through Supabase PostgreSQL + Realtime when signed in. There are no routine Upload/Download buttons for academic records.
+- PB and MK file contents are stored on the current device and are transferred using **Google Drive** buttons in the Dokumen toolbar: **Hantar fail / Upload files** and **Ambil fail / Get files**. You may manually transfer documents at any time. Google Drive is not used for task/course/exam JSON snapshots anymore.
+- Existing v3.1 layout, dark/light themes, bilingual interface and Drive document library are retained.
 
-## Upgrade your existing Netlify website
+## One-time setup (required for automatic cross-device records)
+1. Back up your current PB Workspace data separately from every device before deploying v3.2. In particular, reconcile any existing phone/laptop differences first: **this migration does not automatically merge pre-existing v3.1 Drive snapshot conflicts.**
+2. Create a project at https://supabase.com/dashboard and open **SQL Editor**. Run the bundled `supabase.sql` in full. It creates a per-user `pb_records` table with Row Level Security and a compare-and-swap revision function.
+3. In Supabase Authentication, enable Email authentication; confirm your email if required. Use the same Supabase account on both devices.
+4. Deploy *all* application files to your existing Netlify HTTPS site. Open the website on the primary device. Click the top-right **Rekod Langsung / Live records** icon (or Settings → Automatic record updates); enter your **Supabase Project URL** and **publishable/anon key** (never the service role/secret key), save, and sign up or log in.
+5. On an empty Supabase account, the primary device's academic records are initialized automatically. Check that the status becomes **Records up to date**, and verify your courses and task states. Allow initial synchronization to finish.
+6. On your second device, open the *same* deployed URL, configure the *same* Supabase project URL and publishable key, then sign in to the *same* account. The existing cloud records are downloaded automatically. Back up any local academic data on that device **first**: its local records may be replaced during first sign-in.
+7. Test: mark a task Completed on phone, leave the webpage open long enough to show **Records up to date**, then open/activate the laptop page. The task should update automatically. Task Completed does not mark Submitted.
 
-1. Export a full backup on **each device** from Settings → Export before installing this update.
-2. Unzip `PB_Workspace_v3_1_Online.zip`.
-3. In Netlify, deploy the extracted project to the **same existing site and domain** as v3. **Do not create a new Netlify site** if you want to retain local device preferences and data.
-4. Reload PB Workspace on laptop and phone. If the old app is still shown, force-reload/close and reopen the site; v3.1 retires the previous cache-first service worker.
-5. Upgrade **all devices before editing tasks** to avoid older versions silently discarding the new completion and submission fields.
-6. Check Google Drive authorization at the globe button on the top bar. As with v3, if you encounter a sync conflict, back up both devices before replacing either version.
-7. For the first sync, choose Upload on your source device and Download on the destination device as appropriate. Download replaces destination records.
+## Documents (Google Drive only)
+1. Open **Dokumen → Google Drive**, provide the **Google OAuth web Client ID** from your existing v3 setup and **Connect Google**.
+2. Add PB/MK documents to a course. Select **Hantar fail / Upload files** to store the file contents in the `PB Workspace` folder of your Drive. On the other device, connect Google in the Documents tab and select **Ambil fail / Get files**.
+3. PB/MK file uploads/downloads are manual as requested. Documents use Google Drive `drive.file` scope. Records never require clicking these buttons.
 
-## Changes
-
-- `PB-W.` wordmark in the sidebar and updated app icons.
-- No `Selamat malam`: evening is `Selamat petang` in Malay, `Good evening` in English; afternoon remains `Selamat petang` / `Good afternoon`.
-- Editable display name under Settings → Display name, shown as `[Name] • IPG Kampus Kota Bharu` until populated.
-- Separate boolean **Completed** and **Submitted** states. Checking completed never submits a task automatically. An independent Submit button controls submission. Both fields are exported/imported and synchronized with workspace JSON.
-- Backward-compatible migration: old `pending` → neither; `completed` → completed only; `submitted` → completed and submitted. The legacy `status` string is maintained for compatibility.
-- Academic calendar day numbers centered.
-- Course cards show **Course Code** in the symbol and **Lecturer name** in the metadata. Lecturer name is editable and included in Drive snapshots.
-- Removed the extra upload button next to the Documents page title; the toolbar and category uploads remain.
-- Removed legacy offline marketing/copy and offline caching/worker. Browser local data remains a safety copy for sync and previews.
-- More consistent layout, spacing, color palette and contrast in both themes.
-- Removed Drive and Settings text buttons from the desktop sidebar. Their top-bar icons remain available.
-- Breadcrumb now reads `PB Workspace / [tab]`.
-
-## Google Drive usage
-
-- Open the top-bar **globe icon** to connect Google and access Upload / Download / Sync.
-- This version reuses the existing Google OAuth Client ID, the `drive.file` scope, folder and workspace data file from v3.
-- Your name and lecturer fields are included in new cloud uploads; tasks include `completed` and `submitted` flags.
-- This is not a new real-time sync engine: OAuth tokens may expire, and conflicts still require review. Confirm that changes reach Drive before expecting another device to show them.
-
-## Security and data handling
-
-- Never paste a Google OAuth **client secret** into the app. Only a browser OAuth **Client ID** is required.
-- Don't share exported workspace backups if they include private academic documents.
-- The application continues to use local browser storage to support safe previews and transfers, but its website mode is designed for online synchronization.
-- No credentials are bundled in this archive.
-
-## Testing
-
-Chrome browser UI checks: task completion independent of submission, separate submit control, profile and lecturer edits, course code card symbols, calendar centered dates, English/dark mode switching and mobile overflow. Actual Google account synchronization must be verified on the published HTTPS site.
+## Notes & safeguards
+- **Supabase is necessary** for dependable automatic per-record synchronization in this build. Google Drive remains the file store only, so there are two one-time connections. Neither external account is preconfigured in the download.
+- Local record edits queue until signed in and online; reconnecting retries them. The status in the header shows whether edits remain pending. The webpage must be opened and authenticated for its sync engine to run; a closed browser does not perform background sync.
+- If two devices edit *the same record* before synchronizing, automatic conflict protection holds the later upload and asks you to review it. It does not silently overwrite the remote edit or merge both fields. Export a backup before choosing either version.
+- Supabase Auth persists sessions in the browser. Protect your account and keep RLS enabled. Never include service-role keys in client-side HTML.
+- Live Supabase + Google login tests require your own credentials/project and were not executed in this build. Browser UI tests were run without external credentials.

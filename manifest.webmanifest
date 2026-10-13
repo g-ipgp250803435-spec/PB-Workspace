@@ -1,7 +1,7 @@
 {
   "name": "PB Workspace — IPG Kampus Kota Bharu",
   "short_name": "PB Workspace",
-  "description": "Pengurusan Pentaksiran Berterusan, kursus, peperiksaan dan dokumen melalui Google Drive.",
+  "description": "Rekod akademik automatik antara peranti dan dokumen PB/MK melalui Google Drive.",
   "lang": "ms",
   "start_url": "./index.html",
   "scope": "./",
